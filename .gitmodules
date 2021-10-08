@@ -1,0 +1,3 @@
+[submodule "Assets/BLUE"]
+	path = Assets/BLUE
+	url = https://github.com/Bluentangled/BLUE.git
