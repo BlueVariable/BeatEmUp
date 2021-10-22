@@ -1,12 +1,111 @@
-﻿using BLUE.FSMSystem;
+﻿using System;
+using BLUE.FSMSystem;
+using BLUE.InputSystem;
+using Common.DashScripts;
+using UnityEngine;
 
 namespace BLUE.ProjectX.Character.Movement
 {
     public class MovementFSM_Dash : StateBase<EState, MovementFSMTransitionMessage>
     {
+        [SerializeField] private MovementFSM _movementFsm = null;
+
+        [SerializeField] private DashBehaviour _dashBehaviour = null;
+        
+        [SerializeField] private KeyCode _dashTriggerKey = KeyCode.None;
+
+        [SerializeField] private float _dashCooldown = 5f;
+
+        private bool _canCastDash = true;
+        
+        private int _dashDirection = 0;
+        
         public override EState GetStateType()
         {
             return EState.Dash;
         }
+
+        protected override void EnterStateCustomActions(MovementFSMTransitionMessage transitionMessage)
+        {
+            _dashBehaviour.Dash(_dashDirection);
+
+            _dashBehaviour.OnDashCompleted += OnDashCompleted;
+
+            _canCastDash = false;
+            
+            base.EnterStateCustomActions(transitionMessage);
+        }
+
+        private void OnDashCompleted()
+        {
+            _dashBehaviour.OnDashCompleted -= OnDashCompleted;
+            
+            _movementFsm.TryChangeState(EState.Idle);
+        }
+
+        private void Awake()
+        {
+            RegisterToInputManager();
+        }
+
+        private void OnDestroy()
+        {
+            UnregisterFromInputManager();
+        }
+        
+        #region Input Related
+
+        private void RegisterToInputManager()
+        {
+            InputManager.Instance.TryRegisterToInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyDown);
+            InputManager.Instance.TryRegisterToInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyUp);
+        }
+
+        private void UnregisterFromInputManager()
+        {
+            InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyDown);
+            InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyUp);
+        }
+
+        private void OnKeyDown(InputData_Key inputData)
+        {
+            if (inputData.KeyCode != _dashTriggerKey)
+            {
+                return;
+            }
+
+            InputManager.Instance.TryRegisterToInputListener<InputData_HorizontalAxis>(
+                EInputEvent.HorizontalAxis,
+                OnHorizontalInputPerformed);
+        }
+
+        private void OnKeyUp(InputData_Key inputData)
+        {
+            if (inputData.KeyCode != _dashTriggerKey)
+            {
+                return;
+            }
+            
+            InputManager.Instance.TryRegisterToInputListener<InputData_HorizontalAxis>(
+                EInputEvent.HorizontalAxis,
+                OnHorizontalInputPerformed);
+        }
+
+        private void OnHorizontalInputPerformed(InputData_HorizontalAxis inputData)
+        {
+            if (inputData.Amount == 0)
+            {
+                return;
+            }
+            
+            if (_canCastDash)
+            {
+                _dashDirection = Math.Sign(inputData.Amount);
+
+                _movementFsm.TryChangeState(EState.Dash);
+            }
+        }
+
+        #endregion
     }
 }

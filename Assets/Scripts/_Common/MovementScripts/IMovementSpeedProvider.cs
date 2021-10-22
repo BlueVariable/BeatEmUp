@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _Common.Movement
+namespace Common.Movement
 {
     public interface IMovementSpeedProvider
     {

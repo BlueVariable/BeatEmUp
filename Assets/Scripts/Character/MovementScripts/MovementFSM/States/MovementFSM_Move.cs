@@ -1,4 +1,4 @@
-﻿using _Common.Movement;
+﻿using Common.Movement;
 using BLUE.FSMSystem;
 using BLUE.InputSystem;
 using UnityEngine;
