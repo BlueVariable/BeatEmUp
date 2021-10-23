@@ -6,7 +6,7 @@ using BLUE.ProjectX.Common.DashScripts;
 
 namespace BLUE.ProjectX.Character.Movement
 {
-    public class MovementFSM_Dash : StateBase<EState, MovementFSMTransitionMessage>
+    public class MovementFSM_DashState : StateBase<EState, MovementFSMTransitionMessage>
     {
         [SerializeField] private MovementFSM _movementFsm = null;
 
