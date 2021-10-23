@@ -1,7 +1,7 @@
-﻿using Common.Movement;
+﻿using UnityEngine;
 using BLUE.FSMSystem;
 using BLUE.InputSystem;
-using UnityEngine;
+using BLUE.ProjectX.Common.Movement;
 
 namespace BLUE.ProjectX.Character.Movement
 {

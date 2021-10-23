@@ -1,7 +1,7 @@
-﻿using Common.Movement;
-using UnityEngine;
+﻿using UnityEngine;
+using BLUE.ProjectX.Common.Movement;
 
-namespace Common.Physics
+namespace BLUE.ProjectX.Common.Physics
 {
     public class GravityApplier : MonoBehaviour
     {

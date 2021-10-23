@@ -1,7 +1,7 @@
 ﻿using BLUE.Helpers;
 using UnityEngine;
 
-namespace Common.DashScripts
+namespace BLUE.ProjectX.Common.DashScripts
 {
     public class DashCondition_Cooldown : DashCondition
     {

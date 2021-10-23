@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Common.DashScripts
+namespace BLUE.ProjectX.Common.DashScripts
 {
     public class DashSpeedProvider_Curve : MonoBehaviour, IDashSpeedProvider
     {

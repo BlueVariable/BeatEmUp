@@ -1,4 +1,4 @@
-﻿namespace Common.DashScripts
+﻿namespace BLUE.ProjectX.Common.DashScripts
 {
     public interface IDashSpeedProvider
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using BLUE.FSMSystem;
 using BLUE.InputSystem;
-using Common.DashScripts;
 using UnityEngine;
+using BLUE.ProjectX.Common.DashScripts;
 
 namespace BLUE.ProjectX.Character.Movement
 {

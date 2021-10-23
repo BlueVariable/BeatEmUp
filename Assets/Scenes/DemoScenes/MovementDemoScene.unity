@@ -295,7 +295,7 @@ Transform:
   - {fileID: 1868448337}
   - {fileID: 404401602}
   m_Father: {fileID: 1683248873}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &285486467
 GameObject:
@@ -1316,6 +1316,7 @@ Transform:
   m_Children:
   - {fileID: 735877451}
   - {fileID: 9933787}
+  - {fileID: 2133190519}
   - {fileID: 217995329}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1399,3 +1400,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementBehaviour: {fileID: 1678491757}
   _gravity: {x: 0, y: -9.81, z: 0}
+--- !u!1 &2133190518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2133190519}
+  m_Layer: 0
+  m_Name: PlatformFSM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2133190519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133190518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1683248873}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

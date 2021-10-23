@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
-using Common.Movement;
 using System.Collections;
+using BLUE.ProjectX.Common.Movement;
 
-namespace Common.DashScripts
+namespace BLUE.ProjectX.Common.DashScripts
 {
     [RequireComponent(typeof(IDashSpeedProvider))]
     public class DashBehaviour : MonoBehaviour

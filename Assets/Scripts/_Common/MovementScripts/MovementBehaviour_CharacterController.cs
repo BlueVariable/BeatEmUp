@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Common.Movement
+namespace BLUE.ProjectX.Common.Movement
 {
     public class MovementBehaviour_CharacterController : MonoBehaviour
     {
