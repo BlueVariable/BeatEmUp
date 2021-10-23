@@ -76,6 +76,11 @@ namespace BLUE.ProjectX.Character.Movement
 
         private void RegisterToInputManager()
         {
+            if (InputManager.Instance == null)
+            {
+                return;
+            }
+            
             InputManager.Instance.TryRegisterToInputListener<InputData_HorizontalAxis>(
                 EInputEvent.HorizontalAxis,
                 OnHorizontalInputPerformed);
@@ -83,6 +88,11 @@ namespace BLUE.ProjectX.Character.Movement
 
         private void UnregisterFromInputManager()
         {
+            if (InputManager.Instance == null)
+            {
+                return;
+            }
+            
             InputManager.Instance.TryUnregisterFromInputListener<InputData_HorizontalAxis>(
                 EInputEvent.HorizontalAxis,
                 OnHorizontalInputPerformed);
