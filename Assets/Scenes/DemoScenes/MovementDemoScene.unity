@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ddcce82efba4d5895dfe5d5de7bbde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: {x: 2.5, y: 0, z: 0}
+  _movementSpeed: {x: 4, y: 0, z: 0}
 --- !u!1 &1006653951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1470198986}
+  - component: {fileID: 1470198987}
   m_Layer: 0
   m_Name: DoubleJumpState
   m_TagString: Untagged
@@ -1348,6 +1349,21 @@ Transform:
   m_Father: {fileID: 132694376}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1470198987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470198985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da7e189bb7e24fd5975bc9afd5a95afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpBehaviour: {fileID: 1006653953}
+  _doubleJumpTrigger: 32
+  _platformFsm: {fileID: 2133190520}
 --- !u!1 &1603071885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,4 +1663,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialStateType: 1
-  _debugEnabled: 0
+  _debugEnabled: 1

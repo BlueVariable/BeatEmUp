@@ -3,7 +3,7 @@ using BLUE.FSMSystem;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common.JumpScripts;
 
-namespace BLUE.ProjectX.Character.Platform.States
+namespace BLUE.ProjectX.Character.Platform
 {
     public class PlatformFSM_JumpState : StateBase<EState, PlatformFSMTransitionMessage>
     {

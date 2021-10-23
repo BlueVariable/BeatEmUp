@@ -1,6 +1,6 @@
 ﻿using BLUE.FSMSystem;
 
-namespace BLUE.ProjectX.Character.Platform.States
+namespace BLUE.ProjectX.Character.Platform
 {
     public class PlatformFSM_IdleState : StateBase<EState, PlatformFSMTransitionMessage>
     {
