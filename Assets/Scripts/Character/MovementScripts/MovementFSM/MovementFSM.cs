@@ -11,7 +11,7 @@ namespace BLUE.ProjectX.Character.Movement
         Dash = 3
     }
     
-    public class MovementFSMTransitionMessage : FSMTransitionMessage { }
+    public class MovementFSMTransitionMessage : FSMTransitionMessageBase { }
     
     public class MovementFSM : FSMBase<EState, MovementFSMTransitionMessage, MovementFSMTransition>
     {

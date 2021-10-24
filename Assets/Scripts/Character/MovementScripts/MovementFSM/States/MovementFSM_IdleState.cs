@@ -2,7 +2,7 @@
 
 namespace BLUE.ProjectX.Character.Movement
 {
-    public class MovementFSM_IdleState : StateBase<EState, MovementFSMTransitionMessage>
+    public class MovementFSM_IdleState : StateBase<EState, MovementFSMTransitionMessage, MovementFSMTransition>
     {
         public override EState GetStateType()
         {

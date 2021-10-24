@@ -11,7 +11,7 @@ namespace BLUE.ProjectX.Character.Platform
         DoubleJump = 3,
     }
     
-    public class PlatformFSMTransitionMessage : FSMTransitionMessage { }
+    public class PlatformFSMTransitionMessage : FSMTransitionMessageBase { }
     
     public class PlatformFSM : FSMBase<EState, PlatformFSMTransitionMessage, PlatformFSMTransition>
     {

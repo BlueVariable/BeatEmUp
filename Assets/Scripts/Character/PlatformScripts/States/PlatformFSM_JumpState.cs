@@ -5,7 +5,7 @@ using BLUE.ProjectX.Common.JumpScripts;
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class PlatformFSM_JumpState : StateBase<EState, PlatformFSMTransitionMessage>
+    public class PlatformFSM_JumpState : StateBase<EState, PlatformFSMTransitionMessage, PlatformFSMTransition>
     {
         [SerializeField] private PlatformFSM _platformFsm = null;
         
