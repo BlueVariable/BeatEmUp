@@ -8,8 +8,6 @@ namespace BLUE.ProjectX.Character.Movement
 {
     public class MovementFSM_DashState : StateBase<EState, MovementFSMTransitionMessage, MovementFSMTransition>
     {
-        [SerializeField] private MovementFSM _movementFsm = null;
-
         [SerializeField] private DashBehaviour _dashBehaviour = null;
         
         [SerializeField] private KeyCode _dashTriggerKey = KeyCode.None;
@@ -51,7 +49,7 @@ namespace BLUE.ProjectX.Character.Movement
         {
             _dashBehaviour.OnDashCompleted -= OnDashCompleted;
             
-            _movementFsm.TryChangeState(EState.Idle);
+            _SelfFSM.TryChangeState(EState.Idle);
         }
 
         private void Awake()
@@ -74,6 +72,11 @@ namespace BLUE.ProjectX.Character.Movement
 
         private void UnregisterFromInputManager()
         {
+            if (InputManager.Instance == null)
+            {
+                return;
+            }
+            
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyDown);
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
         }
@@ -119,7 +122,7 @@ namespace BLUE.ProjectX.Character.Movement
             
             _dashDirection = Math.Sign(inputData.Amount);
 
-            _movementFsm.TryChangeState(EState.Dash);
+            _SelfFSM.TryChangeState(EState.Dash);
         }
 
         #endregion

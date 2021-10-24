@@ -9,10 +9,7 @@ namespace BLUE.ProjectX.Character.Movement
     public class MovementFSM_MoveState : StateBase<EState, MovementFSMTransitionMessage, MovementFSMTransition>
     {
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
-        
-        // TODO :: Requires refactoring ( Requested extended fsm features )
-        private bool _isStateActive = false;
-        
+
         private IMovementSpeedProvider _movementSpeedProvider;
 
         private IMovementSpeedProvider _MovementSpeedProvider
@@ -46,20 +43,6 @@ namespace BLUE.ProjectX.Character.Movement
         public override EState GetStateType()
         {
             return EState.Move;
-        }
-
-        protected override void EnterStateCustomActions(MovementFSMTransitionMessage transitionMessage)
-        {
-            _isStateActive = true;
-            
-            base.EnterStateCustomActions(transitionMessage);
-        }
-
-        protected override void ExitStateCustomActions()
-        {
-            _isStateActive = false;
-            
-            base.ExitStateCustomActions();
         }
 
         #region Input Related
@@ -110,13 +93,15 @@ namespace BLUE.ProjectX.Character.Movement
                 _MovementFSM.TryChangeState(EState.Idle);
             }
 
-            if (_isStateActive)
+            _SelfFSM.TryGetCurStateType(out EState curState);
+            
+            if (curState == GetStateType())
             {
                 Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
                 
                 _movementBehaviour.Move(movementSpeed);
             }
-        } 
+        }
 
         #endregion
     }

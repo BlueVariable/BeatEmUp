@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using BLUE.FSMSystem;
+using BLUE.Helpers;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common.JumpScripts;
 
@@ -11,7 +12,7 @@ namespace BLUE.ProjectX.Character.Platform
         
         [SerializeField] private KeyCode _doubleJumpTrigger = KeyCode.Space;
 
-        [SerializeField] private PlatformFSM _platformFsm = null;
+        [SerializeField] private float _doubleJumpTriggerDelay = 0.25f;
         
         public override EState GetStateType()
         {
@@ -36,20 +37,32 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _platformFsm.TryChangeState(EState.Idle);
+            _SelfFSM.TryChangeState(EState.Idle);
         }
 
         private void Awake()
         {
-            RegisterToInputManager();
+            RegisterToSelfFSM();
         }
 
         private void OnDestroy()
         {
-            UnregisterFromInputManager();
+            UnregisterFromSelfFSM();
         }
 
         #region Input Related
+
+        private void RegisterToSelfFSM()
+        {
+            _SelfFSM.OnStateEntered += OnEnterState;
+            _SelfFSM.OnStateExited += OnExitState;
+        }
+
+        private void UnregisterFromSelfFSM()
+        {
+            _SelfFSM.OnStateEntered -= OnEnterState;
+            _SelfFSM.OnStateExited -= OnExitState;
+        }
 
         private void RegisterToInputManager()
         {
@@ -60,7 +73,27 @@ namespace BLUE.ProjectX.Character.Platform
         {
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
         }
+        
+        private void OnEnterState(EState eState)
+        {
+            if (eState != EState.Jump)
+            {
+                return;
+            }
 
+            CoroutineHelper.Instance.WaitForSeconds(_doubleJumpTriggerDelay, RegisterToInputManager);
+        }
+        
+        private void OnExitState(EState eState)
+        {
+            if (eState != EState.Jump)
+            {
+                return;
+            }
+            
+            UnregisterFromInputManager();
+        }
+        
         private void OnKeyUp(InputData_Key inputData)
         {
             if (inputData.KeyCode != _doubleJumpTrigger)
@@ -68,7 +101,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _platformFsm.TryChangeState(EState.DoubleJump);
+            _SelfFSM.TryChangeState(EState.DoubleJump);
         }
 
         #endregion

@@ -7,8 +7,6 @@ namespace BLUE.ProjectX.Character.Platform
 {
     public class PlatformFSM_JumpState : StateBase<EState, PlatformFSMTransitionMessage, PlatformFSMTransition>
     {
-        [SerializeField] private PlatformFSM _platformFsm = null;
-        
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
 
         [SerializeField] private KeyCode _jumpTriggerKeycode = KeyCode.Space;
@@ -36,7 +34,7 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _platformFsm.TryChangeState(EState.Idle);
+            _SelfFSM.TryChangeState(EState.Idle);
         }
 
         private void Awake()
@@ -68,7 +66,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _platformFsm.TryChangeState(EState.Jump);
+            _SelfFSM.TryChangeState(EState.Jump);
         }
 
         #endregion
