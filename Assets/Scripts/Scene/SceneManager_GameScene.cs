@@ -2,7 +2,7 @@
 
 namespace BLUE.ProjectX.Scene
 {
-    public class SceneManager_GameScene : SceneManager<EGameScene>
+    public class SceneManager_GameScene : SceneManagerBase<EGameScene>
     {
     }
 }
