@@ -13,6 +13,8 @@ namespace BLUE.ProjectX.Character.Platform
         [SerializeField] private KeyCode _doubleJumpTrigger = KeyCode.Space;
 
         [SerializeField] private float _doubleJumpTriggerDelay = 0.25f;
+
+        private string _delayRoutineID = string.Empty;
         
         public override EState GetStateType()
         {
@@ -25,12 +27,16 @@ namespace BLUE.ProjectX.Character.Platform
             
             _jumpBehaviour.DoubleJumpBoost();
             
+            _jumpBehaviour.Jump();
+            
             base.EnterStateCustomActions(transitionMessage);
         }
 
         protected override void ExitStateCustomActions()
         {
             _jumpBehaviour.OnLanded -= OnLanded;
+            
+            _jumpBehaviour.CancelJump();
             
             base.ExitStateCustomActions();
         }
@@ -39,6 +45,8 @@ namespace BLUE.ProjectX.Character.Platform
         {
             _SelfFSM.TryChangeState(EState.Idle);
         }
+
+        #region Input Related
 
         private void Awake()
         {
@@ -49,9 +57,7 @@ namespace BLUE.ProjectX.Character.Platform
         {
             UnregisterFromSelfFSM();
         }
-
-        #region Input Related
-
+        
         private void RegisterToSelfFSM()
         {
             _SelfFSM.OnStateEntered += OnEnterState;
@@ -81,7 +87,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            CoroutineHelper.Instance.WaitForSeconds(_doubleJumpTriggerDelay, RegisterToInputManager);
+            _delayRoutineID = CoroutineHelper.Instance.WaitForSeconds(_doubleJumpTriggerDelay, RegisterToInputManager);
         }
         
         private void OnExitState(EState eState)
@@ -90,6 +96,8 @@ namespace BLUE.ProjectX.Character.Platform
             {
                 return;
             }
+
+            CoroutineHelper.Instance.TryCancelCallback(_delayRoutineID);
             
             UnregisterFromInputManager();
         }

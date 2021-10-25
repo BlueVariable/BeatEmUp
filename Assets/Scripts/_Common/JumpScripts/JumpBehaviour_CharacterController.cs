@@ -38,6 +38,11 @@ namespace BLUE.ProjectX.Common.JumpScripts
             _curJumpForce = _jumpForce;
         }
 
+        public void CancelJump()
+        {
+            StopJumpRoutine();
+        }
+
         private void StartJumpRoutine()
         {
             StopJumpRoutine();

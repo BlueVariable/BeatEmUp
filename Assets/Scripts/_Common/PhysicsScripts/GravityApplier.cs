@@ -11,9 +11,24 @@ namespace BLUE.ProjectX.Common.Physics
 
         public Vector3 Gravity => _gravity;
 
+        private bool _canApply = true;
+
+        public void ToggleGravity(bool value)
+        {
+            _canApply = value;
+        }
+
         private void Update()
         {
-            _movementBehaviour.Move(_gravity);
+            TryApplyGravity();
+        }
+
+        private void TryApplyGravity()
+        {
+            if (_canApply)
+            {
+                _movementBehaviour.Move(_gravity);
+            }
         }
     }
 }

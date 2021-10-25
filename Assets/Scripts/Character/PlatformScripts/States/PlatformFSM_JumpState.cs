@@ -29,6 +29,8 @@ namespace BLUE.ProjectX.Character.Platform
         {
             _jumpBehaviour.OnLanded -= OnLanded;
             
+            _jumpBehaviour.CancelJump();
+            
             base.ExitStateCustomActions();
         }
 
@@ -56,7 +58,10 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void UnregisterFromInputManager()
         {
-            InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
+            if (InputManager.Instance != null)
+            {
+                InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
+            }
         }
 
         private void OnKeyUp(InputData_Key inputData)
