@@ -311,6 +311,7 @@ MonoBehaviour:
   _climber: {fileID: 1772260354}
   _gravityApplier: {fileID: 1868448338}
   _climbTrigger: 304
+  _climbCooldown: 2.5
 --- !u!1 &195584550
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpBehaviour: {fileID: 1006653953}
   _jumpTriggerKeycode: 32
+  _gravityApplier: {fileID: 1868448338}
 --- !u!1001 &639519886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1190,9 +1192,9 @@ MonoBehaviour:
   _movementBehaviour: {fileID: 1678491757}
   _characterController: {fileID: 1683248875}
   _gravityApplier: {fileID: 1868448338}
-  _jumpForce: 17.5
+  _jumpForce: 7.5
   _jumpGravityCoef: 1.5
-  _fallOfGravityCoef: 1.75
+  _fallOfGravityCoef: 2
 --- !u!1 &1094828400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,6 +1549,7 @@ MonoBehaviour:
   _jumpBehaviour: {fileID: 1006653953}
   _doubleJumpTrigger: 32
   _doubleJumpTriggerDelay: 0.25
+  _gravityApplier: {fileID: 1868448338}
 --- !u!1 &1603071885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,7 +1935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialStateType: 1
-  _debugEnabled: 1
+  _debugEnabled: 0
 --- !u!1001 &7476818533714730810
 PrefabInstance:
   m_ObjectHideFlags: 0

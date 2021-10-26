@@ -72,7 +72,7 @@ namespace BLUE.ProjectX.Common.JumpScripts
             {
                 Vector3 jumpForce = new Vector3(0, _curJumpForce, 0);
                 
-                float deltaVelocity = _curJumpForce > Math.Abs(_gravityApplier.Gravity.y)
+                float deltaVelocity = _curJumpForce > 0
                     ? _gravityApplier.Gravity.y * _jumpGravityCoef
                     : _gravityApplier.Gravity.y * _fallOfGravityCoef;
 

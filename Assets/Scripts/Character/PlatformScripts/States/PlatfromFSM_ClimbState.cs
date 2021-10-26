@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using BLUE.FSMSystem;
+using BLUE.Helpers;
 using BLUE.InputSystem;
 using BLUE.ProjectX.ClimbSystem;
 using BLUE.ProjectX.Common.Physics;
@@ -14,6 +15,10 @@ namespace BLUE.ProjectX.Character.Platform
         [SerializeField] private GravityApplier _gravityApplier = null;
         
         [SerializeField] private KeyCode _climbTrigger = KeyCode.LeftShift;
+
+        [SerializeField] private float _climbCooldown = 0;
+
+        private bool _canEnterClimbStates = true;
         
         public override EState GetStateType()
         {
@@ -22,6 +27,8 @@ namespace BLUE.ProjectX.Character.Platform
 
         protected override void EnterStateCustomActions(PlatformFSMTransitionMessage transitionMessage)
         {
+            _canEnterClimbStates = false;
+            
             _gravityApplier.ToggleGravity(false);
 
             StartClimbableControlRoutine();
@@ -34,6 +41,11 @@ namespace BLUE.ProjectX.Character.Platform
             _gravityApplier.ToggleGravity(true);
             
             StopClimbableControlRoutine();
+
+            CoroutineHelper.Instance.WaitForSeconds(_climbCooldown, () =>
+            {
+                _canEnterClimbStates = true;
+            });
             
             base.ExitStateCustomActions();
         }
@@ -94,6 +106,11 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void UnregisterFromInputManager()
         {
+            if (InputManager.Instance == null) 
+            {
+                return;
+            }
+            
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyDown);
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
         }
@@ -128,6 +145,11 @@ namespace BLUE.ProjectX.Character.Platform
         private void OnKeyHold(InputData_Key inputData)
         {
             if (inputData.KeyCode != _climbTrigger)
+            {
+                return;
+            }
+
+            if (!_canEnterClimbStates)
             {
                 return;
             }

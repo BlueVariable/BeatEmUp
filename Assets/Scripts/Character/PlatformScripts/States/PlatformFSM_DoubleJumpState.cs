@@ -3,6 +3,7 @@ using BLUE.FSMSystem;
 using BLUE.Helpers;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common.JumpScripts;
+using BLUE.ProjectX.Common.Physics;
 
 namespace BLUE.ProjectX.Character.Platform
 {
@@ -14,6 +15,9 @@ namespace BLUE.ProjectX.Character.Platform
 
         [SerializeField] private float _doubleJumpTriggerDelay = 0.25f;
 
+        [SerializeField] private GravityApplier _gravityApplier = null;
+
+        
         private string _delayRoutineID = string.Empty;
         
         public override EState GetStateType()
@@ -23,6 +27,8 @@ namespace BLUE.ProjectX.Character.Platform
 
         protected override void EnterStateCustomActions(PlatformFSMTransitionMessage transitionMessage)
         {
+            _gravityApplier.ToggleGravity(false);
+            
             _jumpBehaviour.OnLanded += OnLanded;
             
             _jumpBehaviour.DoubleJumpBoost();
@@ -34,6 +40,8 @@ namespace BLUE.ProjectX.Character.Platform
 
         protected override void ExitStateCustomActions()
         {
+            _gravityApplier.ToggleGravity(true);
+            
             _jumpBehaviour.OnLanded -= OnLanded;
             
             _jumpBehaviour.CancelJump();

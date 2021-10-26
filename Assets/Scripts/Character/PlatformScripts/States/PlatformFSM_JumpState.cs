@@ -2,6 +2,7 @@
 using BLUE.FSMSystem;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common.JumpScripts;
+using BLUE.ProjectX.Common.Physics;
 
 namespace BLUE.ProjectX.Character.Platform
 {
@@ -10,6 +11,8 @@ namespace BLUE.ProjectX.Character.Platform
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
 
         [SerializeField] private KeyCode _jumpTriggerKeycode = KeyCode.Space;
+
+        [SerializeField] private GravityApplier _gravityApplier = null;
         
         public override EState GetStateType()
         {
@@ -18,6 +21,8 @@ namespace BLUE.ProjectX.Character.Platform
 
         protected override void EnterStateCustomActions(PlatformFSMTransitionMessage transitionMessage)
         {
+            _gravityApplier.ToggleGravity(false);
+            
             _jumpBehaviour.OnLanded += OnLanded;
             
             _jumpBehaviour.Jump();
@@ -27,6 +32,8 @@ namespace BLUE.ProjectX.Character.Platform
 
         protected override void ExitStateCustomActions()
         {
+            _gravityApplier.ToggleGravity(true);
+            
             _jumpBehaviour.OnLanded -= OnLanded;
             
             _jumpBehaviour.CancelJump();
