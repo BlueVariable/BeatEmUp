@@ -7,7 +7,7 @@ using BLUE.ProjectX.Common.Physics;
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class PlatformFSM_DoubleJumpState : StateBase<EState, PlatformFSMTransitionMessage, PlatformFSMTransition>
+    public class PlatformFSM_DoubleJumpState : StateBase<EState, PlatformFSMTransitionMessage>
     {
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
         
@@ -17,8 +17,21 @@ namespace BLUE.ProjectX.Character.Platform
 
         [SerializeField] private GravityApplier _gravityApplier = null;
 
-        
         private string _delayRoutineID = string.Empty;
+        
+        private PlatformFSM _platformFSM;
+        private PlatformFSM _PlatformFSM
+        {
+            get
+            {
+                if (_platformFSM == null)
+                {
+                    _platformFSM = GetComponentInParent<PlatformFSM>();
+                }
+
+                return _platformFSM;
+            }
+        }
         
         public override EState GetStateType()
         {
@@ -51,7 +64,7 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _SelfFSM.TryChangeState(EState.Idle);
+            _PlatformFSM.TryChangeState(EState.Idle);
         }
 
         #region Input Related
@@ -68,14 +81,14 @@ namespace BLUE.ProjectX.Character.Platform
         
         private void RegisterToSelfFSM()
         {
-            _SelfFSM.OnStateEntered += OnEnterState;
-            _SelfFSM.OnStateExited += OnExitState;
+            _PlatformFSM.OnStateEntered += OnEnterState;
+            _PlatformFSM.OnStateExited += OnExitState;
         }
 
         private void UnregisterFromSelfFSM()
         {
-            _SelfFSM.OnStateEntered -= OnEnterState;
-            _SelfFSM.OnStateExited -= OnExitState;
+            _PlatformFSM.OnStateEntered -= OnEnterState;
+            _PlatformFSM.OnStateExited -= OnExitState;
         }
 
         private void RegisterToInputManager()
@@ -117,7 +130,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _SelfFSM.TryChangeState(EState.DoubleJump);
+            _PlatformFSM.TryChangeState(EState.DoubleJump);
         }
 
         #endregion

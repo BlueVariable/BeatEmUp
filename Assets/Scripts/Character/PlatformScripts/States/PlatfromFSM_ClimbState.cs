@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class PlatfromFSM_ClimbState : StateBase<EState, PlatformFSMTransitionMessage, PlatformFSMTransition>
+    public class PlatfromFSM_ClimbState : StateBase<EState, PlatformFSMTransitionMessage>
     {
         [SerializeField] private Climber _climber = null;
 
@@ -19,6 +19,20 @@ namespace BLUE.ProjectX.Character.Platform
         [SerializeField] private float _climbCooldown = 0;
 
         private bool _canEnterClimbStates = true;
+        
+        private PlatformFSM _platformFSM;
+        private PlatformFSM _PlatformFSM
+        {
+            get
+            {
+                if (_platformFSM == null)
+                {
+                    _platformFSM = GetComponentInParent<PlatformFSM>();
+                }
+
+                return _platformFSM;
+            }
+        }
         
         public override EState GetStateType()
         {
@@ -77,7 +91,7 @@ namespace BLUE.ProjectX.Character.Platform
             {
                 if (!_climber.CheckCanHoldClimbable())
                 {
-                    _SelfFSM.TryChangeState(EState.Idle);
+                    _PlatformFSM.TryChangeState(EState.Idle);
                 }
                 
                 yield return null;
@@ -134,11 +148,11 @@ namespace BLUE.ProjectX.Character.Platform
             
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyHold, OnKeyHold);
 
-            _SelfFSM.TryGetCurStateType(out EState curState);
+            _PlatformFSM.TryGetCurStateType(out EState curState);
 
             if (curState == GetStateType())
             {
-                _SelfFSM.TryChangeState(EState.Idle);
+                _PlatformFSM.TryChangeState(EState.Idle);
             }
         }
         
@@ -154,7 +168,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _SelfFSM.TryGetCurStateType(out EState curState);
+            _PlatformFSM.TryGetCurStateType(out EState curState);
 
             if (curState == GetStateType())
             {
@@ -163,7 +177,7 @@ namespace BLUE.ProjectX.Character.Platform
             
             if (_climber.CheckCanHoldClimbable())
             {
-                _SelfFSM.TryChangeState(GetStateType());
+                _PlatformFSM.TryChangeState(GetStateType());
             }
         }
 

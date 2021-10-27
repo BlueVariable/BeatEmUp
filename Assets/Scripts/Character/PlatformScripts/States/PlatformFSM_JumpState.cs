@@ -6,13 +6,27 @@ using BLUE.ProjectX.Common.Physics;
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class PlatformFSM_JumpState : StateBase<EState, PlatformFSMTransitionMessage, PlatformFSMTransition>
+    public class PlatformFSM_JumpState : StateBase<EState, PlatformFSMTransitionMessage>
     {
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
 
         [SerializeField] private KeyCode _jumpTriggerKeycode = KeyCode.Space;
 
         [SerializeField] private GravityApplier _gravityApplier = null;
+        
+        private PlatformFSM _platformFSM;
+        private PlatformFSM _PlatformFSM
+        {
+            get
+            {
+                if (_platformFSM == null)
+                {
+                    _platformFSM = GetComponentInParent<PlatformFSM>();
+                }
+
+                return _platformFSM;
+            }
+        }
         
         public override EState GetStateType()
         {
@@ -43,7 +57,7 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _SelfFSM.TryChangeState(EState.Idle);
+            _PlatformFSM.TryChangeState(EState.Idle);
         }
 
         private void Awake()
@@ -78,7 +92,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _SelfFSM.TryChangeState(EState.Jump);
+            _PlatformFSM.TryChangeState(EState.Jump);
         }
 
         #endregion

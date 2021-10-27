@@ -6,7 +6,7 @@ using BLUE.ProjectX.Common.Movement;
 namespace BLUE.ProjectX.Character.Movement
 {
     [RequireComponent(typeof(IMovementSpeedProvider))]
-    public class MovementFSM_MoveState : StateBase<EState, MovementFSMTransitionMessage, MovementFSMTransition>
+    public class MovementFSM_MoveState : StateBase<EState, MovementFSMTransitionMessage>
     {
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
 
@@ -93,7 +93,7 @@ namespace BLUE.ProjectX.Character.Movement
                 _MovementFSM.TryChangeState(EState.Idle);
             }
 
-            _SelfFSM.TryGetCurStateType(out EState curState);
+            _MovementFSM.TryGetCurStateType(out EState curState);
             
             if (curState == GetStateType())
             {
