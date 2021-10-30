@@ -6,7 +6,7 @@ using BLUE.ProjectX.Common.DashScripts;
 
 namespace BLUE.ProjectX.Character.Movement
 {
-    public class MovementFSM_DashState : StateBase<EState, MovementFSMTransitionMessage, MovementFSMTransition>
+    public class State_CharacterMovement_Dash : StateBase<EState, FSMTransitionMessage_CharacterMovement, FSMTransition_CharacterMovement>
     {
         [SerializeField] private DashBehaviour _dashBehaviour = null;
         
@@ -36,7 +36,7 @@ namespace BLUE.ProjectX.Character.Movement
             return EState.Dash;
         }
 
-        protected override void EnterStateCustomActions(MovementFSMTransitionMessage transitionMessage)
+        protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterMovement transitionMessage)
         {
             _dashBehaviour.Dash(_dashDirection);
 
@@ -107,7 +107,7 @@ namespace BLUE.ProjectX.Character.Movement
 
         private void OnHorizontalInputPerformed(InputData_HorizontalAxis inputData)
         {
-            if (inputData.Amount < _dashThreshold)
+            if (Mathf.Abs(inputData.Amount) < _dashThreshold)
             {
                 return;
             }

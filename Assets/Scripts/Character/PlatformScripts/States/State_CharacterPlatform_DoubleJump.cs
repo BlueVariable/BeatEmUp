@@ -7,7 +7,7 @@ using BLUE.ProjectX.Common.Physics;
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class PlatformFSM_DoubleJumpState : StateBase<EState, PlatformFSMTransitionMessage, PlatformFSMTransition>
+    public class State_CharacterPlatform_DoubleJump : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform, FSMTransition_CharacterPlatform>
     {
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
         
@@ -20,12 +20,12 @@ namespace BLUE.ProjectX.Character.Platform
         
         private string _delayRoutineID = string.Empty;
         
-        public override EState GetStateType()
+        public override ECharacterPlatformState GetStateType()
         {
-            return EState.DoubleJump;
+            return ECharacterPlatformState.DoubleJump;
         }
 
-        protected override void EnterStateCustomActions(PlatformFSMTransitionMessage transitionMessage)
+        protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
             _gravityApplier.ToggleGravity(false);
             
@@ -51,7 +51,7 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _SelfFSM.TryChangeState(EState.Idle);
+            _SelfFSM.TryChangeState(ECharacterPlatformState.Idle);
         }
 
         #region Input Related
@@ -88,9 +88,9 @@ namespace BLUE.ProjectX.Character.Platform
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
         }
         
-        private void OnEnterState(EState eState)
+        private void OnEnterState(ECharacterPlatformState eCharacterPlatformState)
         {
-            if (eState != EState.Jump)
+            if (eCharacterPlatformState != ECharacterPlatformState.Jump)
             {
                 return;
             }
@@ -98,9 +98,9 @@ namespace BLUE.ProjectX.Character.Platform
             _delayRoutineID = CoroutineHelper.Instance.WaitForSeconds(_doubleJumpTriggerDelay, RegisterToInputManager);
         }
         
-        private void OnExitState(EState eState)
+        private void OnExitState(ECharacterPlatformState eCharacterPlatformState)
         {
-            if (eState != EState.Jump)
+            if (eCharacterPlatformState != ECharacterPlatformState.Jump)
             {
                 return;
             }
@@ -117,7 +117,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _SelfFSM.TryChangeState(EState.DoubleJump);
+            _SelfFSM.TryChangeState(ECharacterPlatformState.DoubleJump);
         }
 
         #endregion

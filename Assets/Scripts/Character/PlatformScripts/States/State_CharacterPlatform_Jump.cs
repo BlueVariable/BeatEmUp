@@ -6,7 +6,7 @@ using BLUE.ProjectX.Common.Physics;
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class PlatformFSM_JumpState : StateBase<EState, PlatformFSMTransitionMessage, PlatformFSMTransition>
+    public class State_CharacterPlatform_Jump : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform, FSMTransition_CharacterPlatform>
     {
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
 
@@ -14,12 +14,12 @@ namespace BLUE.ProjectX.Character.Platform
 
         [SerializeField] private GravityApplier _gravityApplier = null;
         
-        public override EState GetStateType()
+        public override ECharacterPlatformState GetStateType()
         {
-            return EState.Jump;
+            return ECharacterPlatformState.Jump;
         }
 
-        protected override void EnterStateCustomActions(PlatformFSMTransitionMessage transitionMessage)
+        protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
             _gravityApplier.ToggleGravity(false);
             
@@ -43,7 +43,7 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _SelfFSM.TryChangeState(EState.Idle);
+            _SelfFSM.TryChangeState(ECharacterPlatformState.Idle);
         }
 
         private void Awake()
@@ -78,7 +78,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _SelfFSM.TryChangeState(EState.Jump);
+            _SelfFSM.TryChangeState(ECharacterPlatformState.Jump);
         }
 
         #endregion

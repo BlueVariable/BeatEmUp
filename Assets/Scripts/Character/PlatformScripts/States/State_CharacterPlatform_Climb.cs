@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class PlatfromFSM_ClimbState : StateBase<EState, PlatformFSMTransitionMessage, PlatformFSMTransition>
+    public class State_CharacterPlatform_Climb : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform, FSMTransition_CharacterPlatform>
     {
         [SerializeField] private Climber _climber = null;
 
@@ -20,12 +20,12 @@ namespace BLUE.ProjectX.Character.Platform
 
         private bool _canEnterClimbStates = true;
         
-        public override EState GetStateType()
+        public override ECharacterPlatformState GetStateType()
         {
-            return EState.Climb;
+            return ECharacterPlatformState.Climb;
         }
 
-        protected override void EnterStateCustomActions(PlatformFSMTransitionMessage transitionMessage)
+        protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
             _canEnterClimbStates = false;
             
@@ -77,7 +77,7 @@ namespace BLUE.ProjectX.Character.Platform
             {
                 if (!_climber.CheckCanHoldClimbable())
                 {
-                    _SelfFSM.TryChangeState(EState.Idle);
+                    _SelfFSM.TryChangeState(ECharacterPlatformState.Idle);
                 }
                 
                 yield return null;
@@ -134,11 +134,11 @@ namespace BLUE.ProjectX.Character.Platform
             
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyHold, OnKeyHold);
 
-            _SelfFSM.TryGetCurStateType(out EState curState);
+            _SelfFSM.TryGetCurStateType(out ECharacterPlatformState curState);
 
             if (curState == GetStateType())
             {
-                _SelfFSM.TryChangeState(EState.Idle);
+                _SelfFSM.TryChangeState(ECharacterPlatformState.Idle);
             }
         }
         
@@ -154,7 +154,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _SelfFSM.TryGetCurStateType(out EState curState);
+            _SelfFSM.TryGetCurStateType(out ECharacterPlatformState curState);
 
             if (curState == GetStateType())
             {

@@ -6,7 +6,7 @@ using BLUE.ProjectX.Common.Movement;
 namespace BLUE.ProjectX.Character.Movement
 {
     [RequireComponent(typeof(IMovementSpeedProvider))]
-    public class MovementFSM_MoveState : StateBase<EState, MovementFSMTransitionMessage, MovementFSMTransition>
+    public class State_CharacterMovement_Move : StateBase<EState, FSMTransitionMessage_CharacterMovement, FSMTransition_CharacterMovement>
     {
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
 
@@ -25,18 +25,18 @@ namespace BLUE.ProjectX.Character.Movement
             }
         } 
         
-        private MovementFSM _movementFSM;
+        private FSM_CharacterMovement _fsmCharacterMovement;
 
-        private MovementFSM _MovementFSM
+        private FSM_CharacterMovement FsmCharacterMovement
         {
             get
             {
-                if (_movementFSM == null)
+                if (_fsmCharacterMovement == null)
                 {
-                    _movementFSM = GetComponentInParent<MovementFSM>();
+                    _fsmCharacterMovement = GetComponentInParent<FSM_CharacterMovement>();
                 }
 
-                return _movementFSM;
+                return _fsmCharacterMovement;
             }
         }
         
@@ -85,12 +85,12 @@ namespace BLUE.ProjectX.Character.Movement
         {
             if (inputData.InputState == EHorizontalAxisInputState.Started)
             {
-                _MovementFSM.TryChangeState(EState.Move);
+                FsmCharacterMovement.TryChangeState(EState.Move);
             }
 
             if (inputData.InputState == EHorizontalAxisInputState.Finished)
             {
-                _MovementFSM.TryChangeState(EState.Idle);
+                FsmCharacterMovement.TryChangeState(EState.Idle);
             }
 
             _SelfFSM.TryGetCurStateType(out EState curState);
