@@ -6,7 +6,7 @@ using BLUE.ProjectX.Common.Movement;
 namespace BLUE.ProjectX.Character.Movement
 {
     [RequireComponent(typeof(IMovementSpeedProvider))]
-    public class State_CharacterMovement_Move : StateBase<EState, FSMTransitionMessage_CharacterMovement, FSMTransition_CharacterMovement>
+    public class State_CharacterMovement_Move : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
 
@@ -25,24 +25,24 @@ namespace BLUE.ProjectX.Character.Movement
             }
         } 
         
-        private FSM_CharacterMovement _fsmCharacterMovement;
+        private FSM_CharacterMovement _characterMovementFSM;
 
-        private FSM_CharacterMovement FsmCharacterMovement
+        private FSM_CharacterMovement _CharacterMovementFSM
         {
             get
             {
-                if (_fsmCharacterMovement == null)
+                if (_characterMovementFSM == null)
                 {
-                    _fsmCharacterMovement = GetComponentInParent<FSM_CharacterMovement>();
+                    _characterMovementFSM = GetComponentInParent<FSM_CharacterMovement>();
                 }
 
-                return _fsmCharacterMovement;
+                return _characterMovementFSM;
             }
         }
         
-        public override EState GetStateType()
+        public override ECharacterMovementState GetStateType()
         {
-            return EState.Move;
+            return ECharacterMovementState.Move;
         }
 
         #region Input Related
@@ -85,15 +85,15 @@ namespace BLUE.ProjectX.Character.Movement
         {
             if (inputData.InputState == EHorizontalAxisInputState.Started)
             {
-                FsmCharacterMovement.TryChangeState(EState.Move);
+                _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Move);
             }
 
             if (inputData.InputState == EHorizontalAxisInputState.Finished)
             {
-                FsmCharacterMovement.TryChangeState(EState.Idle);
+                _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Idle);
             }
 
-            _MovementFSM.TryGetCurStateType(out EState curState);
+            _CharacterMovementFSM.TryGetCurStateType(out ECharacterMovementState curState);
             
             if (curState == GetStateType())
             {

@@ -1180,6 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab121579a10141dd82657df6e1a5ce95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _getAxisRaw: 0
 --- !u!114 &1094828402
 MonoBehaviour:
   m_ObjectHideFlags: 0

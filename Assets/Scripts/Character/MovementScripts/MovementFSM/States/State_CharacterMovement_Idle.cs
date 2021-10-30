@@ -2,11 +2,11 @@
 
 namespace BLUE.ProjectX.Character.Movement
 {
-    public class State_CharacterMovement_Idle : StateBase<EState, FSMTransitionMessage_CharacterMovement, FSMTransition_CharacterMovement>
+    public class State_CharacterMovement_Idle : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
-        public override EState GetStateType()
+        public override ECharacterMovementState GetStateType()
         {
-            return EState.Idle;
+            return ECharacterMovementState.Idle;
         }
     }
 }

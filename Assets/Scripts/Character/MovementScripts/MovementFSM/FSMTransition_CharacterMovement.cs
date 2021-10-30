@@ -2,10 +2,10 @@
 
 namespace BLUE.ProjectX.Character.Movement
 {
-    public class FSMTransition_CharacterMovement : FSMTransitionBase<EState>
+    public class FSMTransition_CharacterMovement : FSMTransitionBase<ECharacterMovementState>
     {
-        public FSMTransition_CharacterMovement(EState initialStateType, EState targetStateType) :
-            base(initialStateType, targetStateType)
+        public FSMTransition_CharacterMovement(ECharacterMovementState initialCharacterMovementStateType, ECharacterMovementState targetCharacterMovementStateType) :
+            base(initialCharacterMovementStateType, targetCharacterMovementStateType)
         {
         }
     }

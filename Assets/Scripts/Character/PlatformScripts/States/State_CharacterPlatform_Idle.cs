@@ -2,7 +2,7 @@
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class State_CharacterPlatform_Idle : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform, FSMTransition_CharacterPlatform>
+    public class State_CharacterPlatform_Idle : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform>
     {
         public override ECharacterPlatformState GetStateType()
         {

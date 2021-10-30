@@ -6,7 +6,7 @@ using BLUE.ProjectX.Common.DashScripts;
 
 namespace BLUE.ProjectX.Character.Movement
 {
-    public class State_CharacterMovement_Dash : StateBase<EState, FSMTransitionMessage_CharacterMovement, FSMTransition_CharacterMovement>
+    public class State_CharacterMovement_Dash : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
         [SerializeField] private DashBehaviour _dashBehaviour = null;
         
@@ -16,14 +16,14 @@ namespace BLUE.ProjectX.Character.Movement
         
         private int _dashDirection = 0;
         
-        private MovementFSM _movementFSM;
-        private MovementFSM _MovementFSM
+        private FSM_CharacterMovement _movementFSM;
+        private FSM_CharacterMovement _MovementFSM
         {
             get
             {
                 if (_movementFSM == null)
                 {
-                    _movementFSM = GetComponentInParent<MovementFSM>();
+                    _movementFSM = GetComponentInParent<FSM_CharacterMovement>();
                 }
 
                 return _movementFSM;
@@ -46,9 +46,9 @@ namespace BLUE.ProjectX.Character.Movement
             }
         }
         
-        public override EState GetStateType()
+        public override ECharacterMovementState GetStateType()
         {
-            return EState.Dash;
+            return ECharacterMovementState.Dash;
         }
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterMovement transitionMessage)
@@ -64,7 +64,7 @@ namespace BLUE.ProjectX.Character.Movement
         {
             _dashBehaviour.OnDashCompleted -= OnDashCompleted;
             
-            _MovementFSM.TryChangeState(EState.Idle);
+            _MovementFSM.TryChangeState(ECharacterMovementState.Idle);
         }
 
         private void Awake()
@@ -137,7 +137,7 @@ namespace BLUE.ProjectX.Character.Movement
             
             _dashDirection = Math.Sign(inputData.Amount);
 
-            _MovementFSM.TryChangeState(EState.Dash);
+            _MovementFSM.TryChangeState(ECharacterMovementState.Dash);
         }
 
         #endregion

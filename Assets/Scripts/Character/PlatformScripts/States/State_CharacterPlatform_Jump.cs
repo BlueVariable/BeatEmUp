@@ -6,7 +6,7 @@ using BLUE.ProjectX.Common.Physics;
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class PlatformFSM_JumpState : StateBase<EState, PlatformFSMTransitionMessage>
+    public class State_CharacterPlatform_Jump : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform>
     {
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
 
@@ -14,26 +14,26 @@ namespace BLUE.ProjectX.Character.Platform
 
         [SerializeField] private GravityApplier _gravityApplier = null;
         
-        private PlatformFSM _platformFSM;
-        private PlatformFSM _PlatformFSM
+        private FSM_CharacterPlatform _platformFSM;
+        private FSM_CharacterPlatform _PlatformFSM
         {
             get
             {
                 if (_platformFSM == null)
                 {
-                    _platformFSM = GetComponentInParent<PlatformFSM>();
+                    _platformFSM = GetComponentInParent<FSM_CharacterPlatform>();
                 }
 
                 return _platformFSM;
             }
         }
         
-        public override EState GetStateType()
+        public override ECharacterPlatformState GetStateType()
         {
-            return EState.Jump;
+            return ECharacterPlatformState.Jump;
         }
 
-        protected override void EnterStateCustomActions(PlatformFSMTransitionMessage transitionMessage)
+        protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
             _gravityApplier.ToggleGravity(false);
             
@@ -57,7 +57,7 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _PlatformFSM.TryChangeState(EState.Idle);
+            _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
         }
 
         private void Awake()
@@ -92,7 +92,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _PlatformFSM.TryChangeState(EState.Jump);
+            _PlatformFSM.TryChangeState(ECharacterPlatformState.Jump);
         }
 
         #endregion
