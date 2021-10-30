@@ -15,6 +15,21 @@ namespace BLUE.ProjectX.Character.Movement
         [SerializeField] private float _dashThreshold = 0.5f;
         
         private int _dashDirection = 0;
+        
+        private MovementFSM _movementFSM;
+        private MovementFSM _MovementFSM
+        {
+            get
+            {
+                if (_movementFSM == null)
+                {
+                    _movementFSM = GetComponentInParent<MovementFSM>();
+                }
+
+                return _movementFSM;
+            }
+        }
+
 
         private DashCondition[] _conditions;
 
@@ -49,7 +64,7 @@ namespace BLUE.ProjectX.Character.Movement
         {
             _dashBehaviour.OnDashCompleted -= OnDashCompleted;
             
-            _SelfFSM.TryChangeState(EState.Idle);
+            _MovementFSM.TryChangeState(EState.Idle);
         }
 
         private void Awake()
@@ -122,7 +137,7 @@ namespace BLUE.ProjectX.Character.Movement
             
             _dashDirection = Math.Sign(inputData.Amount);
 
-            _SelfFSM.TryChangeState(EState.Dash);
+            _MovementFSM.TryChangeState(EState.Dash);
         }
 
         #endregion

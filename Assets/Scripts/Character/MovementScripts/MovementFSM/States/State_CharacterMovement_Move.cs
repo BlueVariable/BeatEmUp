@@ -93,7 +93,7 @@ namespace BLUE.ProjectX.Character.Movement
                 FsmCharacterMovement.TryChangeState(EState.Idle);
             }
 
-            _SelfFSM.TryGetCurStateType(out EState curState);
+            _MovementFSM.TryGetCurStateType(out EState curState);
             
             if (curState == GetStateType())
             {

@@ -6,7 +6,7 @@ using BLUE.ProjectX.Common.Physics;
 
 namespace BLUE.ProjectX.Character.Platform
 {
-    public class State_CharacterPlatform_Jump : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform, FSMTransition_CharacterPlatform>
+    public class PlatformFSM_JumpState : StateBase<EState, PlatformFSMTransitionMessage>
     {
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
 
@@ -14,12 +14,26 @@ namespace BLUE.ProjectX.Character.Platform
 
         [SerializeField] private GravityApplier _gravityApplier = null;
         
-        public override ECharacterPlatformState GetStateType()
+        private PlatformFSM _platformFSM;
+        private PlatformFSM _PlatformFSM
         {
-            return ECharacterPlatformState.Jump;
+            get
+            {
+                if (_platformFSM == null)
+                {
+                    _platformFSM = GetComponentInParent<PlatformFSM>();
+                }
+
+                return _platformFSM;
+            }
+        }
+        
+        public override EState GetStateType()
+        {
+            return EState.Jump;
         }
 
-        protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
+        protected override void EnterStateCustomActions(PlatformFSMTransitionMessage transitionMessage)
         {
             _gravityApplier.ToggleGravity(false);
             
@@ -43,7 +57,7 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _SelfFSM.TryChangeState(ECharacterPlatformState.Idle);
+            _PlatformFSM.TryChangeState(EState.Idle);
         }
 
         private void Awake()
@@ -78,7 +92,7 @@ namespace BLUE.ProjectX.Character.Platform
                 return;
             }
 
-            _SelfFSM.TryChangeState(ECharacterPlatformState.Jump);
+            _PlatformFSM.TryChangeState(EState.Jump);
         }
 
         #endregion
