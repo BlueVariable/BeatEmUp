@@ -28,6 +28,8 @@ namespace BLUE.ProjectX.Common.JumpScripts
         
         public Action OnLanded { get; set; }
         
+        public Action OnJumpCancelled { get; set; }
+        
         public void Jump()
         {
             StartJumpRoutine();
@@ -35,12 +37,17 @@ namespace BLUE.ProjectX.Common.JumpScripts
 
         public void DoubleJumpBoost()
         {
-            _curJumpForce = _jumpForce;
+            _curJumpForce = _jumpForce + Mathf.Abs(_gravityApplier.Gravity.y);
         }
 
         public void CancelJump()
         {
             StopJumpRoutine();
+        }
+
+        public void PassIntoFalling()
+        {
+            _curJumpForce = Mathf.Abs(_gravityApplier.Gravity.y);
         }
 
         private void StartJumpRoutine()
@@ -51,7 +58,7 @@ namespace BLUE.ProjectX.Common.JumpScripts
 
             StartCoroutine(_jumpRoutine);
         }
-        
+
         private void StopJumpRoutine()
         {
             if (_jumpRoutine != null)
@@ -64,21 +71,28 @@ namespace BLUE.ProjectX.Common.JumpScripts
         {
             OnJumpStarted?.Invoke();
 
-            _curJumpForce = _jumpForce;
+            _curJumpForce = _jumpForce + Mathf.Abs(_gravityApplier.Gravity.y);
 
             float timePassed = 0;
 
             while (!_characterController.isGrounded || timePassed < 0.25f)
             {
+                if (_gravityApplier.IsGravityBlocked)
+                {
+                    yield return null;
+                    
+                    continue;
+                }
+                
                 Vector3 jumpForce = new Vector3(0, _curJumpForce, 0);
                 
-                float deltaVelocity = _curJumpForce > 0
-                    ? _gravityApplier.Gravity.y * _jumpGravityCoef
-                    : _gravityApplier.Gravity.y * _fallOfGravityCoef;
+                float deltaForce = _curJumpForce > Mathf.Abs(_gravityApplier.Gravity.y)
+                    ? _gravityApplier.Gravity.y * (_jumpGravityCoef + 1)
+                    : _gravityApplier.Gravity.y * (_fallOfGravityCoef + 1);
 
-                deltaVelocity *= Time.deltaTime;
-
-                _curJumpForce += deltaVelocity;
+                deltaForce *= Time.deltaTime;
+                
+                _curJumpForce += deltaForce;
                 
                 _movementBehaviour.Move(jumpForce);
 

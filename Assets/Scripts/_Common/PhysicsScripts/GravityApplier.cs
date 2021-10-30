@@ -11,11 +11,13 @@ namespace BLUE.ProjectX.Common.Physics
 
         public Vector3 Gravity => _gravity;
 
-        private bool _canApply = true;
+        private bool _gravityBlocked = false;
+
+        public bool IsGravityBlocked => _gravityBlocked;
 
         public void ToggleGravity(bool value)
         {
-            _canApply = value;
+            _gravityBlocked = !value;
         }
 
         private void Update()
@@ -25,7 +27,7 @@ namespace BLUE.ProjectX.Common.Physics
 
         private void TryApplyGravity()
         {
-            if (_canApply)
+            if (!_gravityBlocked)
             {
                 _movementBehaviour.Move(_gravity);
             }

@@ -417,6 +417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformPiece_Climbable_1x1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 598694685382749373, guid: 1f2c45bf293e98347aa7d9efff6b7f18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f2c45bf293e98347aa7d9efff6b7f18, type: 3}
 --- !u!4 &355162707 stripped
@@ -508,16 +512,16 @@ MonoBehaviour:
       time: 0.75
       value: 1
       inSlope: -0
-      outSlope: -4
+      outSlope: -2.5
       tangentMode: 69
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: -4
-      outSlope: -4
+      value: 0.375
+      inSlope: -2.5
+      outSlope: -2.5
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -570,6 +574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dashBehaviour: {fileID: 404401603}
+  _jumpBehaviour: {fileID: 1006653953}
+  _gravityApplier: {fileID: 1868448338}
   _dashTriggerKey: 306
   _dashThreshold: 0.15
 --- !u!1 &581008904
@@ -692,7 +698,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpBehaviour: {fileID: 1006653953}
   _jumpTriggerKeycode: 32
-  _gravityApplier: {fileID: 1868448338}
 --- !u!1001 &639519886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -830,7 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dashBehaviour: {fileID: 404401603}
-  _cooldown: 5
+  _cooldown: 2.5
 --- !u!1 &939194170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,9 +1149,9 @@ MonoBehaviour:
   _movementBehaviour: {fileID: 1678491757}
   _characterController: {fileID: 1683248875}
   _gravityApplier: {fileID: 1868448338}
-  _jumpForce: 7.5
-  _jumpGravityCoef: 1.5
-  _fallOfGravityCoef: 2
+  _jumpForce: 5
+  _jumpGravityCoef: 0
+  _fallOfGravityCoef: 1
 --- !u!1 &1094828400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformPiece_Climbable_1x1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 598694685382749373, guid: 1f2c45bf293e98347aa7d9efff6b7f18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f2c45bf293e98347aa7d9efff6b7f18, type: 3}
 --- !u!4 &1329698157 stripped
@@ -1502,7 +1511,6 @@ MonoBehaviour:
   _jumpBehaviour: {fileID: 1006653953}
   _doubleJumpTrigger: 32
   _doubleJumpTriggerDelay: 0.25
-  _gravityApplier: {fileID: 1868448338}
 --- !u!1 &1603071885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,6 +1873,10 @@ PrefabInstance:
     - target: {fileID: 598694685382749373, guid: 1f2c45bf293e98347aa7d9efff6b7f18, type: 3}
       propertyPath: m_Name
       value: PlatformPiece_Climbable_1x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 598694685382749373, guid: 1f2c45bf293e98347aa7d9efff6b7f18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f2c45bf293e98347aa7d9efff6b7f18, type: 3}

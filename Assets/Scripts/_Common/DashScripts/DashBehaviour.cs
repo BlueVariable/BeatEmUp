@@ -3,9 +3,8 @@ using UnityEngine;
 using System.Collections;
 using BLUE.ProjectX.Common.Movement;
 
-namespace BLUE.ProjectX.Common.DashScripts
+namespace BLUE.ProjectX.Common.Dash
 {
-    [RequireComponent(typeof(IDashSpeedProvider))]
     public class DashBehaviour : MonoBehaviour
     {
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;

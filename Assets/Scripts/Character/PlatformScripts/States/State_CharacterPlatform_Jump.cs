@@ -12,8 +12,6 @@ namespace BLUE.ProjectX.Character.Platform
 
         [SerializeField] private KeyCode _jumpTriggerKeycode = KeyCode.Space;
 
-        [SerializeField] private GravityApplier _gravityApplier = null;
-        
         private FSM_CharacterPlatform _platformFSM;
         private FSM_CharacterPlatform _PlatformFSM
         {
@@ -35,8 +33,6 @@ namespace BLUE.ProjectX.Character.Platform
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
-            _gravityApplier.ToggleGravity(false);
-            
             _jumpBehaviour.OnLanded += OnLanded;
             
             _jumpBehaviour.Jump();
@@ -46,8 +42,6 @@ namespace BLUE.ProjectX.Character.Platform
 
         protected override void ExitStateCustomActions()
         {
-            _gravityApplier.ToggleGravity(true);
-            
             _jumpBehaviour.OnLanded -= OnLanded;
             
             _jumpBehaviour.CancelJump();

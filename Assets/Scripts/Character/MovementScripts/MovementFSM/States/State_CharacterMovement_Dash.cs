@@ -1,14 +1,20 @@
 ﻿using System;
+using UnityEngine;
 using BLUE.FSMSystem;
 using BLUE.InputSystem;
-using UnityEngine;
-using BLUE.ProjectX.Common.DashScripts;
+using BLUE.ProjectX.Common.Dash;
+using BLUE.ProjectX.Common.Physics;
+using BLUE.ProjectX.Common.JumpScripts;
 
 namespace BLUE.ProjectX.Character.Movement
 {
     public class State_CharacterMovement_Dash : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
         [SerializeField] private DashBehaviour _dashBehaviour = null;
+
+        [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
+        
+        [SerializeField] private GravityApplier _gravityApplier = null;
         
         [SerializeField] private KeyCode _dashTriggerKey = KeyCode.None;
 
@@ -56,8 +62,19 @@ namespace BLUE.ProjectX.Character.Movement
             _dashBehaviour.Dash(_dashDirection);
 
             _dashBehaviour.OnDashCompleted += OnDashCompleted;
+
+            _gravityApplier.ToggleGravity(false);
+
+            _jumpBehaviour.PassIntoFalling();
             
             base.EnterStateCustomActions(transitionMessage);
+        }
+
+        protected override void ExitStateCustomActions()
+        {
+            _gravityApplier.ToggleGravity(true);
+            
+            base.ExitStateCustomActions();
         }
 
         private void OnDashCompleted()
@@ -67,6 +84,8 @@ namespace BLUE.ProjectX.Character.Movement
             _MovementFSM.TryChangeState(ECharacterMovementState.Idle);
         }
 
+        #region Input Related
+        
         private void Awake()
         {
             RegisterToInputManager();
@@ -76,8 +95,6 @@ namespace BLUE.ProjectX.Character.Movement
         {
             UnregisterFromInputManager();
         }
-        
-        #region Input Related
 
         private void RegisterToInputManager()
         {
