@@ -2,13 +2,18 @@
 using BLUE.FSMSystem;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common.Movement;
+using Character.Animation;
 
 namespace BLUE.ProjectX.Character.Movement
 {
     public class State_CharacterMovement_Move : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
+        private const string _MOVEMENT_SPEED_PARAM_NAME = "MOVEMENT_SPEED";
+        
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
 
+        [SerializeField] private CharacterAnimationController _animationController = null;
+        
         private IMovementSpeedProvider _movementSpeedProvider;
         private IMovementSpeedProvider _MovementSpeedProvider
         {
@@ -47,6 +52,10 @@ namespace BLUE.ProjectX.Character.Movement
             InputManager.Instance.TryRegisterToInputListener<InputData_HorizontalAxis>(
                 EInputEvent.HorizontalAxis,
                 OnInputPerformedInMoveState);
+
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE);
+            
+            _animationController.UpdateParameter(_MOVEMENT_SPEED_PARAM_NAME, 0);
             
             base.EnterStateCustomActions(transitionMessage);
         }
@@ -65,6 +74,8 @@ namespace BLUE.ProjectX.Character.Movement
             Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
                 
             _movementBehaviour.Move(movementSpeed);
+            
+            _animationController.UpdateParameter(_MOVEMENT_SPEED_PARAM_NAME, Mathf.Abs(inputData.Amount));
         }
 
         #region Input Related

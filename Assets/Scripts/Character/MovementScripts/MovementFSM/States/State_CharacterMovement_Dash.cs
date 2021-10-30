@@ -5,6 +5,7 @@ using BLUE.InputSystem;
 using BLUE.ProjectX.Common.Dash;
 using BLUE.ProjectX.Common.Physics;
 using BLUE.ProjectX.Common.JumpScripts;
+using Character.Animation;
 
 namespace BLUE.ProjectX.Character.Movement
 {
@@ -15,6 +16,8 @@ namespace BLUE.ProjectX.Character.Movement
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
         
         [SerializeField] private GravityApplier _gravityApplier = null;
+
+        [SerializeField] private CharacterAnimationController _animationController = null;
         
         [SerializeField] private KeyCode _dashTriggerKey = KeyCode.None;
 
@@ -66,6 +69,8 @@ namespace BLUE.ProjectX.Character.Movement
             _gravityApplier.ToggleGravity(false);
 
             _jumpBehaviour.PassIntoFalling();
+
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.DASH);
             
             base.EnterStateCustomActions(transitionMessage);
         }

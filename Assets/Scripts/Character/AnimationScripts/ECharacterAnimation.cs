@@ -1,0 +1,11 @@
+﻿namespace Character.Animation
+{
+    public enum ECharacterAnimation
+    {
+        None = 0,
+
+        IDLE = 1,
+        MOVE = 2,
+        DASH = 3
+    }
+}
