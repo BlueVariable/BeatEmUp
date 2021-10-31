@@ -62,6 +62,8 @@ namespace BLUE.ProjectX.Character.Platform
             _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
         }
 
+        #region Input Related
+        
         private void Awake()
         {
             RegisterToInputManager();
@@ -71,9 +73,7 @@ namespace BLUE.ProjectX.Character.Platform
         {
             UnregisterFromInputManager();
         }
-
-        #region Input Related
-
+        
         private void RegisterToInputManager()
         {
             InputManager.Instance.TryRegisterToInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
