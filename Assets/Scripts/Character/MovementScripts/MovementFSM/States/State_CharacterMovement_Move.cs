@@ -62,11 +62,9 @@ namespace BLUE.ProjectX.Character.Movement
 
         protected override void ExitStateCustomActions()
         {
-            bool didUnregistered = InputManager.Instance.TryUnregisterFromInputListener<InputData_HorizontalAxis>(
+            InputManager.Instance.TryUnregisterFromInputListener<InputData_HorizontalAxis>(
                 EInputEvent.HorizontalAxis,
                 OnInputPerformedInMoveState);
-            
-            Debug.Log(didUnregistered);
             
             base.ExitStateCustomActions();
         }
@@ -77,8 +75,6 @@ namespace BLUE.ProjectX.Character.Movement
             {
                 return;
             }
-            
-            TryPlayAnimation();
             
             Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
                 
@@ -91,14 +87,12 @@ namespace BLUE.ProjectX.Character.Movement
         {
             _animationController.TryGetCurrentAnimType(0, out ECharacterAnimation animType);
             
-            if (animType == ECharacterAnimation.JUMP_UP || animType == ECharacterAnimation.JUMP_LOOP)
+            if (animType == ECharacterAnimation.JUMP_LOOP)
             {
                 return;
             }
             
-            Debug.Log("Move Anim Try Play");
-            
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE);
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, 0.25f, 0, false);
         }
 
         #region Input Related

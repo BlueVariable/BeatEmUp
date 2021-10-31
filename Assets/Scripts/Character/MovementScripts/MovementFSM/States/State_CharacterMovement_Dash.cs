@@ -70,7 +70,7 @@ namespace BLUE.ProjectX.Character.Movement
 
             _jumpBehaviour.PassIntoFalling();
 
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.DASH);
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.DASH, 0.25f, 0, false);
             
             base.EnterStateCustomActions(transitionMessage);
         }

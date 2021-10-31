@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialStateType: 1
-  _debugEnabled: 1
+  _debugEnabled: 0
 --- !u!1001 &59328979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1557,6 +1557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849f7624c1ce48c6ac62935d598f819b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementFSM: {fileID: 9933788}
+  _animationController: {fileID: 1676687764}
 --- !u!1 &1383128320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,7 +1805,7 @@ MonoBehaviour:
     _animationStateName: JUMP_LOOP
   - _animationType: 6
     _animationStateName: JUMP_DOWN
-  _debugEnabled: 1
+  _debugEnabled: 0
 --- !u!1 &1678491755
 GameObject:
   m_ObjectHideFlags: 0

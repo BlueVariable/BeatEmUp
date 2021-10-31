@@ -3,7 +3,6 @@ using BLUE.FSMSystem;
 using BLUE.Helpers;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common.JumpScripts;
-using Character.Animation;
 
 namespace BLUE.ProjectX.Character.Platform
 {
@@ -11,8 +10,6 @@ namespace BLUE.ProjectX.Character.Platform
     {
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
         
-        [SerializeField] private CharacterAnimationController _animationController = null;
-
         [SerializeField] private float _doubleJumpTriggerDelay = 0.25f;
         
         [SerializeField] private KeyCode _doubleJumpTrigger = KeyCode.Space;
@@ -60,8 +57,6 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.IDLE, 0.25f);
-
             _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
         }
 

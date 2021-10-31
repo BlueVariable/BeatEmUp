@@ -15,7 +15,7 @@ namespace BLUE.ProjectX.Character.Movement
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterMovement transitionMessage)
         {
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.IDLE);
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.IDLE, 0.25f, 0, false);
             
             base.EnterStateCustomActions(transitionMessage);
         }
