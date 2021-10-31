@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using BLUE.FSMSystem;
+using BLUE.Helpers;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common.JumpScripts;
 using BLUE.ProjectX.Common.Physics;
+using Character.Animation;
 
 namespace BLUE.ProjectX.Character.Platform
 {
@@ -10,6 +12,8 @@ namespace BLUE.ProjectX.Character.Platform
     {
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
 
+        [SerializeField] private CharacterAnimationController _animationController = null;
+        
         [SerializeField] private KeyCode _jumpTriggerKeycode = KeyCode.Space;
 
         private FSM_CharacterPlatform _platformFSM;
@@ -34,8 +38,10 @@ namespace BLUE.ProjectX.Character.Platform
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
             _jumpBehaviour.OnLanded += OnLanded;
-            
+        
             _jumpBehaviour.Jump();
+
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 0.25f);
             
             base.EnterStateCustomActions(transitionMessage);
         }
@@ -51,6 +57,8 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.IDLE, 0.25f);
+            
             _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
         }
 

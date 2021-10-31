@@ -53,7 +53,7 @@ namespace BLUE.ProjectX.Character.Movement
                 EInputEvent.HorizontalAxis,
                 OnInputPerformedInMoveState);
 
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE);
+            TryPlayAnimation();
             
             _animationController.UpdateParameter(_MOVEMENT_SPEED_PARAM_NAME, 0);
             
@@ -62,20 +62,43 @@ namespace BLUE.ProjectX.Character.Movement
 
         protected override void ExitStateCustomActions()
         {
-            InputManager.Instance.TryUnregisterFromInputListener<InputData_HorizontalAxis>(
+            bool didUnregistered = InputManager.Instance.TryUnregisterFromInputListener<InputData_HorizontalAxis>(
                 EInputEvent.HorizontalAxis,
                 OnInputPerformedInMoveState);
+            
+            Debug.Log(didUnregistered);
             
             base.ExitStateCustomActions();
         }
 
         private void OnInputPerformedInMoveState(InputData_HorizontalAxis inputData)
         {
+            if (inputData.InputState != EHorizontalAxisInputState.Continuing)
+            {
+                return;
+            }
+            
+            TryPlayAnimation();
+            
             Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
                 
             _movementBehaviour.Move(movementSpeed);
             
             _animationController.UpdateParameter(_MOVEMENT_SPEED_PARAM_NAME, Mathf.Abs(inputData.Amount));
+        }
+
+        private void TryPlayAnimation()
+        {
+            _animationController.TryGetCurrentAnimType(0, out ECharacterAnimation animType);
+            
+            if (animType == ECharacterAnimation.JUMP_UP || animType == ECharacterAnimation.JUMP_LOOP)
+            {
+                return;
+            }
+            
+            Debug.Log("Move Anim Try Play");
+            
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE);
         }
 
         #region Input Related

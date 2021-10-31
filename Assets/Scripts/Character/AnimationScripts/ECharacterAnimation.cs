@@ -6,6 +6,8 @@
 
         IDLE = 1,
         MOVE = 2,
-        DASH = 3
+        DASH = 3,
+        JUMP_UP = 4,
+        JUMP_LOOP = 5,
     }
 }
