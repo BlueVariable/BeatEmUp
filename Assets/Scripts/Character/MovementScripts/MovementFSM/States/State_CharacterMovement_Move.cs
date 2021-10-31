@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using BLUE.FSMSystem;
 using BLUE.InputSystem;
+using BLUE.ProjectX.Character.Platform;
 using BLUE.ProjectX.Common.Movement;
 using Character.Animation;
 
@@ -12,6 +13,8 @@ namespace BLUE.ProjectX.Character.Movement
         
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
 
+        [SerializeField] private FSM_CharacterPlatform _platformFSM = null;
+        
         [SerializeField] private CharacterAnimationController _animationController = null;
         
         private IMovementSpeedProvider _movementSpeedProvider;
@@ -85,6 +88,17 @@ namespace BLUE.ProjectX.Character.Movement
 
         private void TryPlayAnimation()
         {
+            if (_platformFSM.TryGetCurStateType(out ECharacterPlatformState platformState))
+            {
+                if (platformState == ECharacterPlatformState.Jump ||
+                    platformState == ECharacterPlatformState.DoubleJump)
+                {
+                    _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 0.25f, 0, false);
+                    
+                    return;
+                }
+            }
+            
             _animationController.TryGetCurrentAnimType(0, out ECharacterAnimation animType);
             
             if (animType == ECharacterAnimation.JUMP_LOOP)
