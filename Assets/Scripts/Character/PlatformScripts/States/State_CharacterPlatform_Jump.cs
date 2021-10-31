@@ -41,7 +41,7 @@ namespace BLUE.ProjectX.Character.Platform
         
             _jumpBehaviour.Jump();
 
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 0.25f);
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 0.25f, 0, false);
             
             base.EnterStateCustomActions(transitionMessage);
         }
@@ -57,8 +57,6 @@ namespace BLUE.ProjectX.Character.Platform
 
         private void OnLanded()
         {
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.IDLE, 0.25f);
-            
             _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
         }
 

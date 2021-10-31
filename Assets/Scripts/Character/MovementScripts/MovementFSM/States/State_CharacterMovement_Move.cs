@@ -76,8 +76,6 @@ namespace BLUE.ProjectX.Character.Movement
                 return;
             }
             
-            // TryPlayAnimation();
-            
             Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
                 
             _movementBehaviour.Move(movementSpeed);
@@ -89,7 +87,7 @@ namespace BLUE.ProjectX.Character.Movement
         {
             _animationController.TryGetCurrentAnimType(0, out ECharacterAnimation animType);
             
-            if (animType == ECharacterAnimation.JUMP_UP || animType == ECharacterAnimation.JUMP_LOOP || animType == ECharacterAnimation.MOVE)
+            if (animType == ECharacterAnimation.JUMP_LOOP)
             {
                 return;
             }
