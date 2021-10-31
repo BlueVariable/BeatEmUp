@@ -16,6 +16,8 @@ namespace BLUE.ProjectX.Character.Movement
         [SerializeField] private FSM_CharacterPlatform _platformFSM = null;
         
         [SerializeField] private CharacterAnimationController _animationController = null;
+
+        [SerializeField] private Transform _characterRoot = null;
         
         private IMovementSpeedProvider _movementSpeedProvider;
         private IMovementSpeedProvider _MovementSpeedProvider
@@ -84,6 +86,8 @@ namespace BLUE.ProjectX.Character.Movement
             _movementBehaviour.Move(movementSpeed);
             
             _animationController.UpdateParameter(_MOVEMENT_SPEED_PARAM_NAME, Mathf.Abs(inputData.Amount));
+            
+            _characterRoot.rotation = Quaternion.Euler(0,90 * Mathf.Sign(inputData.Amount), 0);
         }
 
         private void TryPlayAnimation()

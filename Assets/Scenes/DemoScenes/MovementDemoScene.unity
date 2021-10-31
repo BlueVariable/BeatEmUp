@@ -1226,6 +1226,7 @@ MonoBehaviour:
   _movementBehaviour: {fileID: 1678491757}
   _platformFSM: {fileID: 2133190520}
   _animationController: {fileID: 1676687764}
+  _characterRoot: {fileID: 1683248873}
 --- !u!114 &964972569
 MonoBehaviour:
   m_ObjectHideFlags: 0
