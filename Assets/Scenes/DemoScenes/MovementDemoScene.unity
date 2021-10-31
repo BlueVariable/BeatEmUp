@@ -1224,6 +1224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementBehaviour: {fileID: 1678491757}
+  _platformFSM: {fileID: 2133190520}
   _animationController: {fileID: 1676687764}
 --- !u!114 &964972569
 MonoBehaviour:
@@ -1647,7 +1648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpBehaviour: {fileID: 1006653953}
-  _animationController: {fileID: 1676687764}
   _doubleJumpTriggerDelay: 0.25
   _doubleJumpTrigger: 32
 --- !u!1 &1603071885
