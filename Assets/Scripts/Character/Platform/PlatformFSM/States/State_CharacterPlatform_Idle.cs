@@ -24,7 +24,6 @@ namespace BLUE.ProjectX.Character
             {
                 _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, 
                     _fixedTransitionDuration, 0, false);
-
             }
             else
             {
