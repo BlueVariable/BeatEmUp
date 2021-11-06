@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.Scene
 {
-    public class SceneCondition_Type : SceneConditionBase<EGameScene>
+    public class SceneCondition_Type : SceneConditionBase<EScene>
     {
-        [SerializeField] private EGameScene[] _lockedSceneTypes = default;
+        [SerializeField] private EScene[] _lockedSceneTypes = default;
         
-        public override bool CanProcessScene(EGameScene gameSceneType)
+        public override bool CanProcessScene(EScene sceneType)
         {
-            return !_lockedSceneTypes.Contains(gameSceneType);
+            return !_lockedSceneTypes.Contains(sceneType);
         }
     }
 }

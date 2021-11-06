@@ -1,6 +1,6 @@
 namespace BLUE.ProjectX.Scene
 {
-    public enum EGameScene
+    public enum EScene
     {
         None = 0,
         
