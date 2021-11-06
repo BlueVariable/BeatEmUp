@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.Scene
 {
-    public class SceneCondition_GameScene_Type : SceneConditionBase<EGameScene>
+    public class SceneCondition_Type : SceneConditionBase<EGameScene>
     {
         [SerializeField] private EGameScene[] _lockedSceneTypes = default;
         
