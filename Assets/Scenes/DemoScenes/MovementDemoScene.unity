@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ef1675740e403aa763b2b62ed0981f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterPlatformFSM: {fileID: 2133190520}
   _dashBehaviour: {fileID: 404401603}
   _jumpBehaviour: {fileID: 1006653953}
   _gravityApplier: {fileID: 1868448338}
@@ -1164,6 +1165,7 @@ MonoBehaviour:
   _animationController: {fileID: 1676687764}
   _fixedTransitionDuration: 0.25
   _characterRoot: {fileID: 1683248873}
+  _jumpBehaviour: {fileID: 1006653953}
 --- !u!114 &964972569
 MonoBehaviour:
   m_ObjectHideFlags: 0

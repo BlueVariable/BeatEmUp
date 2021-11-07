@@ -13,7 +13,6 @@ namespace BLUE.ProjectX.Character
 
         #endregion
         
-        
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
 
         [SerializeField] private FSM_CharacterPlatform _platformFSM = null;
@@ -23,6 +22,8 @@ namespace BLUE.ProjectX.Character
         [SerializeField] private float _fixedTransitionDuration = 0.25f;
         
         [SerializeField] private Transform _characterRoot = null;
+
+        [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
         
         private IMovementSpeedProvider _movementSpeedProvider;
         private IMovementSpeedProvider _MovementSpeedProvider
@@ -112,18 +113,24 @@ namespace BLUE.ProjectX.Character
                 if (platformState.Equals(ECharacterPlatformState.Jump) ||
                     platformState.Equals(ECharacterPlatformState.DoubleJump))
                 {
-                    _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 
-                        _fixedTransitionDuration, 0, false);
+                    _jumpBehaviour.OnJumpFinished += onJumpCompleted;
+
+                    void onJumpCompleted()
+                    {
+                        _jumpBehaviour.OnJumpFinished -= onJumpCompleted;
+
+                        if (_CharacterMovementFSM.TryGetCurStateType(out ECharacterMovementState state))
+                        {
+                            if (state == ECharacterMovementState.Move)
+                            {
+                                _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, 
+                                    _fixedTransitionDuration, 0, false);
+                            }
+                        }
+                    }
                     
                     return;
                 }
-            }
-            
-            _animationController.TryGetCurrentAnimType(0, out ECharacterAnimation animType);
-            
-            if (animType.Equals(ECharacterAnimation.JUMP_LOOP))
-            {
-                return;
             }
             
             _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, 

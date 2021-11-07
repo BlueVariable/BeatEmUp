@@ -8,6 +8,8 @@ namespace BLUE.ProjectX.Character
 {
     public class State_CharacterMovement_Dash : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
+        [SerializeField] private FSM_CharacterPlatform _characterPlatformFSM = null;
+        
         [SerializeField] private DashBehaviour_CharacterController _dashBehaviour = null;
 
         [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
@@ -76,10 +78,22 @@ namespace BLUE.ProjectX.Character
 
         protected override void ExitStateCustomActions()
         {
+            if (_characterPlatformFSM.TryGetCurStateType(out ECharacterPlatformState curPlatformState))
+            {
+                if (curPlatformState == ECharacterPlatformState.Jump ||
+                    curPlatformState == ECharacterPlatformState.DoubleJump)
+                {
+                    _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 
+                        _fixedTransitionDuration, 0, false);
+                }
+            }
+            
             _gravityApplier.ToggleGravity(true);
             
             base.ExitStateCustomActions();
         }
+        
+        #region Input Related
         
         private void Awake()
         {
@@ -97,8 +111,6 @@ namespace BLUE.ProjectX.Character
             
             _MovementFSM.TryChangeState(ECharacterMovementState.Idle);
         }
-
-        #region Input Related
         
         private void RegisterToInputManager()
         {

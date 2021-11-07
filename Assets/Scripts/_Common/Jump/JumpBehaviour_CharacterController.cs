@@ -24,9 +24,9 @@ namespace BLUE.ProjectX.Common
 
         #region Events
 
-        public Action OnJumpStarted { get; set; }
+        public override Action OnJumpStarted { get; set; }
         
-        public Action OnJumpFinished { get; set; }
+        public override Action OnJumpFinished { get; set; }
 
         #endregion
 
