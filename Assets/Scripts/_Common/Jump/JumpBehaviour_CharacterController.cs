@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace BLUE.ProjectX.Common
 {
-    public class JumpBehaviour_CharacterController : MonoBehaviour
+    public class JumpBehaviour_CharacterController : JumpBehaviourBase
     {
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
         
@@ -30,22 +30,22 @@ namespace BLUE.ProjectX.Common
 
         #endregion
 
-        public void StartJump()
+        public override void StartJump()
         {
             StartJumpRoutine();
         }
 
-        public void DoubleJumpBoost()
+        public override void DoubleJumpBoost()
         {
             _curJumpForce = _jumpForce + Mathf.Abs(_gravityApplier.Gravity.y);
         }
 
-        public void StopJump()
+        public override void StopJump()
         {
             StopJumpRoutine();
         }
 
-        public void PassIntoFalling()
+        public override void ResetJumpForceToGravity()
         {
             _curJumpForce = Mathf.Abs(_gravityApplier.Gravity.y);
         }

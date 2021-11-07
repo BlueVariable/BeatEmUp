@@ -2,13 +2,13 @@
 
 namespace BLUE.ProjectX.Common
 {
-    public class MovementBehaviour_CharacterController : MonoBehaviour
+    public class MovementBehaviour_CharacterController : MovementBehaviourBase
     {
         [SerializeField] private CharacterController _characterController = null;
 
         private Vector3 _motion = Vector3.zero;
 
-        public void Move(Vector3 velocity)
+        public override void Move(Vector3 velocity)
         {
             _motion += velocity;
         }

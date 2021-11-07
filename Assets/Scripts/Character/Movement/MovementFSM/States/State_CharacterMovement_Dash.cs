@@ -66,7 +66,7 @@ namespace BLUE.ProjectX.Character
 
             _gravityApplier.ToggleGravity(false);
 
-            _jumpBehaviour.PassIntoFalling();
+            _jumpBehaviour.ResetJumpForceToGravity();
 
             _animationController.TryCrossFadeAnimation(ECharacterAnimation.DASH, 
                 _fixedTransitionDuration, 0, false);

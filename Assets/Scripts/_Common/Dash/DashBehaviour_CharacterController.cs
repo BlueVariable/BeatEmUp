@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace BLUE.ProjectX.Common
 {
-    public class DashBehaviour_CharacterController : MonoBehaviour
+    public class DashBehaviour_CharacterController : DashBehaviourBase
     {
         [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
         
@@ -34,7 +34,7 @@ namespace BLUE.ProjectX.Common
 
         #endregion
         
-        public void Dash(int dashDirection)
+        public override void Dash(int dashDirection)
         {
             StartDashRoutine(dashDirection);
         }
