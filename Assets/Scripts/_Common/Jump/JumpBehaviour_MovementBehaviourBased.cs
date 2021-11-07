@@ -4,13 +4,13 @@ using System.Collections;
 
 namespace BLUE.ProjectX.Common
 {
-    public class JumpBehaviour_CharacterController : JumpBehaviourBase
+    public class JumpBehaviour_MovementBehaviourBased : JumpBehaviourBase
     {
-        [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
+        [SerializeField] private MovementBehaviourBase _movementBehaviour = null;
         
         [SerializeField] private CharacterController _characterController = null;
 
-        [SerializeField] private GravityApplier_CharacterController _gravityApplier = null;
+        [SerializeField] private GravityApplierBase _gravityApplier = null;
         
         [SerializeField] private float _jumpForce = 10f;
 
@@ -35,7 +35,7 @@ namespace BLUE.ProjectX.Common
             StartJumpRoutine();
         }
 
-        public override void DoubleJumpBoost()
+        public override void AddDoubleJumpBoost()
         {
             _curJumpForce = _jumpForce + Mathf.Abs(_gravityApplier.Gravity.y);
         }

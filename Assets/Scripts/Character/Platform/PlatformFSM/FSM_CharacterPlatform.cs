@@ -13,9 +13,9 @@ namespace BLUE.ProjectX.Character
     
     public class FSMTransitionMessage_CharacterPlatform : FSMTransitionMessageBase { }
     
-    public class FSM_CharacterPlatform : FSMBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform, FSMTransition_CharacterPlatform>
+    public class FSM_CharacterPlatform : FSMBase<ECharacterPlatformState, 
+        FSMTransitionMessage_CharacterPlatform, FSMTransition_CharacterPlatform>
     {
-        // TODO : Platform FSM needs Fall state 
         protected override List<FSMTransition_CharacterPlatform> GetInitialPossibleTransitions()
         {
             return new List<FSMTransition_CharacterPlatform>()

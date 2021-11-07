@@ -7,7 +7,7 @@ namespace BLUE.ProjectX.Character
 {
     public class State_CharacterPlatform_Jump : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform>
     {
-        [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
+        [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
 
         [SerializeField] private AnimationController_Character _animationController = null;
         
@@ -36,7 +36,7 @@ namespace BLUE.ProjectX.Character
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
-            _jumpBehaviour.OnJumpFinished += OnLanded;
+            _jumpBehaviour.OnJumpFinished += OnJumpFinished;
         
             _jumpBehaviour.StartJump();
 
@@ -48,7 +48,7 @@ namespace BLUE.ProjectX.Character
 
         protected override void ExitStateCustomActions()
         {
-            _jumpBehaviour.OnJumpFinished -= OnLanded;
+            _jumpBehaviour.OnJumpFinished -= OnJumpFinished;
             
             _jumpBehaviour.StopJump();
             
@@ -65,7 +65,7 @@ namespace BLUE.ProjectX.Character
             UnregisterFromInputManager();
         }
 
-        private void OnLanded()
+        private void OnJumpFinished()
         {
             _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
         }

@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc942507e36491daca77fa2a9067c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dashSpeed: 15
+  _dashSpeedCoef: 15
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1869,8 +1869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae45bd3b76b4e86a6c3ad71ff2f6fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementBehaviour: {fileID: 1678491757}
   _gravity: {x: 0, y: -9.81, z: 0}
+  _movementBehaviour: {fileID: 1678491757}
 --- !u!1 &2133190518
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,11 +10,11 @@ namespace BLUE.ProjectX.Character
     {
         [SerializeField] private FSM_CharacterPlatform _characterPlatformFSM = null;
         
-        [SerializeField] private DashBehaviour_CharacterController _dashBehaviour = null;
+        [SerializeField] private DashBehaviourBase _dashBehaviour = null;
 
-        [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
+        [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
         
-        [SerializeField] private GravityApplier_CharacterController _gravityApplier = null;
+        [SerializeField] private GravityApplierBase _gravityApplier = null;
 
         [SerializeField] private AnimationController_Character _animationController = null;
 
@@ -40,7 +40,6 @@ namespace BLUE.ProjectX.Character
             }
         }
 
-
         private DashConditionBase[] _conditions;
         private DashConditionBase[] _Conditions
         {
@@ -64,7 +63,7 @@ namespace BLUE.ProjectX.Character
         {
             _dashBehaviour.Dash(_dashDirection);
 
-            _dashBehaviour.OnDashCompleted += OnDashCompleted;
+            _dashBehaviour.OnDashFinished += OnDashFinished;
 
             _gravityApplier.ToggleGravity(false);
 
@@ -80,8 +79,8 @@ namespace BLUE.ProjectX.Character
         {
             if (_characterPlatformFSM.TryGetCurStateType(out ECharacterPlatformState curPlatformState))
             {
-                if (curPlatformState == ECharacterPlatformState.Jump ||
-                    curPlatformState == ECharacterPlatformState.DoubleJump)
+                if (curPlatformState.Equals(ECharacterPlatformState.Jump) ||
+                    curPlatformState.Equals(ECharacterPlatformState.DoubleJump))
                 {
                     _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 
                         _fixedTransitionDuration, 0, false);
@@ -105,13 +104,6 @@ namespace BLUE.ProjectX.Character
             UnregisterFromInputManager();
         }
 
-        private void OnDashCompleted()
-        {
-            _dashBehaviour.OnDashCompleted -= OnDashCompleted;
-            
-            _MovementFSM.TryChangeState(ECharacterMovementState.Idle);
-        }
-        
         private void RegisterToInputManager()
         {
             InputManager.Instance.TryRegisterToInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyDown);
@@ -174,5 +166,12 @@ namespace BLUE.ProjectX.Character
         }
 
         #endregion
+        
+        private void OnDashFinished()
+        {
+            _dashBehaviour.OnDashFinished -= OnDashFinished;
+            
+            _MovementFSM.TryChangeState(ECharacterMovementState.Idle);
+        }
     }
 }

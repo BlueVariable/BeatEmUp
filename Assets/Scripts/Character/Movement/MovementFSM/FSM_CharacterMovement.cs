@@ -13,7 +13,8 @@ namespace BLUE.ProjectX.Character
     
     public class FSMTransitionMessage_CharacterMovement : FSMTransitionMessageBase { }
     
-    public class FSM_CharacterMovement : FSMBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement, FSMTransition_CharacterMovement>
+    public class FSM_CharacterMovement : FSMBase<ECharacterMovementState, 
+        FSMTransitionMessage_CharacterMovement, FSMTransition_CharacterMovement>
     {
         protected override List<FSMTransition_CharacterMovement> GetInitialPossibleTransitions()
         {

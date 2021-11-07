@@ -8,7 +8,7 @@ namespace BLUE.ProjectX.Character
 {
     public class State_CharacterPlatform_DoubleJump : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform>
     {
-        [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
+        [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
         
         [SerializeField] private float _doubleJumpTriggerDelay = 0.25f;
         
@@ -37,9 +37,9 @@ namespace BLUE.ProjectX.Character
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
-            _jumpBehaviour.OnJumpFinished += OnLanded;
+            _jumpBehaviour.OnJumpFinished += OnJumpFinished;
             
-            _jumpBehaviour.DoubleJumpBoost();
+            _jumpBehaviour.AddDoubleJumpBoost();
             
             _jumpBehaviour.StartJump();
             
@@ -48,14 +48,14 @@ namespace BLUE.ProjectX.Character
 
         protected override void ExitStateCustomActions()
         {
-            _jumpBehaviour.OnJumpFinished -= OnLanded;
+            _jumpBehaviour.OnJumpFinished -= OnJumpFinished;
             
             _jumpBehaviour.StopJump();
             
             base.ExitStateCustomActions();
         }
 
-        private void OnLanded()
+        private void OnJumpFinished()
         {
             _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
         }
@@ -86,7 +86,7 @@ namespace BLUE.ProjectX.Character
 
         private void OnEnteredState(ECharacterPlatformState platformState)
         {
-            if (platformState != ECharacterPlatformState.Jump)
+            if (!platformState.Equals(ECharacterPlatformState.Jump))
             {
                 return;
             }
@@ -96,7 +96,7 @@ namespace BLUE.ProjectX.Character
         
         private void OnExitedState(ECharacterPlatformState platformState)
         {
-            if (platformState != ECharacterPlatformState.Jump)
+            if (!platformState.Equals(ECharacterPlatformState.Jump))
             {
                 return;
             }

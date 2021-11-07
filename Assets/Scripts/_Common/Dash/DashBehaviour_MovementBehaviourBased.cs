@@ -4,9 +4,9 @@ using System.Collections;
 
 namespace BLUE.ProjectX.Common
 {
-    public class DashBehaviour_CharacterController : DashBehaviourBase
+    public class DashBehaviour_MovementBehaviourBased : DashBehaviourBase
     {
-        [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
+        [SerializeField] private MovementBehaviourBase _movementBehaviour = null;
         
         [SerializeField] private float _dashDuration = 1f;
         
@@ -28,9 +28,9 @@ namespace BLUE.ProjectX.Common
 
         #region Events
 
-        public Action OnDashStarted { get; set; }
+        public override Action OnDashStarted { get; set; }
         
-        public Action OnDashCompleted { get; set; }
+        public override Action OnDashFinished { get; set; }
 
         #endregion
         
@@ -73,7 +73,7 @@ namespace BLUE.ProjectX.Common
                 yield return null;
             }
             
-            OnDashCompleted?.Invoke();
+            OnDashFinished?.Invoke();
         }
     }
 }

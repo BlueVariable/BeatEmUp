@@ -5,7 +5,7 @@ namespace BLUE.ProjectX.Common
 {
     public class DashCondition_Cooldown : DashConditionBase
     {
-        [SerializeField] private DashBehaviour_CharacterController _dashBehaviour = null;
+        [SerializeField] private DashBehaviourBase _dashBehaviour = null;
 
         [SerializeField] private float _cooldown = 5f;
         

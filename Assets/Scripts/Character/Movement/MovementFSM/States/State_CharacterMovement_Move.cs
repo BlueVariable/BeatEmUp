@@ -13,17 +13,18 @@ namespace BLUE.ProjectX.Character
 
         #endregion
         
-        [SerializeField] private MovementBehaviour_CharacterController _movementBehaviour = null;
+        [SerializeField] private MovementBehaviourBase _movementBehaviour = null;
 
+        [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
+        
         [SerializeField] private FSM_CharacterPlatform _platformFSM = null;
         
         [SerializeField] private AnimationController_Character _animationController = null;
-
+        
         [SerializeField] private float _fixedTransitionDuration = 0.25f;
         
         [SerializeField] private Transform _characterRoot = null;
-
-        [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
+        
         
         private IMovementSpeedProvider _movementSpeedProvider;
         private IMovementSpeedProvider _MovementSpeedProvider
@@ -92,7 +93,7 @@ namespace BLUE.ProjectX.Character
 
         private void OnInputPerformedInMoveState(InputData_Axis inputData)
         {
-            if (inputData.InputState != EAxisInputState.Continuing)
+            if (!inputData.InputState.Equals(EAxisInputState.Continuing))
             {
                 return;
             }
@@ -108,33 +109,38 @@ namespace BLUE.ProjectX.Character
 
         private void TryPlayAnimation()
         {
-            if (_platformFSM.TryGetCurStateType(out ECharacterPlatformState platformState))
+            if (!_platformFSM.TryGetCurStateType(out ECharacterPlatformState platformState))
             {
-                if (platformState.Equals(ECharacterPlatformState.Jump) ||
-                    platformState.Equals(ECharacterPlatformState.DoubleJump))
+                _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, 
+                    _fixedTransitionDuration, 0, false);
+
+                return;
+            }
+            
+            if (!platformState.Equals(ECharacterPlatformState.Jump)
+                  && !platformState.Equals(ECharacterPlatformState.DoubleJump))
+            {
+                _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, 
+                    _fixedTransitionDuration, 0, false);
+
+                return;
+            }
+            
+            void onJumpFinished()
+            {
+                _jumpBehaviour.OnJumpFinished -= onJumpFinished;
+
+                if (_CharacterMovementFSM.TryGetCurStateType(out ECharacterMovementState state))
                 {
-                    _jumpBehaviour.OnJumpFinished += onJumpCompleted;
-
-                    void onJumpCompleted()
+                    if (state.Equals(ECharacterMovementState.Move))
                     {
-                        _jumpBehaviour.OnJumpFinished -= onJumpCompleted;
-
-                        if (_CharacterMovementFSM.TryGetCurStateType(out ECharacterMovementState state))
-                        {
-                            if (state == ECharacterMovementState.Move)
-                            {
-                                _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, 
-                                    _fixedTransitionDuration, 0, false);
-                            }
-                        }
+                        _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, 
+                            _fixedTransitionDuration, 0, false);
                     }
-                    
-                    return;
                 }
             }
             
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, 
-                _fixedTransitionDuration, 0, false);
+            _jumpBehaviour.OnJumpFinished += onJumpFinished;
         }
 
         #region Input Related
