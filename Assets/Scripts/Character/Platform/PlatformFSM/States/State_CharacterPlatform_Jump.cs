@@ -1,20 +1,21 @@
-﻿using BLUE.FSMSystem;
+﻿using UnityEngine;
+using BLUE.FSMSystem;
+using BLUE.Helpers;
 using BLUE.InputSystem;
-using BLUE.ProjectX.Common;
-using UnityEngine;
+using BLUE.ProjectX.Common.JumpScripts;
+using BLUE.ProjectX.Common.Physics;
+using Character.Animation;
 
-namespace BLUE.ProjectX.Character
+namespace BLUE.ProjectX.Character.Platform
 {
     public class State_CharacterPlatform_Jump : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform>
     {
-        [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
+        [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
 
-        [SerializeField] private AnimationController_Character _animationController = null;
+        [SerializeField] private CharacterAnimationController _animationController = null;
         
         [SerializeField] private KeyCode _jumpTriggerKeycode = KeyCode.Space;
 
-        [SerializeField] private float _fixedTransitionDuration = 0.25f;
-        
         private FSM_CharacterPlatform _platformFSM;
         private FSM_CharacterPlatform _PlatformFSM
         {
@@ -36,24 +37,30 @@ namespace BLUE.ProjectX.Character
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
-            _jumpBehaviour.OnJumpFinished += OnJumpFinished;
+            _jumpBehaviour.OnLanded += OnLanded;
         
-            _jumpBehaviour.StartJump();
+            _jumpBehaviour.Jump();
 
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 
-                _fixedTransitionDuration, 0, false);
+            _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 0.25f, 0, false);
             
             base.EnterStateCustomActions(transitionMessage);
         }
 
         protected override void ExitStateCustomActions()
         {
-            _jumpBehaviour.OnJumpFinished -= OnJumpFinished;
+            _jumpBehaviour.OnLanded -= OnLanded;
             
-            _jumpBehaviour.StopJump();
+            _jumpBehaviour.CancelJump();
             
             base.ExitStateCustomActions();
         }
+
+        private void OnLanded()
+        {
+            _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
+        }
+
+        #region Input Related
         
         private void Awake()
         {
@@ -64,14 +71,7 @@ namespace BLUE.ProjectX.Character
         {
             UnregisterFromInputManager();
         }
-
-        private void OnJumpFinished()
-        {
-            _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
-        }
-
-        #region Input Related
-
+        
         private void RegisterToInputManager()
         {
             InputManager.Instance.TryRegisterToInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
@@ -87,7 +87,7 @@ namespace BLUE.ProjectX.Character
 
         private void OnKeyUp(InputData_Key inputData)
         {
-            if (!inputData.KeyCode.Equals(_jumpTriggerKeycode))
+            if (inputData.KeyCode != _jumpTriggerKeycode)
             {
                 return;
             }
