@@ -2,17 +2,16 @@
 using BLUE.FSMSystem;
 using BLUE.Helpers;
 using BLUE.InputSystem;
-using BLUE.ProjectX.Common.JumpScripts;
-using BLUE.ProjectX.Common.Physics;
-using Character.Animation;
+using BLUE.ProjectX.Common;
+
 
 namespace BLUE.ProjectX.Character.Platform
 {
     public class State_CharacterPlatform_Jump : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform>
     {
-        [SerializeField] private JumpBehaviour_CharacterController _jumpBehaviour = null;
+        [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
 
-        [SerializeField] private CharacterAnimationController _animationController = null;
+        [SerializeField] private AnimationController_Character _animationController = null;
         
         [SerializeField] private KeyCode _jumpTriggerKeycode = KeyCode.Space;
 
@@ -37,9 +36,9 @@ namespace BLUE.ProjectX.Character.Platform
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
-            _jumpBehaviour.OnLanded += OnLanded;
+            _jumpBehaviour.OnJumpFinished += OnLanded;
         
-            _jumpBehaviour.Jump();
+            _jumpBehaviour.StartJump();
 
             _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 0.25f, 0, false);
             
@@ -48,9 +47,9 @@ namespace BLUE.ProjectX.Character.Platform
 
         protected override void ExitStateCustomActions()
         {
-            _jumpBehaviour.OnLanded -= OnLanded;
+            _jumpBehaviour.OnJumpFinished -= OnLanded;
             
-            _jumpBehaviour.CancelJump();
+            _jumpBehaviour.StopJump();
             
             base.ExitStateCustomActions();
         }
