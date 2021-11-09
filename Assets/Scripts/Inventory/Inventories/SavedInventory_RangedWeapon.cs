@@ -7,17 +7,20 @@ namespace BLUE.ProjectX.Inventory
     public enum ERangedWeaponItem
     {
         None = 0,
+        
+        Shotgun = 1,
+        SMG = 2
     }
 
     [Serializable]
     public class ItemData_RangedWeapon : ItemData
     {
-        [SerializeField] private bool _owned = false;
-        public bool Owned => _owned;
+        [SerializeField] private bool _isEquipped = false;
+        public bool IsEquipped => _isEquipped;
 
-        public ItemData_RangedWeapon(bool owned)
+        public ItemData_RangedWeapon(bool isEquipped)
         {
-            _owned = owned;
+            _isEquipped = isEquipped;
         }
     }
     
@@ -34,7 +37,7 @@ namespace BLUE.ProjectX.Inventory
             
             foreach (Item item in _ItemCollWrapper.Items)
             {
-                Debug.Log("<color=yellow>Inventory Debug:</color> "+ item.ItemType + ": " + item.ItemData.Owned);
+                Debug.Log("<color=yellow>Inventory Debug:</color> "+ item.ItemType + ": " + item.ItemData.IsEquipped);
             }
         }
     }
