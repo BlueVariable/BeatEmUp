@@ -293191,6 +293191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerControllerFPS
       objectReference: {fileID: 0}
+    - target: {fileID: 738646681744756154, guid: c3d7bab43aa560045ae43cd9cc78ba7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 738646681744756156, guid: c3d7bab43aa560045ae43cd9cc78ba7f, type: 3}
       propertyPath: m_RootOrder
       value: 0
