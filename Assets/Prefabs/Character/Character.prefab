@@ -129,6 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0311bc0475ad4c068b8384798b4978b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterAttackFSM: {fileID: 8001080209663456363}
+  _characterAnimationController: {fileID: 4852456821825308825}
+  _transitionDuration: 0.25
+  _targetMouseButton: 0
 --- !u!1 &3951472486414416455
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialStateType: 1
-  _debugEnabled: 0
+  _debugEnabled: 1
 --- !u!1 &4852456821362893032
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,8 +543,8 @@ MonoBehaviour:
     _animationStateName: JUMP_UP
   - _animationType: 5
     _animationStateName: JUMP_LOOP
-  - _animationType: 6
-    _animationStateName: JUMP_DOWN
+  - _animationType: 100
+    _animationStateName: MELEE_ATTACK
   _debugEnabled: 0
 --- !u!1 &4852456821880316226
 GameObject:

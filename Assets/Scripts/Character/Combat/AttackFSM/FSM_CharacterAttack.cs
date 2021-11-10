@@ -23,11 +23,10 @@ namespace Character.Combat.AttackFSM
                 new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.RangedAttack),
                 
                 new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.Idle),
-                new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.RangedAttack),
-                
+                // new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.RangedAttack),
                 
                 new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.Idle),
-                new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.MeleeAttack),
+                // new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.MeleeAttack),
             };
         }
     }

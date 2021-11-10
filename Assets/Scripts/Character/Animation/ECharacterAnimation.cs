@@ -9,5 +9,7 @@
         DASH = 3,
         
         JUMP_LOOP = 5,
+        
+        MELEE_ATTACK = 100,
     }
 }
