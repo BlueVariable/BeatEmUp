@@ -11,5 +11,6 @@
         JUMP_LOOP = 5,
         
         MELEE_ATTACK = 100,
+        ATTACK_EMPTY = 101
     }
 }

@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980a3dfcfa9745acaf8e62561dee359a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterAnimationContorller: {fileID: 4852456821825308825}
 --- !u!1 &1504933722989821455
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +546,8 @@ MonoBehaviour:
     _animationStateName: JUMP_LOOP
   - _animationType: 100
     _animationStateName: MELEE_ATTACK
+  - _animationType: 101
+    _animationStateName: EMPTY
   _debugEnabled: 0
 --- !u!1 &4852456821880316226
 GameObject:

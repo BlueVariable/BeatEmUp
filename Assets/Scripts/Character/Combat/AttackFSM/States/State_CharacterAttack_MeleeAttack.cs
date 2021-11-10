@@ -64,6 +64,12 @@ namespace Character.Combat.AttackFSM.States
 
         private void UnregisterFromInputManager()
         {
+            if (InputManager.Instance == null)
+            {
+                return;
+                
+            }
+            
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Mouse>(EInputEvent.MouseButtonDown,
                 OnMouseButtonDown);
         }
