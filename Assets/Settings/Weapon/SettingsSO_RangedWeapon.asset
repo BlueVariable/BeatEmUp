@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5243fe20ea9df4dbe3268585655367, type: 3}
   m_Name: SettingsSO_RangedWeapon
   m_EditorClassIdentifier: 
-  _rangedWeaponSettingsColl: []
+  _rangedWeaponSettingsColl:
+  - _weaponType: 50
+    _rangedWeaponItemType: 1
+    _weaponPrefab: {fileID: 8739575559848180536, guid: 92de3c095bcea26438d8fa0aea75c77c, type: 3}

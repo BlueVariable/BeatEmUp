@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f99938d8ea6ff49bdc325b22dca72b, type: 3}
   m_Name: SettingsSO_WeaponAttack_AoE
   m_EditorClassIdentifier: 
-  _weaponAttackSettingsColl: []
+  _weaponAttackSettingsColl:
+  - _weaponType: 1
+    _attackDataColl:
+    - _damage: 10
+      _radius: 1
+      _targetMask:
+        serializedVersion: 2
+        m_Bits: 1

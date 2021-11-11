@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7481ffbeb39c5bb49bc026f5f82e0441, type: 3}
   m_Name: SettingsSO_MeleeWeapon
   m_EditorClassIdentifier: 
-  _meleeWeaponSettingsColl: []
+  _meleeWeaponSettingsColl:
+  - _weaponType: 1
+    _meleeWeaponItemType: 1
+    _weaponPrefab: {fileID: 8739575559848180536, guid: 10fdf2e0144a92e44a03f2d7d6498f27, type: 3}

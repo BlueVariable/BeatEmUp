@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5389383cef0a5ec428a52db79e66614a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleeWeaponSettingsColl: {fileID: 11400000, guid: 07c8a96cddb921643835a1561d00e921, type: 2}
+  _rangedWeaponSettingsColl: {fileID: 11400000, guid: 84608f4ca8333854ea8e400c2f052c28, type: 2}
 --- !u!114 &1271713687
 MonoBehaviour:
   m_ObjectHideFlags: 0

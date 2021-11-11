@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: SettingsSO_WeaponAttack_ProjectileThrower
   m_EditorClassIdentifier: 
   _weaponAttackSettingsColl:
-    _weaponType: 0
-    _attackData:
+  - _weaponType: 50
+    _attackDataColl:
+    - _damage: 10
       _throwData:
-        _origin: {x: 0, y: 0, z: 0}
-        _rotation: {x: 0, y: 0, z: 0, w: 0}
-        _direction: {x: 0, y: 0, z: 0}
+        _eulerAngleOffset: {x: 0, y: 0, z: 0}
+        _projectileSpeed: 5
+    - _damage: 10
+      _throwData:
+        _eulerAngleOffset: {x: 0, y: 10, z: 0}
+        _projectileSpeed: 5
+    - _damage: 10
+      _throwData:
+        _eulerAngleOffset: {x: 0, y: -10, z: 0}
+        _projectileSpeed: 5
