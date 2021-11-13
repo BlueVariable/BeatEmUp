@@ -5,8 +5,6 @@ namespace BLUE.ProjectX.Character
     public class CharacterStatus_InAir : CharacterStatusBase
     {
         [SerializeField] private FSM_CharacterPlatform _platformFSM = null;
-
-        private bool _isCharacterInAir = false;
         
         public override ECharacterStatus GetCharacterStatus()
         {
@@ -15,7 +13,10 @@ namespace BLUE.ProjectX.Character
 
         public override bool CheckStatus()
         {
-            return false;
+            _platformFSM.TryGetCurStateType(out ECharacterPlatformState curPlatformState);
+
+            return curPlatformState == ECharacterPlatformState.Jump ||
+                   curPlatformState == ECharacterPlatformState.DoubleJump;
         }
 
         public override void AppearStatus()
@@ -26,36 +27,6 @@ namespace BLUE.ProjectX.Character
         public override void DisappearStatus()
         {
             // do nothing for now
-        }
-
-        private void Awake()
-        {
-            _platformFSM.OnStateEntered += OnStateEntered;
-            _platformFSM.OnStateExited += OnStateExited;
-        }
-
-        private void OnDestroy()
-        {
-            _platformFSM.OnStateEntered -= OnStateEntered;
-            _platformFSM.OnStateExited -= OnStateExited;
-        }
-
-        private void OnStateEntered(ECharacterPlatformState characterPlatformState)
-        {
-            if (characterPlatformState == ECharacterPlatformState.Jump ||
-                characterPlatformState == ECharacterPlatformState.DoubleJump)
-            {
-                _isCharacterInAir = true;
-            }
-        }
-        
-        private void OnStateExited(ECharacterPlatformState characterPlatformState)
-        {
-            if (characterPlatformState == ECharacterPlatformState.Jump ||
-                characterPlatformState == ECharacterPlatformState.DoubleJump)
-            {
-                _isCharacterInAir = false;
-            }
         }
     }
 }

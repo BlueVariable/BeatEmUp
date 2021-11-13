@@ -9,6 +9,8 @@ namespace BLUE.ProjectX.Character
     {
         [SerializeField] private CharacterStatusBase[] _statuses = null;
 
+        [SerializeField] private bool _isDebugEnabled = false;
+        
         public List<ECharacterStatus> AppearedStatuses { get; private set; } = new List<ECharacterStatus>();
 
         private void LateUpdate()
@@ -18,7 +20,7 @@ namespace BLUE.ProjectX.Character
 
         private void CheckCharacterStatuses()
         {
-            List<CharacterStatusBase> currentStatuses = new List<CharacterStatusBase>();
+            List<ECharacterStatus> currentStatuses = new List<ECharacterStatus>();
 
             foreach (CharacterStatusBase status in _statuses)
             {
@@ -26,7 +28,7 @@ namespace BLUE.ProjectX.Character
 
                 if (statusResult)
                 {
-                    currentStatuses.Add(status);
+                    currentStatuses.Add(status.GetCharacterStatus());
 
                     if (status.BreakIfStatusAppear)
                     {
@@ -38,27 +40,37 @@ namespace BLUE.ProjectX.Character
             UpdateAppearedStatuses(currentStatuses);
         }
 
-        private void UpdateAppearedStatuses(List<CharacterStatusBase> currentStatuses)
+        private void UpdateAppearedStatuses(List<ECharacterStatus> currentStatuses)
         {
-            int index = 0;
-            int prevDetected = 0;
+            List<ECharacterStatus> appeared = currentStatuses.Except(AppearedStatuses).ToList();
             
-            for (int i = 0; i < currentStatuses.Count; i++)
+            List<ECharacterStatus> disappeared = AppearedStatuses.Except(currentStatuses).ToList();
+            
+            foreach (ECharacterStatus eCharacterStatus in disappeared)
             {
-                if ((index = AppearedStatuses.IndexOf(currentStatuses[i].GetCharacterStatus())) > 0)
+                if (_isDebugEnabled)
                 {
-                    for (int deleteIndex = prevDetected; deleteIndex < index; deleteIndex++)
-                    {
-                        CharacterStatusBase disappearedStatus = _statuses.SingleOrDefault(i => i.GetCharacterStatus() == AppearedStatuses[deleteIndex]);
-                        
-                        disappearedStatus.DisappearStatus();
-                        
-                        AppearedStatuses.RemoveAt(deleteIndex);
-                    }
-
-                    prevDetected = index;
+                    Debug.Log($"Character status disappeared <color=red>{eCharacterStatus}</color> @{Time.frameCount}.");
                 }
+
+                CharacterStatusBase status = _statuses.SingleOrDefault(i => i.GetCharacterStatus() == eCharacterStatus);
+                
+                status.DisappearStatus();
             }
+
+            foreach (ECharacterStatus eCharacterStatus in appeared)
+            {
+                if (_isDebugEnabled)
+                {
+                    Debug.Log($"Character status appeared <color=green>{eCharacterStatus}</color> @{Time.frameCount}.");
+                }
+
+                CharacterStatusBase status = _statuses.SingleOrDefault(i => i.GetCharacterStatus() == eCharacterStatus);
+                
+                status.AppearStatus();
+            }
+
+            AppearedStatuses = new List<ECharacterStatus>(currentStatuses);
         }
     }
 }
