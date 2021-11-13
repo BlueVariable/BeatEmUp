@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using BLUE.InventorySystem;
 using UnityEngine;
 
@@ -8,8 +10,7 @@ namespace BLUE.ProjectX.Inventory
     {
         None = 0,
         
-        Knife = 1,
-        Sword = 2
+        Sword = 1
     }
 
     [Serializable]
@@ -39,6 +40,28 @@ namespace BLUE.ProjectX.Inventory
             {
                 Debug.Log("<color=yellow>Inventory Debug:</color> "+ item.ItemType + ": " + item.ItemData.IsEquipped);
             }
+        }
+        
+        protected override List<Item> GetFallbackInitialItems()
+        {
+            return new List<Item>()
+            {
+                new Item(EMeleeWeaponItem.Sword, new ItemData_MeleeWeapon(true))
+            };
+        }
+
+        public bool TryGetEquippedWeapon(out EMeleeWeaponItem itemType)
+        {
+            itemType = default;
+            
+            Item item = _ItemCollWrapper.Items.SingleOrDefault(val => val.ItemData.IsEquipped);
+
+            if (item != null)
+            {
+                itemType = item.ItemType;
+            }
+
+            return item != null;
         }
     }
 }
