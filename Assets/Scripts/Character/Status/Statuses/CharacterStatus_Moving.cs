@@ -5,7 +5,11 @@ namespace BLUE.ProjectX.Character
     public class CharacterStatus_Moving : CharacterStatusBase
     {
         [SerializeField] private FSM_CharacterMovement _movementFSM = null;
-        
+ 
+        [SerializeField] private AnimationController_Character _characterAnimationController = null;
+
+        [SerializeField] private float _transitionFixedDuration = 0.25f;
+
         public override ECharacterStatus GetCharacterStatus()
         {
             return ECharacterStatus.Moving;
@@ -18,14 +22,9 @@ namespace BLUE.ProjectX.Character
             return curMovementState == ECharacterMovementState.Move;
         }
 
-        public override void AppearStatus()
+        protected override void AppearStatusCustomActions()
         {
-            
-        }
-
-        public override void DisappearStatus()
-        {
-            
+            _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.MOVE, _transitionFixedDuration);
         }
     }
 }

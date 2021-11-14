@@ -140,6 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _breakIfStatusAppear: 0
   _movementFSM: {fileID: 4852456822638459115}
+  _characterAnimationController: {fileID: 4852456821825308825}
+  _transitionFixedDuration: 0.25
 --- !u!1 &1504933722989821455
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +376,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _breakIfStatusAppear: 1
   _characterMovementFSM: {fileID: 4852456822638459115}
+  _characterAnimationController: {fileID: 4852456821825308825}
+  _transitionFixedDuration: 0.25
 --- !u!1 &4852456821362893032
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,9 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpBehaviour: {fileID: 4852456822126387133}
-  _animationController: {fileID: 4852456821825308825}
   _jumpTriggerKeycode: 32
-  _fixedTransitionDuration: 0.1
 --- !u!1 &4852456821715776561
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,11 +667,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementBehaviour: {fileID: 4852456821652022852}
-  _jumpBehaviour: {fileID: 4852456822126387133}
-  _platformFSM: {fileID: 4852456821389885251}
-  _animationController: {fileID: 4852456821825308825}
-  _fixedTransitionDuration: 0.1
   _characterRoot: {fileID: 4852456821880316231}
+  _characterAnimationController: {fileID: 4852456821825308825}
 --- !u!114 &4852456821745974791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,9 +857,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339d81a34d024904b899277fb61a2255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _platformFSM: {fileID: 4852456821389885251}
-  _animationController: {fileID: 4852456821825308825}
-  _fixedTransitionDuration: 0.1
 --- !u!1 &4852456822043053406
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,12 +901,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ef1675740e403aa763b2b62ed0981f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterPlatformFSM: {fileID: 4852456821389885251}
   _dashBehaviour: {fileID: 4852456823195878104}
   _jumpBehaviour: {fileID: 4852456822126387133}
   _gravityApplier: {fileID: 4852456822624438265}
-  _animationController: {fileID: 4852456821825308825}
-  _fixedTransitionDuration: 0.1
   _dashTriggerKey: 306
   _dashThreshold: 0.15
 --- !u!1 &4852456822055764296
@@ -1342,9 +1335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849f7624c1ce48c6ac62935d598f819b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementFSM: {fileID: 4852456822638459115}
-  _animationController: {fileID: 4852456821825308825}
-  _fixedTransitionDuration: 0.1
 --- !u!1 &7385247602413351199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,6 +1380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _breakIfStatusAppear: 1
   _platformFSM: {fileID: 4852456821389885251}
+  _characterAnimationController: {fileID: 4852456821825308825}
+  _transitionFixedDuration: 0.25
 --- !u!1 &8115866360989616295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,6 +1429,8 @@ MonoBehaviour:
   _movementFSM: {fileID: 4852456822638459115}
   _platformFSM: {fileID: 4852456821389885251}
   _attackFSM: {fileID: 8001080209663456363}
+  _characterAnimationController: {fileID: 4852456821825308825}
+  _transitionFixedDuration: 0.15
 --- !u!1 &8302527540114006280
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,11 @@ namespace BLUE.ProjectX.Character
     public class CharacterStatus_InDashing : CharacterStatusBase
     {
         [SerializeField] private FSM_CharacterMovement _characterMovementFSM = null;
-        
+     
+        [SerializeField] private AnimationController_Character _characterAnimationController = null;
+
+        [SerializeField] private float _transitionFixedDuration = 0.25f;
+
         public override ECharacterStatus GetCharacterStatus()
         {
             return ECharacterStatus.Dashing;
@@ -18,14 +22,9 @@ namespace BLUE.ProjectX.Character
             return curMovementState == ECharacterMovementState.Dash;
         }
 
-        public override void AppearStatus()
+        protected override void AppearStatusCustomActions()
         {
-            // play dash animation
-        }
-
-        public override void DisappearStatus()
-        {
-            
+            _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.DASH, _transitionFixedDuration);
         }
     }
 }

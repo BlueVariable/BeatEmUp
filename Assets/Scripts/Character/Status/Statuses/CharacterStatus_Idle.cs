@@ -1,4 +1,5 @@
-﻿using Character.Combat.AttackFSM;
+﻿using BLUE.Helpers;
+using Character.Combat.AttackFSM;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character
@@ -10,6 +11,10 @@ namespace BLUE.ProjectX.Character
         [SerializeField] private FSM_CharacterPlatform _platformFSM = null;
 
         [SerializeField] private FSM_CharacterAttack _attackFSM = null;
+
+        [SerializeField] private AnimationController_Character _characterAnimationController = null;
+
+        [SerializeField] private float _transitionFixedDuration = 0.25f;
         
         public override ECharacterStatus GetCharacterStatus()
         {
@@ -27,14 +32,18 @@ namespace BLUE.ProjectX.Character
                    curAttackState == ECharacterAttackState.Idle;
         }
 
-        public override void AppearStatus()
+        protected override void AppearStatusCustomActions()
         {
-            // play idle anim
-        }
-
-        public override void DisappearStatus()
-        {
+            CoroutineHelper.Instance.WaitForSeconds(0.05f, () =>
+            {
+                if (IsAppearing)
+                {
+                    _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.IDLE,
+                        _transitionFixedDuration);
+                }
+            });
             
+            base.AppearStatusCustomActions();
         }
     }
 }

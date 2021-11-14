@@ -8,18 +8,12 @@ namespace BLUE.ProjectX.Character
 {
     public class State_CharacterMovement_Dash : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
-        [SerializeField] private FSM_CharacterPlatform _characterPlatformFSM = null;
-        
         [SerializeField] private DashBehaviourBase _dashBehaviour = null;
 
         [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
         
         [SerializeField] private GravityApplierBase _gravityApplier = null;
 
-        [SerializeField] private AnimationController_Character _animationController = null;
-
-        [SerializeField] private float _fixedTransitionDuration = 0.25f;
-        
         [SerializeField] private KeyCode _dashTriggerKey = KeyCode.None;
 
         [SerializeField] private float _dashThreshold = 0.5f;
@@ -69,24 +63,11 @@ namespace BLUE.ProjectX.Character
 
             _jumpBehaviour.ResetJumpForceToGravity();
 
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.DASH, 
-                _fixedTransitionDuration, 0, false);
-            
             base.EnterStateCustomActions(transitionMessage);
         }
 
         protected override void ExitStateCustomActions()
         {
-            if (_characterPlatformFSM.TryGetCurStateType(out ECharacterPlatformState curPlatformState))
-            {
-                if (curPlatformState.Equals(ECharacterPlatformState.Jump) ||
-                    curPlatformState.Equals(ECharacterPlatformState.DoubleJump))
-                {
-                    _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 
-                        _fixedTransitionDuration, 0, false);
-                }
-            }
-            
             _gravityApplier.ToggleGravity(true);
             
             base.ExitStateCustomActions();

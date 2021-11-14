@@ -5,6 +5,10 @@ namespace BLUE.ProjectX.Character
     public class CharacterStatus_InAir : CharacterStatusBase
     {
         [SerializeField] private FSM_CharacterPlatform _platformFSM = null;
+
+        [SerializeField] private AnimationController_Character _characterAnimationController = null;
+
+        [SerializeField] private float _transitionFixedDuration = 0.25f;
         
         public override ECharacterStatus GetCharacterStatus()
         {
@@ -19,14 +23,11 @@ namespace BLUE.ProjectX.Character
                    curPlatformState == ECharacterPlatformState.DoubleJump;
         }
 
-        public override void AppearStatus()
+        protected override void AppearStatusCustomActions()
         {
-            // play jump anim
-        }
-
-        public override void DisappearStatus()
-        {
-            // do nothing for now
+            _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, _transitionFixedDuration);
+            
+            base.AppearStatusCustomActions();
         }
     }
 }

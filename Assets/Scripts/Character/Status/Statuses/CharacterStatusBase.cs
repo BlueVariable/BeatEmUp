@@ -7,13 +7,29 @@ namespace BLUE.ProjectX.Character
         [SerializeField] protected bool _breakIfStatusAppear = false;
 
         public bool BreakIfStatusAppear => _breakIfStatusAppear;
+        
+        public bool IsAppearing { get; private set; }
 
         public abstract ECharacterStatus GetCharacterStatus();
         
         public abstract bool CheckStatus();
 
-        public abstract void AppearStatus();
+        public void AppearStatus()
+        {
+            IsAppearing = true;
+            
+            AppearStatusCustomActions();
+        }
 
-        public abstract void DisappearStatus();
+        public void DisappearStatus()
+        {
+            IsAppearing = false;
+            
+            DisappearedStatusCustomActions();
+        }
+
+        protected virtual void AppearStatusCustomActions() { }
+        
+        protected virtual void DisappearedStatusCustomActions() { }
     }
 }
