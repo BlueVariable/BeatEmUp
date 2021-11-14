@@ -3,11 +3,14 @@ using UnityEngine;
 using BLUE.FSMSystem;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common;
+using Character.Combat.AttackFSM;
 
 namespace BLUE.ProjectX.Character
 {
     public class State_CharacterMovement_Dash : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
+        [SerializeField] private FSM_CharacterAttack _characterAttackFSM = null;
+        
         [SerializeField] private DashBehaviourBase _dashBehaviour = null;
 
         [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
@@ -55,6 +58,8 @@ namespace BLUE.ProjectX.Character
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterMovement transitionMessage)
         {
+            _characterAttackFSM.TryChangeState(ECharacterAttackState.Idle);
+            
             _dashBehaviour.Dash(_dashDirection);
 
             _dashBehaviour.OnDashFinished += OnDashFinished;
@@ -72,7 +77,20 @@ namespace BLUE.ProjectX.Character
             
             base.ExitStateCustomActions();
         }
-        
+
+        protected override bool CanEnterStateCustomActions(FSMTransitionMessage_CharacterMovement transitionMessage)
+        {
+            foreach (DashConditionBase condition in _Conditions)
+            {
+                if (!condition.CanPerformDash())
+                {
+                    return false;
+                }
+            }
+
+            return base.CanEnterStateCustomActions(transitionMessage);
+        }
+
         #region Input Related
         
         private void Awake()
@@ -131,14 +149,6 @@ namespace BLUE.ProjectX.Character
             if (Mathf.Abs(inputData.Amount) < _dashThreshold)
             {
                 return;
-            }
-
-            foreach (DashConditionBase condition in _Conditions)
-            {
-                if (!condition.CanPerformDash())
-                {
-                    return;
-                }
             }
             
             _dashDirection = Math.Sign(inputData.Amount);

@@ -28,8 +28,10 @@ namespace Character.Combat.AttackFSM
                 new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.PreMeleeAttack),
 
                 new FSMTransition_CharacterAttack(ECharacterAttackState.PreMeleeAttack, ECharacterAttackState.MeleeAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.PreMeleeAttack, ECharacterAttackState.Idle),
 
                 new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.PostMeleeAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.Idle),
 
                 new FSMTransition_CharacterAttack(ECharacterAttackState.PostMeleeAttack, ECharacterAttackState.Idle),
             };
