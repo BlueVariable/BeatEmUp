@@ -39,7 +39,10 @@ namespace BLUE.ProjectX.Character
                 if (IsAppearing)
                 {
                     _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.IDLE,
-                        _transitionFixedDuration);
+                        _transitionFixedDuration, 0, false);
+                    
+                    _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.ATTACK_EMPTY, 
+                        _transitionFixedDuration, 1, false);
                 }
             });
             

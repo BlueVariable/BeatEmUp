@@ -7,8 +7,14 @@ namespace Character.Combat.AttackFSM
     {
         None = 0,
         Idle = 1,
-        MeleeAttack = 2,
-        RangedAttack = 3
+        
+        PreMeleeAttack = 20,
+        MeleeAttack = 21,
+        PostMeleeAttack = 22,
+        
+        PreRangedAttack = 30,
+        RangedAttack = 31,
+        PostRangedAttack = 32
     }
     
     public class FSMTransitionMessage_CharacterAttack : FSMTransitionMessageBase { }
@@ -19,14 +25,13 @@ namespace Character.Combat.AttackFSM
         {
             return new List<FSMTransition_CharacterAttack>()
             {
-                new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.MeleeAttack),
-                new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.RangedAttack),
-                
-                new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.Idle),
-                // new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.RangedAttack),
-                
-                new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.Idle),
-                // new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.MeleeAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.PreMeleeAttack),
+
+                new FSMTransition_CharacterAttack(ECharacterAttackState.PreMeleeAttack, ECharacterAttackState.MeleeAttack),
+
+                new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.PostMeleeAttack),
+
+                new FSMTransition_CharacterAttack(ECharacterAttackState.PostMeleeAttack, ECharacterAttackState.Idle),
             };
         }
     }
