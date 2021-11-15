@@ -3,7 +3,6 @@ using UnityEngine;
 using BLUE.FSMSystem;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common;
-using Character.Combat.AttackFSM;
 
 namespace BLUE.ProjectX.Character
 {
