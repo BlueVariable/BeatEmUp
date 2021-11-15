@@ -1,4 +1,4 @@
-using Character.Combat.AttackFSM;
+using BLUE.ProjectX.Character;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character
@@ -27,9 +27,27 @@ namespace BLUE.ProjectX.Character
         protected override void AppearStatusCustomActions()
         {
             _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.MELEE_ATTACK,
-                _animationTransitionDuration, 1, false);
+                _animationTransitionDuration, 
+                AnimationController_Character.ATTACK_LAYER,
+                false);
             
             base.AppearStatusCustomActions();
+        }
+
+        protected override void DisappearedStatusCustomActions()
+        {
+            _characterAttackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
+
+            if (curAttackState != ECharacterAttackState.MeleeAttack &&
+                curAttackState != ECharacterAttackState.RangedAttack)
+            {
+                _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.ATTACK_EMPTY,
+                    _animationTransitionDuration, 
+                    AnimationController_Character.ATTACK_LAYER,
+                    false);
+            } 
+            
+            base.DisappearedStatusCustomActions();
         }
     }
 }

@@ -1,4 +1,4 @@
-using Character.Combat.AttackFSM;
+using BLUE.ProjectX.Character;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character
@@ -26,8 +26,11 @@ namespace BLUE.ProjectX.Character
 
         protected override void DisappearedStatusCustomActions()
         {
-            _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.ATTACK_EMPTY, _transitionDuration,
-                1, false);
+            _characterAnimationController.TryCrossFadeAnimation(
+                ECharacterAnimation.ATTACK_EMPTY,
+                _transitionDuration,
+                AnimationController_Character.ATTACK_LAYER,
+                false);
             
             base.DisappearedStatusCustomActions();
         }

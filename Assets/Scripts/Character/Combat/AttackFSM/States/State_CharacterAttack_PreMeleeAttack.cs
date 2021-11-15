@@ -3,7 +3,7 @@ using BLUE.FSMSystem;
 using BLUE.Helpers;
 using BLUE.InputSystem;
 
-namespace Character.Combat.AttackFSM.States
+namespace BLUE.ProjectX.Character.States
 {
     // TODO : anticipation duration must be normalized according the animation time
     public class State_CharacterAttack_PreMeleeAttack : StateBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack>

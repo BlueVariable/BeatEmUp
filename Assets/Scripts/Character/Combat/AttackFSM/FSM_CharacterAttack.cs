@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using BLUE.FSMSystem;
 
-namespace Character.Combat.AttackFSM
+namespace BLUE.ProjectX.Character
 {
     public enum ECharacterAttackState
     {

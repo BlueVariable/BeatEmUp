@@ -2,7 +2,7 @@
 using BLUE.ProjectX.Character;
 using UnityEngine;
 
-namespace Character.Combat.AttackFSM.States
+namespace BLUE.ProjectX.Character.States
 {
     public class State_CharacterAttack_Idle : StateBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack>
     {

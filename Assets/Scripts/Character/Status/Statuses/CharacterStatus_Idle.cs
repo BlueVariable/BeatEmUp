@@ -1,5 +1,5 @@
 ﻿using BLUE.Helpers;
-using Character.Combat.AttackFSM;
+using BLUE.ProjectX.Character;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character
@@ -28,8 +28,7 @@ namespace BLUE.ProjectX.Character
             _attackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
 
             return curMovementState == ECharacterMovementState.Idle &&
-                   curPlatformState == ECharacterPlatformState.Idle &&
-                   curAttackState == ECharacterAttackState.Idle;
+                   curPlatformState == ECharacterPlatformState.Idle;
         }
 
         protected override void AppearStatusCustomActions()
@@ -38,11 +37,11 @@ namespace BLUE.ProjectX.Character
             {
                 if (IsAppearing)
                 {
-                    _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.IDLE,
-                        _transitionFixedDuration, 0, false);
-                    
-                    _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.ATTACK_EMPTY, 
-                        _transitionFixedDuration, 1, false);
+                    _characterAnimationController.TryCrossFadeAnimation(
+                        ECharacterAnimation.IDLE,
+                        _transitionFixedDuration,
+                        AnimationController_Character.MOVEMENT_LAYER,
+                        false);
                 }
             });
             

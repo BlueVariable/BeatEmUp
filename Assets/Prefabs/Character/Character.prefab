@@ -88,8 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980a3dfcfa9745acaf8e62561dee359a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterAnimationContorller: {fileID: 4852456821825308825}
-  _transitionDuration: 0.25
 --- !u!1 &1049725100726904496
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,9 +136,9 @@ MonoBehaviour:
   - {fileID: 2990353520407419884}
   - {fileID: 7347738160779317163}
   - {fileID: 3419514123762397874}
+  - {fileID: 8269562391466183533}
   - {fileID: 3212786442255232891}
   - {fileID: 3477297349464207501}
-  - {fileID: 8269562391466183533}
   - {fileID: 3455378465436589057}
   _isDebugEnabled: 1
 --- !u!1 &1298639837903783204
@@ -172,7 +170,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7523528572874080376}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3477297349464207501
 MonoBehaviour:
@@ -322,8 +320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab922f2aee2645c097a1d5f0ff01be32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 1
+  _breakIfStatusAppear: 0
   _characterAttackFSM: {fileID: 8001080209663456363}
+  _characterAnimationController: {fileID: 4852456821825308825}
 --- !u!1 &2252194260917530137
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,9 +353,9 @@ Transform:
   - {fileID: 4212703538356005434}
   - {fileID: 268189597610779167}
   - {fileID: 4881225713587334951}
+  - {fileID: 7185774865910447800}
   - {fileID: 538759714720977507}
   - {fileID: 5262065093036444094}
-  - {fileID: 7185774865910447800}
   - {fileID: 2132197955323781465}
   m_Father: {fileID: 4990074888230040469}
   m_RootOrder: 0
@@ -1518,7 +1517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966adcb66828443ebe1dbbab97362b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 1
+  _breakIfStatusAppear: 0
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
   _animationTransitionDuration: 0.15
@@ -1551,7 +1550,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7523528572874080376}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3212786442255232891
 MonoBehaviour:
@@ -1682,7 +1681,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7523528572874080376}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8269562391466183533
 MonoBehaviour:
@@ -1696,7 +1695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3465244d3299473ea22f3251b269e876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 1
+  _breakIfStatusAppear: 0
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
   _transitionDuration: 0.25

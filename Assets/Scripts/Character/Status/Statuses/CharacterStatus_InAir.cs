@@ -25,7 +25,11 @@ namespace BLUE.ProjectX.Character
 
         protected override void AppearStatusCustomActions()
         {
-            _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, _transitionFixedDuration, 0, false);
+            _characterAnimationController.TryCrossFadeAnimation(
+                ECharacterAnimation.JUMP_LOOP,
+                _transitionFixedDuration,
+                AnimationController_Character.MOVEMENT_LAYER,
+                false);
             
             base.AppearStatusCustomActions();
         }
