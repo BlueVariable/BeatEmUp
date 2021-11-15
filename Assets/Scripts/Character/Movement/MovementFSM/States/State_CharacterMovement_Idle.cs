@@ -1,5 +1,4 @@
 ﻿using BLUE.FSMSystem;
-using UnityEngine;
 
 namespace BLUE.ProjectX.Character
 {

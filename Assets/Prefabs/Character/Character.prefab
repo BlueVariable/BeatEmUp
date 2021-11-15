@@ -872,8 +872,6 @@ MonoBehaviour:
     _animationStateName: MOVE
   - _animationType: 3
     _animationStateName: DASH
-  - _animationType: 4
-    _animationStateName: JUMP_UP
   - _animationType: 5
     _animationStateName: JUMP_LOOP
   - _animationType: 100
@@ -1040,6 +1038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ef1675740e403aa763b2b62ed0981f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterAttackFSM: {fileID: 8001080209663456363}
   _dashBehaviour: {fileID: 4852456823195878104}
   _jumpBehaviour: {fileID: 4852456822126387133}
   _gravityApplier: {fileID: 4852456822624438265}
@@ -1756,13 +1755,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f95c62e25ba6b944e8c814afa9483846, type: 3}
---- !u!1 &3759319083931031684 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f95c62e25ba6b944e8c814afa9483846, type: 3}
-  m_PrefabInstance: {fileID: 4101267551886206421}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4566676851098780222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f95c62e25ba6b944e8c814afa9483846, type: 3}
+  m_PrefabInstance: {fileID: 4101267551886206421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3759319083931031684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f95c62e25ba6b944e8c814afa9483846, type: 3}
   m_PrefabInstance: {fileID: 4101267551886206421}
   m_PrefabAsset: {fileID: 0}
