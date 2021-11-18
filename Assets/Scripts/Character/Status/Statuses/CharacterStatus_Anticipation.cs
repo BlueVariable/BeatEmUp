@@ -26,10 +26,24 @@ namespace BLUE.ProjectX.Character
 
         protected override void AppearStatusCustomActions()
         {
-            _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.MELEE_ATTACK,
-                _animationTransitionDuration, 
-                AnimationController_Character.ATTACK_LAYER,
-                false);
+            _characterAttackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
+            
+            if (curAttackState == ECharacterAttackState.PreMeleeAttack)
+            {
+                _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.MELEE_ATTACK,
+                    _animationTransitionDuration, 
+                    AnimationController_Character.ATTACK_LAYER,
+                    false);
+            }
+            
+            if (curAttackState == ECharacterAttackState.PreRangedAttack)
+            {
+                _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.MELEE_ATTACK,
+                    _animationTransitionDuration, 
+                    AnimationController_Character.ATTACK_LAYER,
+                    false);
+            }
+            
             
             base.AppearStatusCustomActions();
         }

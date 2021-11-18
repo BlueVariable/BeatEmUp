@@ -6,6 +6,7 @@ using BLUE.InputSystem;
 namespace BLUE.ProjectX.Character.States
 {
     // TODO : anticipation duration must be normalized according the animation time
+    // TODO : both anticipation & recovery states can be make common 
     public class State_CharacterAttack_PreMeleeAttack : StateBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack>
     {
         [SerializeField] private FSM_CharacterAttack _attackFSM = null;

@@ -641,4 +641,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64b7169233745409f9fe743413f8d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetMouseButtons: 00000000
+  _targetMouseButtons: 0000000000000000

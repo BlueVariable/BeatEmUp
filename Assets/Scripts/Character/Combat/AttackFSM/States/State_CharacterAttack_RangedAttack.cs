@@ -1,12 +1,29 @@
 ﻿using BLUE.FSMSystem;
+using BLUE.Helpers;
+using UnityEngine;
 
 namespace BLUE.ProjectX.Character.States
 {
     public class State_CharacterAttack_RangedAttack : StateBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack>
     {
+        [SerializeField] private FSM_CharacterAttack _attackFSM = null;
+        
+        [SerializeField] private float _attackDuration = 0.5f;
+        
         public override ECharacterAttackState GetStateType()
         {
             return ECharacterAttackState.RangedAttack;
+        }
+        
+        protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterAttack transitionMessage)
+        {
+            CoroutineHelper.Instance.WaitForSeconds(_attackDuration, () =>
+            {
+                _attackFSM.TryChangeState(ECharacterAttackState.PostMeleeAttack);
+
+            });
+            
+            base.EnterStateCustomActions(transitionMessage);
         }
     }
 }

@@ -26,6 +26,7 @@ namespace BLUE.ProjectX.Character
             return new List<FSMTransition_CharacterAttack>()
             {
                 new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.PreMeleeAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.PreRangedAttack),
 
                 new FSMTransition_CharacterAttack(ECharacterAttackState.PreMeleeAttack, ECharacterAttackState.MeleeAttack),
                 new FSMTransition_CharacterAttack(ECharacterAttackState.PreMeleeAttack, ECharacterAttackState.Idle),
@@ -34,6 +35,15 @@ namespace BLUE.ProjectX.Character
                 new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.Idle),
 
                 new FSMTransition_CharacterAttack(ECharacterAttackState.PostMeleeAttack, ECharacterAttackState.Idle),
+                
+                
+                new FSMTransition_CharacterAttack(ECharacterAttackState.PreRangedAttack, ECharacterAttackState.RangedAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.PreRangedAttack, ECharacterAttackState.Idle),
+
+                new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.PostRangedAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.Idle),
+
+                new FSMTransition_CharacterAttack(ECharacterAttackState.PostRangedAttack, ECharacterAttackState.Idle),
             };
         }
     }
