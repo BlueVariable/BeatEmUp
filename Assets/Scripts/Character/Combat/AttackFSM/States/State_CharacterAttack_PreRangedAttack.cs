@@ -23,7 +23,7 @@ namespace BLUE.ProjectX.Character.States
             
             CoroutineHelper.Instance.WaitForSeconds(_anticipationDuration, () =>
             {
-                _attackFSM.TryChangeState(ECharacterAttackState.MeleeAttack);
+                _attackFSM.TryChangeState(ECharacterAttackState.RangedAttack);
             });
             
             base.EnterStateCustomActions(transitionMessage);

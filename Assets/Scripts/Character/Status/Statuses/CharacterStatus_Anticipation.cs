@@ -38,7 +38,7 @@ namespace BLUE.ProjectX.Character
             
             if (curAttackState == ECharacterAttackState.PreRangedAttack)
             {
-                _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.MELEE_ATTACK,
+                _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.RANGED_ATTACK,
                     _animationTransitionDuration, 
                     AnimationController_Character.ATTACK_LAYER,
                     false);

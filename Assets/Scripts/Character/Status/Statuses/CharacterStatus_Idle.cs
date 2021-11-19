@@ -9,9 +9,7 @@ namespace BLUE.ProjectX.Character
         [SerializeField] private FSM_CharacterMovement _movementFSM = null;
 
         [SerializeField] private FSM_CharacterPlatform _platformFSM = null;
-
-        [SerializeField] private FSM_CharacterAttack _attackFSM = null;
-
+        
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
 
         [SerializeField] private float _transitionFixedDuration = 0.25f;
@@ -25,7 +23,6 @@ namespace BLUE.ProjectX.Character
         {
             _movementFSM.TryGetCurStateType(out ECharacterMovementState curMovementState);
             _platformFSM.TryGetCurStateType(out ECharacterPlatformState curPlatformState);
-            _attackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
 
             return curMovementState == ECharacterMovementState.Idle &&
                    curPlatformState == ECharacterPlatformState.Idle;
