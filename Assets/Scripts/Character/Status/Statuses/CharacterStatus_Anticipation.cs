@@ -1,4 +1,4 @@
-using BLUE.ProjectX.Character;
+using BLUE.ProjectX.Character.States;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character
@@ -10,6 +10,8 @@ namespace BLUE.ProjectX.Character
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
 
         [SerializeField] private float _animationTransitionDuration = 0.25f;
+
+        [SerializeField] private State_CharacterAttack_Anticipation _anticipationState = null;
         
         public override ECharacterStatus GetCharacterStatus()
         {
@@ -20,31 +22,32 @@ namespace BLUE.ProjectX.Character
         {
             _characterAttackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
 
-            return curAttackState == ECharacterAttackState.PreMeleeAttack ||
-                   curAttackState == ECharacterAttackState.PreRangedAttack;
+            return curAttackState == ECharacterAttackState.Anticipation;
         }
 
         protected override void AppearStatusCustomActions()
         {
             _characterAttackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
-            
-            if (curAttackState == ECharacterAttackState.PreMeleeAttack)
+
+            if (curAttackState == ECharacterAttackState.Anticipation)
             {
-                _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.MELEE_ATTACK,
-                    _animationTransitionDuration, 
-                    AnimationController_Character.ATTACK_LAYER,
-                    false);
+                if(_anticipationState.LastTransitionMessage.AttackType == EAttackType.Melee)
+                {
+                    _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.MELEE_ATTACK,
+                        _animationTransitionDuration,
+                        AnimationController_Character.ATTACK_LAYER,
+                        false);
+                }
+                
+                if(_anticipationState.LastTransitionMessage.AttackType == EAttackType.Ranged)
+                {
+                    _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.RANGED_ATTACK,
+                        _animationTransitionDuration, 
+                        AnimationController_Character.ATTACK_LAYER,
+                        false);
+                }
             }
-            
-            if (curAttackState == ECharacterAttackState.PreRangedAttack)
-            {
-                _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.RANGED_ATTACK,
-                    _animationTransitionDuration, 
-                    AnimationController_Character.ATTACK_LAYER,
-                    false);
-            }
-            
-            
+
             base.AppearStatusCustomActions();
         }
 

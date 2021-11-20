@@ -25,8 +25,7 @@ namespace BLUE.ProjectX.Character
         {
             _characterAttackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
 
-            if (curAttackState != ECharacterAttackState.PostMeleeAttack &&
-                curAttackState != ECharacterAttackState.PostRangedAttack)
+            if (curAttackState != ECharacterAttackState.Recovery)
             {
                 _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.ATTACK_EMPTY,
                     0.1f, 

@@ -19,8 +19,7 @@ namespace BLUE.ProjectX.Character
         {
             _characterAttackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
 
-            return curAttackState == ECharacterAttackState.PostMeleeAttack ||
-                   curAttackState == ECharacterAttackState.PostRangedAttack;
+            return curAttackState == ECharacterAttackState.Recovery;
         }
 
         protected override void DisappearedStatusCustomActions()

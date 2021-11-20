@@ -1,50 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &53548694947796462
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3908391157901079234}
-  - component: {fileID: 5314615011483527631}
-  m_Layer: 0
-  m_Name: PostMeleeAttackState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3908391157901079234
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53548694947796462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4444559425136706125}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5314615011483527631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53548694947796462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e90e456ccf426f8ef517d557ac6fa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackFSM: {fileID: 8001080209663456363}
-  _recoveryDuration: 0.25
 --- !u!1 &102055255075524466
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +96,7 @@ MonoBehaviour:
   - {fileID: 3212786442255232891}
   - {fileID: 3477297349464207501}
   - {fileID: 3455378465436589057}
-  _isDebugEnabled: 1
+  _isDebugEnabled: 0
 --- !u!1 &1298639837903783204
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,52 +144,6 @@ MonoBehaviour:
   _movementFSM: {fileID: 4852456822638459115}
   _characterAnimationController: {fileID: 4852456821825308825}
   _transitionFixedDuration: 0.25
---- !u!1 &1603910888480538029
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6025588270989579082}
-  - component: {fileID: 8609802011185640666}
-  m_Layer: 0
-  m_Name: PreMeleeAttackState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6025588270989579082
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603910888480538029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4444559425136706125}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8609802011185640666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603910888480538029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1279258d94ff48d49bfb6d2e6046a367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackFSM: {fileID: 8001080209663456363}
-  _anticipationDuration: 0.35
-  _targetMouseButton: 0
 --- !u!1 &1927674473392384933
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackFSM: {fileID: 8001080209663456363}
-  _attackDuration: 0.5
+  _characterAnimController: {fileID: 4852456821825308825}
 --- !u!1 &3407162988933824816
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +301,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4444559425136706125}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4332330207868547228
 MonoBehaviour:
@@ -407,7 +316,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackFSM: {fileID: 8001080209663456363}
-  _attackDuration: 0.5
+  _characterAnimController: {fileID: 4852456821825308825}
+--- !u!1 &3714372756280547214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8479237806381284092}
+  - component: {fileID: 8414207487607360561}
+  m_Layer: 0
+  m_Name: RecoveryState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8479237806381284092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3714372756280547214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4444559425136706125}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8414207487607360561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3714372756280547214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876dffc14d2c42c1b09a8eb704625b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackFSM: {fileID: 8001080209663456363}
+  _characterAnimationController: {fileID: 4852456821825308825}
 --- !u!95 &1084894944657827071
 Animator:
   serializedVersion: 3
@@ -1525,7 +1479,8 @@ MonoBehaviour:
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
   _animationTransitionDuration: 0.15
---- !u!1 &6883499980051553219
+  _anticipationState: {fileID: 35211367094039785}
+--- !u!1 &7301816474946955355
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1533,43 +1488,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8692796066404862351}
-  - component: {fileID: 8073641117020113653}
+  - component: {fileID: 3101687806120703100}
+  - component: {fileID: 35211367094039785}
   m_Layer: 0
-  m_Name: PostRangedAttackState
+  m_Name: AnticipationState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8692796066404862351
+--- !u!4 &3101687806120703100
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6883499980051553219}
+  m_GameObject: {fileID: 7301816474946955355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4444559425136706125}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8073641117020113653
+--- !u!114 &35211367094039785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6883499980051553219}
+  m_GameObject: {fileID: 7301816474946955355}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8e8d3a488848bea2d3796024a02ba6, type: 3}
+  m_Script: {fileID: 11500000, guid: b749ff3a42ab468db9a5f6bbaa1f207c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _attackFSM: {fileID: 8001080209663456363}
-  _recoveryDuration: 0.25
+  _meleeSettings:
+    _anticipationTime: 0.25
+    _attackTime: 0.75
+    _recoveryTime: 1
+  _rangedSettings:
+    _anticipationTime: 0.25
+    _attackTime: 0.75
+    _recoveryTime: 1
+  _characterAnimationController: {fileID: 4852456821825308825}
 --- !u!1 &7385247602413351199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1626,6 @@ MonoBehaviour:
   _breakIfStatusAppear: 0
   _movementFSM: {fileID: 4852456822638459115}
   _platformFSM: {fileID: 4852456821389885251}
-  _attackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
   _transitionFixedDuration: 0.15
 --- !u!1 &8302527540114006280
@@ -1694,12 +1656,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8549671360324689278}
-  - {fileID: 6025588270989579082}
+  - {fileID: 3101687806120703100}
   - {fileID: 2051612216667624078}
-  - {fileID: 3908391157901079234}
-  - {fileID: 2777473331989695130}
   - {fileID: 4988297573212157201}
-  - {fileID: 8692796066404862351}
+  - {fileID: 8479237806381284092}
   m_Father: {fileID: 3809036838954401326}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1750,52 +1710,6 @@ MonoBehaviour:
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
   _transitionDuration: 0.25
---- !u!1 &8676511990347088532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2777473331989695130}
-  - component: {fileID: 4008985817955329344}
-  m_Layer: 0
-  m_Name: PreRangedAttackState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2777473331989695130
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676511990347088532}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4444559425136706125}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4008985817955329344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676511990347088532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92d132861ca4f4d8a783aa981284e62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackFSM: {fileID: 8001080209663456363}
-  _anticipationDuration: 0.35
-  _targetMouseButton: 1
 --- !u!1001 &4101267551886206421
 PrefabInstance:
   m_ObjectHideFlags: 0

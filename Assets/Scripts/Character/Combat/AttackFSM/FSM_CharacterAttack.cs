@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using BLUE.FSMSystem;
+using System.Collections.Generic;
 
 namespace BLUE.ProjectX.Character
 {
@@ -8,16 +9,27 @@ namespace BLUE.ProjectX.Character
         None = 0,
         Idle = 1,
         
-        PreMeleeAttack = 20,
-        MeleeAttack = 21,
-        PostMeleeAttack = 22,
+        Anticipation = 2,
+        Recovery = 3,
         
-        PreRangedAttack = 30,
+        MeleeAttack = 21,
+        
         RangedAttack = 31,
-        PostRangedAttack = 32
     }
-    
-    public class FSMTransitionMessage_CharacterAttack : FSMTransitionMessageBase { }
+
+    [Serializable]
+    public class FSMTransitionMessage_CharacterAttack : FSMTransitionMessageBase
+    {
+        public EAttackType AttackType { get; }
+        
+        public CharacterAttackSettings AttackSettings { get; }
+
+        public FSMTransitionMessage_CharacterAttack(EAttackType attackType, CharacterAttackSettings attackSettings)
+        {
+            AttackType = attackType;
+            AttackSettings = attackSettings;
+        }
+    }
     
     public class FSM_CharacterAttack : FSMBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack, FSMTransition_CharacterAttack>
     {
@@ -25,25 +37,19 @@ namespace BLUE.ProjectX.Character
         {
             return new List<FSMTransition_CharacterAttack>()
             {
-                new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.PreMeleeAttack),
-                new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.PreRangedAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.Anticipation),
 
-                new FSMTransition_CharacterAttack(ECharacterAttackState.PreMeleeAttack, ECharacterAttackState.MeleeAttack),
-                new FSMTransition_CharacterAttack(ECharacterAttackState.PreMeleeAttack, ECharacterAttackState.Idle),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.Anticipation, ECharacterAttackState.MeleeAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.Anticipation, ECharacterAttackState.RangedAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.Anticipation, ECharacterAttackState.Idle),
 
-                new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.PostMeleeAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.Recovery),
                 new FSMTransition_CharacterAttack(ECharacterAttackState.MeleeAttack, ECharacterAttackState.Idle),
 
-                new FSMTransition_CharacterAttack(ECharacterAttackState.PostMeleeAttack, ECharacterAttackState.Idle),
-                
-                
-                new FSMTransition_CharacterAttack(ECharacterAttackState.PreRangedAttack, ECharacterAttackState.RangedAttack),
-                new FSMTransition_CharacterAttack(ECharacterAttackState.PreRangedAttack, ECharacterAttackState.Idle),
-
-                new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.PostRangedAttack),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.Recovery),
                 new FSMTransition_CharacterAttack(ECharacterAttackState.RangedAttack, ECharacterAttackState.Idle),
 
-                new FSMTransition_CharacterAttack(ECharacterAttackState.PostRangedAttack, ECharacterAttackState.Idle),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.Recovery, ECharacterAttackState.Idle),
             };
         }
     }
