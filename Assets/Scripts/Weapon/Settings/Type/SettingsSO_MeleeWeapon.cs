@@ -18,7 +18,7 @@ namespace BLUE.ProjectX.Weapon
         public Weapon WeaponPrefab => _weaponPrefab;
     }
 
-    [CreateAssetMenu(fileName = "SettingsSO_MeleeWeapon", menuName = "Settings/Create SettingsSO_MeleeWeapon")]
+    [CreateAssetMenu(fileName = "SettingsSO_MeleeWeapon", menuName = "BLUE/Settings/Weapon/Create SettingsSO_MeleeWeapon")]
     public class SettingsSO_MeleeWeapon : ScriptableObject
     {
         [SerializeField] private Settings_MeleeWeapon[] _meleeWeaponSettingsColl = null;
