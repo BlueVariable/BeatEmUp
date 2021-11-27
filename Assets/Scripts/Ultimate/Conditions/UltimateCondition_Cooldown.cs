@@ -4,7 +4,7 @@ namespace BLUE.ProjectX.Ultimate
 {
     public class UltimateCondition_Cooldown : UltimateConditionBase
     {
-        [SerializeField] private UltimateTimerProvider _ultimateTimerProvider = null;
+        [SerializeField] private UltimateCooldownTimerProvider _ultimateTimerProvider = null;
         
         public override bool IsConditionSatisfied()
         {

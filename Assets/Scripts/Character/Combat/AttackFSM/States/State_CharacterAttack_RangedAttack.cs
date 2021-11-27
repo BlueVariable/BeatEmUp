@@ -1,5 +1,6 @@
-﻿using BLUE.FSMSystem;
-using Extensions;
+﻿using BLUE.AnimationSystem;
+using BLUE.Extensions;
+using BLUE.FSMSystem;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character.States
@@ -24,10 +25,10 @@ namespace BLUE.ProjectX.Character.States
             string fullPath = _characterAnimController.GetFullPathOfState(ECharacterAnimation.RANGED_ATTACK,
                 AnimationController_Character.ATTACK_LAYER);
 
-            AnimationStateEventBehaviour eventBehaviour =
-                _characterAnimController.Animator.TryGetBehaviour<AnimationStateEventBehaviour>(fullPath);
+            StateMachineBehaviour_AnimationEvent eventBehaviour =
+                _characterAnimController.Animator.TryGetBehaviour<StateMachineBehaviour_AnimationEvent>(fullPath);
             
-            eventBehaviour.AddCallback(new CharacterAnimationCallback(OnAttackCompleted, transitionMessage.AttackSettings.AttackTime));
+            eventBehaviour.AddCallback(new AnimationCallback(OnAttackCompleted, transitionMessage.AttackSettings.AttackTime));
             
             base.EnterStateCustomActions(transitionMessage);
         }

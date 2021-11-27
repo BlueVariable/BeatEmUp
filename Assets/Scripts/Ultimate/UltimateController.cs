@@ -8,7 +8,6 @@ namespace BLUE.ProjectX.Ultimate
         [SerializeField] private KeyCode _activatorKeyCode = KeyCode.Q;
 
         private UltimateBase[] _ultimates;
-
         private UltimateBase[] _Ultimates
         {
             get
@@ -23,7 +22,6 @@ namespace BLUE.ProjectX.Ultimate
         }
 
         private UltimateBase _curUltimate;
-
         private UltimateBase _CurUltimate
         {
             get

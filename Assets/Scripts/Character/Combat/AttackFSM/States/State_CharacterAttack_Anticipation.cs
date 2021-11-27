@@ -1,6 +1,7 @@
-﻿using BLUE.FSMSystem;
+﻿using BLUE.AnimationSystem;
+using BLUE.Extensions;
+using BLUE.FSMSystem;
 using BLUE.InputSystem;
-using Extensions;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character.States
@@ -43,10 +44,10 @@ namespace BLUE.ProjectX.Character.States
                 _characterAnimationController.GetFullPathOfState(targetAnimType,
                     AnimationController_Character.ATTACK_LAYER);
 
-            AnimationStateEventBehaviour eventBehaviour = _characterAnimationController.Animator.TryGetBehaviour<AnimationStateEventBehaviour>(fullPath);
+            StateMachineBehaviour_AnimationEvent eventBehaviour = _characterAnimationController.Animator.TryGetBehaviour<StateMachineBehaviour_AnimationEvent>(fullPath);
             
             eventBehaviour.AddCallback(
-                new CharacterAnimationCallback(
+                new AnimationCallback(
                     OnAnticipationCompleted,
                     transitionMessage.AttackSettings.AnticipationTime));
         }
