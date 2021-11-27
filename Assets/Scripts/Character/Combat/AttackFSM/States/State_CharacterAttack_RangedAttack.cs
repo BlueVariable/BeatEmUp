@@ -3,7 +3,7 @@ using BLUE.Extensions;
 using BLUE.FSMSystem;
 using UnityEngine;
 
-namespace BLUE.ProjectX.Character.States
+namespace BLUE.ProjectX.Character
 {
     public class State_CharacterAttack_RangedAttack : StateBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack>
     {

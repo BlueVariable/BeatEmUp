@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterAnimationController: {fileID: 4852456821825308825}
+  _fixedTransitionDuration: 0.1
 --- !u!1 &1049725100726904496
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statuses:
-  - {fileID: 2990353520407419884}
+  - {fileID: 8198283986427880785}
   - {fileID: 7347738160779317163}
   - {fileID: 3419514123762397874}
   - {fileID: 8269562391466183533}
@@ -235,6 +236,7 @@ MonoBehaviour:
   _breakIfStatusAppears: 0
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
+  _animationTransitionDuration: 0.1
 --- !u!1 &2252194260917530137
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4212703538356005434}
-  - component: {fileID: 2990353520407419884}
+  - component: {fileID: 8198283986427880785}
   m_Layer: 0
   m_Name: DashStatus
   m_TagString: Untagged
@@ -484,7 +486,7 @@ Transform:
   m_Father: {fileID: 7523528572874080376}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2990353520407419884
+--- !u!114 &8198283986427880785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -493,7 +495,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4596397498586273706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64b9315af2ff4a0bbea94ad31ca5706c, type: 3}
+  m_Script: {fileID: 11500000, guid: 75aa04a464f166c4d94ca8953fddb6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _breakIfStatusAppears: 1
@@ -1504,8 +1506,8 @@ MonoBehaviour:
   _breakIfStatusAppears: 0
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
-  _animationTransitionDuration: 0.15
   _anticipationState: {fileID: 35211367094039785}
+  _animationTransitionDuration: 0.15
 --- !u!1 &7301816474946955355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1655,7 @@ MonoBehaviour:
   _movementFSM: {fileID: 4852456822638459115}
   _platformFSM: {fileID: 4852456821389885251}
   _characterAnimationController: {fileID: 4852456821825308825}
+  _delay: 0.05
   _transitionFixedDuration: 0.15
 --- !u!1 &8302527540114006280
 GameObject:
@@ -1735,7 +1738,7 @@ MonoBehaviour:
   _breakIfStatusAppears: 0
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
-  _transitionDuration: 0.25
+  _transitionFixedDuration: 0.25
 --- !u!1001 &1770109970773726627
 PrefabInstance:
   m_ObjectHideFlags: 0

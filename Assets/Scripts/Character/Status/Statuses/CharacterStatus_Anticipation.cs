@@ -1,4 +1,3 @@
-using BLUE.ProjectX.Character.States;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character
