@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e643f7fba7a45c99bffed9865a312b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 0
+  _breakIfStatusAppears: 0
   _movementFSM: {fileID: 4852456822638459115}
   _characterAnimationController: {fileID: 4852456821825308825}
   _transitionFixedDuration: 0.25
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab922f2aee2645c097a1d5f0ff01be32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 0
+  _breakIfStatusAppears: 0
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
 --- !u!1 &2252194260917530137
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b9315af2ff4a0bbea94ad31ca5706c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 1
+  _breakIfStatusAppears: 1
   _characterMovementFSM: {fileID: 4852456822638459115}
   _characterAnimationController: {fileID: 4852456821825308825}
   _transitionFixedDuration: 0.25
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966adcb66828443ebe1dbbab97362b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 0
+  _breakIfStatusAppears: 0
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
   _animationTransitionDuration: 0.15
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e067fff8ae4de7b740a5799bfbfc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 1
+  _breakIfStatusAppears: 1
   _platformFSM: {fileID: 4852456821389885251}
   _characterAnimationController: {fileID: 4852456821825308825}
   _transitionFixedDuration: 0.25
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bd6d4a72ef4cad9b10a4e5fbfba3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 0
+  _breakIfStatusAppears: 0
   _movementFSM: {fileID: 4852456822638459115}
   _platformFSM: {fileID: 4852456821389885251}
   _characterAnimationController: {fileID: 4852456821825308825}
@@ -1732,7 +1732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3465244d3299473ea22f3251b269e876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _breakIfStatusAppear: 0
+  _breakIfStatusAppears: 0
   _characterAttackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
   _transitionDuration: 0.25

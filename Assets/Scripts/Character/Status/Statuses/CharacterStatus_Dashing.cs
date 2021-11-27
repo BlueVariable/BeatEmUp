@@ -2,7 +2,7 @@
 
 namespace BLUE.ProjectX.Character
 {
-    public class CharacterStatus_InDashing : CharacterStatusBase
+    public class CharacterStatus_Dashing : CharacterStatusBase
     {
         [SerializeField] private FSM_CharacterMovement _characterMovementFSM = null;
      
@@ -22,7 +22,7 @@ namespace BLUE.ProjectX.Character
             return curMovementState == ECharacterMovementState.Dash;
         }
 
-        protected override void AppearStatusCustomActions()
+        protected override void StatusAppearedCustomActions()
         {
             _characterAnimationController.TryCrossFadeAnimation(
                 ECharacterAnimation.DASH,

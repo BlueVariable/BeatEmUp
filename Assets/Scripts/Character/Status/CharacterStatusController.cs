@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.Character
 {
-    // TODO :: need enable disable mechanism
+    // TODO @BUGRA Enable/Disable Mechanism
     public class CharacterStatusController : MonoBehaviour
     {
         [SerializeField] private CharacterStatusBase[] _statuses = null;
@@ -15,10 +15,10 @@ namespace BLUE.ProjectX.Character
 
         private void LateUpdate()
         {
-            CheckCharacterStatuses();
+            ProcessCharacterStatuses();
         }
 
-        private void CheckCharacterStatuses()
+        private void ProcessCharacterStatuses()
         {
             List<ECharacterStatus> currentStatuses = new List<ECharacterStatus>();
 
@@ -30,7 +30,7 @@ namespace BLUE.ProjectX.Character
                 {
                     currentStatuses.Add(status.GetCharacterStatus());
 
-                    if (status.BreakIfStatusAppear)
+                    if (status.BreakIfStatusAppears)
                     {
                         break;
                     }
@@ -42,32 +42,32 @@ namespace BLUE.ProjectX.Character
 
         private void UpdateAppearedStatuses(List<ECharacterStatus> currentStatuses)
         {
-            List<ECharacterStatus> appeared = currentStatuses.Except(AppearedStatuses).ToList();
+            List<ECharacterStatus> appearedStatuses = currentStatuses.Except(AppearedStatuses).ToList();
             
-            List<ECharacterStatus> disappeared = AppearedStatuses.Except(currentStatuses).ToList();
+            List<ECharacterStatus> disappearedStatuses = AppearedStatuses.Except(currentStatuses).ToList();
             
-            foreach (ECharacterStatus eCharacterStatus in disappeared)
+            foreach (ECharacterStatus statusType in disappearedStatuses)
             {
                 if (_isDebugEnabled)
                 {
-                    Debug.Log($"Character status disappeared <color=red>{eCharacterStatus}</color> @{Time.frameCount}.");
+                    Debug.Log($"Character status `<color=red>{statusType}</color>` disappeared. @{Time.frameCount}");
                 }
 
-                CharacterStatusBase status = _statuses.SingleOrDefault(i => i.GetCharacterStatus() == eCharacterStatus);
+                CharacterStatusBase status = _statuses.SingleOrDefault(i => i.GetCharacterStatus() == statusType);
                 
-                status.DisappearStatus();
+                status.StatusDisappeared();
             }
 
-            foreach (ECharacterStatus eCharacterStatus in appeared)
+            foreach (ECharacterStatus statusType in appearedStatuses)
             {
                 if (_isDebugEnabled)
                 {
-                    Debug.Log($"Character status appeared <color=green>{eCharacterStatus}</color> @{Time.frameCount}.");
+                    Debug.Log($"Character status `<color=green>{statusType}</color>` appeared.@{Time.frameCount}");
                 }
 
-                CharacterStatusBase status = _statuses.SingleOrDefault(i => i.GetCharacterStatus() == eCharacterStatus);
+                CharacterStatusBase status = _statuses.SingleOrDefault(i => i.GetCharacterStatus() == statusType);
                 
-                status.AppearStatus();
+                status.StatusAppeared();
             }
 
             AppearedStatuses = new List<ECharacterStatus>(currentStatuses);

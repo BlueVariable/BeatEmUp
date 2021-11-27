@@ -9,9 +9,9 @@ namespace BLUE.ProjectX.Character
 
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
 
-        [SerializeField] private float _animationTransitionDuration = 0.25f;
-
         [SerializeField] private State_CharacterAttack_Anticipation _anticipationState = null;
+        
+        [SerializeField] private float _animationTransitionDuration = 0.25f;
         
         public override ECharacterStatus GetCharacterStatus()
         {
@@ -25,7 +25,7 @@ namespace BLUE.ProjectX.Character
             return curAttackState == ECharacterAttackState.Anticipation;
         }
 
-        protected override void AppearStatusCustomActions()
+        protected override void StatusAppearedCustomActions()
         {
             _characterAttackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
 
@@ -48,10 +48,10 @@ namespace BLUE.ProjectX.Character
                 }
             }
 
-            base.AppearStatusCustomActions();
+            base.StatusAppearedCustomActions();
         }
 
-        protected override void DisappearedStatusCustomActions()
+        protected override void StatusDisappearedCustomActions()
         {
             _characterAttackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
 
@@ -64,7 +64,7 @@ namespace BLUE.ProjectX.Character
                     false);
             } 
             
-            base.DisappearedStatusCustomActions();
+            base.StatusDisappearedCustomActions();
         }
     }
 }
