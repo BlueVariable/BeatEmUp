@@ -9,12 +9,8 @@ namespace BLUE.ProjectX.Character
     {
         [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
 
-        [SerializeField] private AnimationController_Character _animationController = null;
-        
         [SerializeField] private KeyCode _jumpTriggerKeycode = KeyCode.Space;
 
-        [SerializeField] private float _fixedTransitionDuration = 0.25f;
-        
         private FSM_CharacterPlatform _platformFSM;
         private FSM_CharacterPlatform _PlatformFSM
         {
@@ -40,9 +36,6 @@ namespace BLUE.ProjectX.Character
         
             _jumpBehaviour.StartJump();
 
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 
-                _fixedTransitionDuration, 0, false);
-            
             base.EnterStateCustomActions(transitionMessage);
         }
 

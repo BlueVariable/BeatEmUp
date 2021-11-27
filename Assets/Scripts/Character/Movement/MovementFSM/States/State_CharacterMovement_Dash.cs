@@ -8,7 +8,7 @@ namespace BLUE.ProjectX.Character
 {
     public class State_CharacterMovement_Dash : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
-        [SerializeField] private FSM_CharacterPlatform _characterPlatformFSM = null;
+        [SerializeField] private FSM_CharacterAttack _characterAttackFSM = null;
         
         [SerializeField] private DashBehaviourBase _dashBehaviour = null;
 
@@ -16,10 +16,6 @@ namespace BLUE.ProjectX.Character
         
         [SerializeField] private GravityApplierBase _gravityApplier = null;
 
-        [SerializeField] private AnimationController_Character _animationController = null;
-
-        [SerializeField] private float _fixedTransitionDuration = 0.25f;
-        
         [SerializeField] private KeyCode _dashTriggerKey = KeyCode.None;
 
         [SerializeField] private float _dashThreshold = 0.5f;
@@ -61,6 +57,8 @@ namespace BLUE.ProjectX.Character
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterMovement transitionMessage)
         {
+            _characterAttackFSM.TryChangeState(ECharacterAttackState.Idle);
+            
             _dashBehaviour.Dash(_dashDirection);
 
             _dashBehaviour.OnDashFinished += OnDashFinished;
@@ -69,29 +67,29 @@ namespace BLUE.ProjectX.Character
 
             _jumpBehaviour.ResetJumpForceToGravity();
 
-            _animationController.TryCrossFadeAnimation(ECharacterAnimation.DASH, 
-                _fixedTransitionDuration, 0, false);
-            
             base.EnterStateCustomActions(transitionMessage);
         }
 
         protected override void ExitStateCustomActions()
         {
-            if (_characterPlatformFSM.TryGetCurStateType(out ECharacterPlatformState curPlatformState))
-            {
-                if (curPlatformState.Equals(ECharacterPlatformState.Jump) ||
-                    curPlatformState.Equals(ECharacterPlatformState.DoubleJump))
-                {
-                    _animationController.TryCrossFadeAnimation(ECharacterAnimation.JUMP_LOOP, 
-                        _fixedTransitionDuration, 0, false);
-                }
-            }
-            
             _gravityApplier.ToggleGravity(true);
             
             base.ExitStateCustomActions();
         }
-        
+
+        protected override bool CanEnterStateCustomActions(FSMTransitionMessage_CharacterMovement transitionMessage)
+        {
+            foreach (DashConditionBase condition in _Conditions)
+            {
+                if (!condition.CanPerformDash())
+                {
+                    return false;
+                }
+            }
+
+            return base.CanEnterStateCustomActions(transitionMessage);
+        }
+
         #region Input Related
         
         private void Awake()
@@ -150,14 +148,6 @@ namespace BLUE.ProjectX.Character
             if (Mathf.Abs(inputData.Amount) < _dashThreshold)
             {
                 return;
-            }
-
-            foreach (DashConditionBase condition in _Conditions)
-            {
-                if (!condition.CanPerformDash())
-                {
-                    return;
-                }
             }
             
             _dashDirection = Math.Sign(inputData.Amount);

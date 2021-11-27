@@ -1,6 +1,6 @@
 ﻿using BLUE.FSMSystem;
 
-namespace Character.Combat.AttackFSM
+namespace BLUE.ProjectX.Character
 {
     public class FSMTransition_CharacterAttack : FSMTransitionBase<ECharacterAttackState>
     {
