@@ -19,6 +19,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &3590901810795498932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8894175356071233650}
+  m_Layer: 0
+  m_Name: MeleeWeaponRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8894175356071233650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3590901810795498932}
+  m_LocalRotation: {x: 0.36829814, y: 0.20122372, z: -0.83357674, w: 0.35918707}
+  m_LocalPosition: {x: 0.109, y: 0.282, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4511253602663433665}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 36.873, y: -35.933, z: 214.283}
 --- !u!1001 &1737331691383174065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26,6 +56,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1959921393463571352, guid: 222facea89e76f24889911807c436110, type: 3}
+      propertyPath: _equipBone
+      value: 
+      objectReference: {fileID: 8894175356071233650}
     - target: {fileID: 4852456821825308825, guid: 222facea89e76f24889911807c436110, type: 3}
       propertyPath: _animator
       value: 
@@ -94,7 +128,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f95c62e25ba6b944e8c814afa9483846, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f95c62e25ba6b944e8c814afa9483846, type: 3}
       propertyPath: m_LocalPosition.x
@@ -145,5 +179,10 @@ PrefabInstance:
 --- !u!1 &1281562197899201848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f95c62e25ba6b944e8c814afa9483846, type: 3}
+  m_PrefabInstance: {fileID: 2092044994231988329}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4511253602663433665 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2563496969622287784, guid: f95c62e25ba6b944e8c814afa9483846, type: 3}
   m_PrefabInstance: {fileID: 2092044994231988329}
   m_PrefabAsset: {fileID: 0}

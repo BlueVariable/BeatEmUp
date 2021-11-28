@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
-using BLUE.FSMSystem;
+﻿using BLUE.FSMSystem;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common;
+using UnityEngine;
 
 namespace BLUE.ProjectX.Character
 {
@@ -19,9 +18,7 @@ namespace BLUE.ProjectX.Character
         [SerializeField] private GravityApplierBase _gravityApplier = null;
 
         [SerializeField] private KeyCode _dashTriggerKey = KeyCode.None;
-        
-        private int _dashDirection = 0;
-        
+
         private FSM_CharacterMovement _movementFSM;
         private FSM_CharacterMovement _MovementFSM
         {

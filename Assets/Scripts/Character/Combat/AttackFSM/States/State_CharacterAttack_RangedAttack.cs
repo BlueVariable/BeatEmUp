@@ -17,7 +17,7 @@ namespace BLUE.ProjectX.Character
 
         [SerializeField] private WeaponController _weaponController = null;
         
-        [SerializeField] private float _damageImpactNormTime = 0.75f;
+        [SerializeField] private float _projectileThrowNormTime = 0.75f;
         
         private FSMTransitionMessage_CharacterAttack _lastTransitionMessage = null;
         
@@ -36,14 +36,14 @@ namespace BLUE.ProjectX.Character
             StateMachineBehaviour_AnimationEvent eventBehaviour =
                 _characterAnimController.Animator.TryGetBehaviour<StateMachineBehaviour_AnimationEvent>(fullPath);
             
-            eventBehaviour.AddCallback(new AnimationCallback(OnDamageImpactRequested, _damageImpactNormTime));
+            eventBehaviour.AddCallback(new AnimationCallback(OnProjectileThrowRequested, _projectileThrowNormTime));
             
             eventBehaviour.AddCallback(new AnimationCallback(OnAttackCompleted, transitionMessage.AttackSettings.AttackTime));
 
             base.EnterStateCustomActions(transitionMessage);
         }
 
-        private void OnDamageImpactRequested()
+        private void OnProjectileThrowRequested()
         {
             _weaponController.TryGetWeapon(out WeaponBase<EWeapon> weapon,
                 out AttackBehaviourBase<AttackData_ProjectileThrower> attackBehav);
