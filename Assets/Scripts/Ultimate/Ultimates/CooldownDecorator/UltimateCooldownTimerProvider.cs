@@ -4,7 +4,7 @@ using UnityEngine;
 namespace BLUE.ProjectX.Ultimate
 {
     [RequireComponent(typeof(ICooldownUltimate))]
-    public class UltimateTimerProvider : MonoBehaviour
+    public class UltimateCooldownTimerProvider : MonoBehaviour
     {
         private ICooldownUltimate _cooldownUltimate;
 

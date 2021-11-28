@@ -4,6 +4,6 @@ namespace BLUE.ProjectX.Ultimate
 {
     public interface ICooldownUltimate
     {
-        Timer CooldownTimer { get; }
+        public Timer CooldownTimer { get; }
     }
 }

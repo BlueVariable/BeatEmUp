@@ -1,12 +1,13 @@
 ﻿using BLUE.FSMSystem;
-using BLUE.ProjectX.Character;
 using UnityEngine;
 
-namespace BLUE.ProjectX.Character.States
+namespace BLUE.ProjectX.Character
 {
     public class State_CharacterAttack_Idle : StateBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack>
     {
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
+
+        [SerializeField] private float _fixedTransitionDuration = 0.1f;
         
         public override ECharacterAttackState GetStateType()
         {
@@ -17,7 +18,7 @@ namespace BLUE.ProjectX.Character.States
         {
             _characterAnimationController.TryCrossFadeAnimation(
                 ECharacterAnimation.ATTACK_EMPTY,
-                0.1f,
+                _fixedTransitionDuration,
                 AnimationController_Character.ATTACK_LAYER,
                 false);
             

@@ -1,16 +1,17 @@
-﻿using BLUE.FSMSystem;
+﻿using BLUE.AnimationSystem;
+using BLUE.Extensions;
+using BLUE.FSMSystem;
 using BLUE.InputSystem;
-using Extensions;
 using UnityEngine;
 
-namespace BLUE.ProjectX.Character.States
+namespace BLUE.ProjectX.Character
 {
     public class State_CharacterAttack_Anticipation : StateBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack>
     {
         #region Inputs
 
-        private const int _MELEE_ATTACK_BUTTON = 0;
-        private const int _RANGED_ATTACK_BUTTON = 1;
+        private const int MELEE_ATTACK_BUTTON = 0;
+        private const int RANGED_ATTACK_BUTTON = 1;
 
         #endregion
 
@@ -23,7 +24,6 @@ namespace BLUE.ProjectX.Character.States
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
 
         private FSMTransitionMessage_CharacterAttack _lastTransitionMessage;
-
         public FSMTransitionMessage_CharacterAttack LastTransitionMessage => _lastTransitionMessage;
         
         public override ECharacterAttackState GetStateType()
@@ -43,12 +43,23 @@ namespace BLUE.ProjectX.Character.States
                 _characterAnimationController.GetFullPathOfState(targetAnimType,
                     AnimationController_Character.ATTACK_LAYER);
 
-            AnimationStateEventBehaviour eventBehaviour = _characterAnimationController.Animator.TryGetBehaviour<AnimationStateEventBehaviour>(fullPath);
+            StateMachineBehaviour_AnimationEvent eventBehaviour = _characterAnimationController
+                .Animator.TryGetBehaviour<StateMachineBehaviour_AnimationEvent>(fullPath);
             
             eventBehaviour.AddCallback(
-                new CharacterAnimationCallback(
+                new AnimationCallback(
                     OnAnticipationCompleted,
                     transitionMessage.AttackSettings.AnticipationTime));
+        }
+        
+        private void Awake()
+        {
+            RegisterToInputManager();
+        }
+
+        private void OnDestroy()
+        {
+            UnregisterFromInputManager();
         }
 
         private void OnAnticipationCompleted()
@@ -64,17 +75,7 @@ namespace BLUE.ProjectX.Character.States
         }
         
         #region Input Related
-
-        private void Awake()
-        {
-            RegisterToInputManager();
-        }
-
-        private void OnDestroy()
-        {
-            UnregisterFromInputManager();
-        }
-
+        
         private void RegisterToInputManager()
         {
             InputManager.Instance.TryRegisterToInputListener<InputData_Mouse>(EInputEvent.MouseButtonDown, OnMouseButtonDown);
@@ -91,7 +92,7 @@ namespace BLUE.ProjectX.Character.States
 
         private void OnMouseButtonDown(InputData_Mouse inputData)
         {
-            if (inputData.MouseButton == _MELEE_ATTACK_BUTTON)
+            if (inputData.MouseButton == MELEE_ATTACK_BUTTON)
             {
                 _attackFSM.TryChangeState(
                     ECharacterAttackState.Anticipation,
@@ -99,7 +100,7 @@ namespace BLUE.ProjectX.Character.States
                         EAttackType.Melee,
                         _meleeSettings));
             }
-            else if (inputData.MouseButton == _RANGED_ATTACK_BUTTON)
+            else if (inputData.MouseButton == RANGED_ATTACK_BUTTON)
             {
                 _attackFSM.TryChangeState(
                     ECharacterAttackState.Anticipation,

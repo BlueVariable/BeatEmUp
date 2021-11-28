@@ -8,6 +8,8 @@ namespace BLUE.ProjectX.Character
 
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
         
+        [SerializeField] private float _animationTransitionDuration = 0.1f;
+        
         public override ECharacterStatus GetCharacterStatus()
         {
             return ECharacterStatus.Attacking;
@@ -21,19 +23,19 @@ namespace BLUE.ProjectX.Character
                    curAttackState == ECharacterAttackState.RangedAttack;
         }
         
-        protected override void DisappearedStatusCustomActions()
+        protected override void StatusDisappearedCustomActions()
         {
             _characterAttackFSM.TryGetCurStateType(out ECharacterAttackState curAttackState);
 
             if (curAttackState != ECharacterAttackState.Recovery)
             {
                 _characterAnimationController.TryCrossFadeAnimation(ECharacterAnimation.ATTACK_EMPTY,
-                    0.1f, 
+                    _animationTransitionDuration, 
                     AnimationController_Character.ATTACK_LAYER,
                     false);
             }
             
-            base.DisappearedStatusCustomActions();
+            base.StatusDisappearedCustomActions();
         }
     }
 }

@@ -4,32 +4,31 @@ namespace BLUE.ProjectX.Character
 {
     public abstract class CharacterStatusBase : MonoBehaviour
     {
-        [SerializeField] protected bool _breakIfStatusAppear = false;
-
-        public bool BreakIfStatusAppear => _breakIfStatusAppear;
+        [SerializeField] protected bool _breakIfStatusAppears = false;
+        public bool BreakIfStatusAppears => _breakIfStatusAppears;
         
-        public bool IsAppearing { get; private set; }
+        public bool IsActive { get; private set; }
 
         public abstract ECharacterStatus GetCharacterStatus();
         
         public abstract bool CheckStatus();
 
-        public void AppearStatus()
-        {
-            IsAppearing = true;
-            
-            AppearStatusCustomActions();
-        }
-
-        public void DisappearStatus()
-        {
-            IsAppearing = false;
-            
-            DisappearedStatusCustomActions();
-        }
-
-        protected virtual void AppearStatusCustomActions() { }
+        protected virtual void StatusAppearedCustomActions() { }
         
-        protected virtual void DisappearedStatusCustomActions() { }
+        protected virtual void StatusDisappearedCustomActions() { }
+        
+        public void StatusAppeared()
+        {
+            IsActive = true;
+            
+            StatusAppearedCustomActions();
+        }
+
+        public void StatusDisappeared()
+        {
+            IsActive = false;
+            
+            StatusDisappearedCustomActions();
+        }
     }
 }

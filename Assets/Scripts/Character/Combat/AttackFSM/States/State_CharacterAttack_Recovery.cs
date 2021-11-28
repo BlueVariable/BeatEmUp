@@ -1,8 +1,9 @@
-﻿using BLUE.FSMSystem;
-using Extensions;
+﻿using BLUE.AnimationSystem;
+using BLUE.Extensions;
+using BLUE.FSMSystem;
 using UnityEngine;
 
-namespace BLUE.ProjectX.Character.States
+namespace BLUE.ProjectX.Character
 {
     public class State_CharacterAttack_Recovery : StateBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack>
     {
@@ -25,10 +26,11 @@ namespace BLUE.ProjectX.Character.States
                 _characterAnimationController.GetFullPathOfState(targetAnimType,
                     AnimationController_Character.ATTACK_LAYER);
 
-            AnimationStateEventBehaviour eventBehaviour = _characterAnimationController.Animator.TryGetBehaviour<AnimationStateEventBehaviour>(fullPath);
+            StateMachineBehaviour_AnimationEvent eventBehaviour = _characterAnimationController
+                .Animator.TryGetBehaviour<StateMachineBehaviour_AnimationEvent>(fullPath);
             
             eventBehaviour.AddCallback(
-                new CharacterAnimationCallback(
+                new AnimationCallback(
                     OnRecoveryCompleted,
                     transitionMessage.AttackSettings.RecoveryTime));
             

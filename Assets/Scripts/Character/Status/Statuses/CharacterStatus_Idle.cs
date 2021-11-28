@@ -12,6 +12,8 @@ namespace BLUE.ProjectX.Character
         
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
 
+        [SerializeField] private float _delay = 0.05f;
+        
         [SerializeField] private float _transitionFixedDuration = 0.25f;
         
         public override ECharacterStatus GetCharacterStatus()
@@ -28,11 +30,11 @@ namespace BLUE.ProjectX.Character
                    curPlatformState == ECharacterPlatformState.Idle;
         }
 
-        protected override void AppearStatusCustomActions()
+        protected override void StatusAppearedCustomActions()
         {
-            CoroutineHelper.Instance.WaitForSeconds(0.05f, () =>
+            CoroutineHelper.Instance.WaitForSeconds(_delay, () =>
             {
-                if (IsAppearing)
+                if (IsActive)
                 {
                     _characterAnimationController.TryCrossFadeAnimation(
                         ECharacterAnimation.IDLE,
@@ -42,7 +44,7 @@ namespace BLUE.ProjectX.Character
                 }
             });
             
-            base.AppearStatusCustomActions();
+            base.StatusAppearedCustomActions();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace BLUE.ProjectX.Character
             return curMovementState == ECharacterMovementState.Move;
         }
 
-        protected override void AppearStatusCustomActions()
+        protected override void StatusAppearedCustomActions()
         {
             _characterAnimationController.TryCrossFadeAnimation(
                 ECharacterAnimation.MOVE,

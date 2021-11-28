@@ -14,7 +14,6 @@ namespace BLUE.ProjectX.Ultimate
         public abstract EUltimate UltimateType { get; }
         
         private UltimateConditionBase[] _conditions;
-
         private UltimateConditionBase[] _Conditions
         {
             get
@@ -27,9 +26,17 @@ namespace BLUE.ProjectX.Ultimate
                 return _conditions;
             }
         }
-        
+
+        #region Events
+
         public Action OnUltimateStarted { get; set; }
-        public Action OnUltimateCompleted { get; set; }
+        public Action OnUltimateFinished { get; set; }
+
+        #endregion
+        
+        protected virtual void ActivatedCustomActions() { }
+        
+        protected virtual void DeactivatedCustomActions() { }
 
         public bool TryActivateUltimate()
         {
@@ -48,20 +55,11 @@ namespace BLUE.ProjectX.Ultimate
             return true;
         }
 
-        public void InterruptUltimate()
-        {
-            CompleteUltimate();            
-        }
-
-        protected void CompleteUltimate()
+        public void DeactivateUltimate()
         {
             DeactivatedCustomActions();
             
-            OnUltimateCompleted?.Invoke();
+            OnUltimateFinished?.Invoke();
         }
-
-        protected virtual void ActivatedCustomActions() { }
-        
-        protected virtual void DeactivatedCustomActions() { }
     }
 }

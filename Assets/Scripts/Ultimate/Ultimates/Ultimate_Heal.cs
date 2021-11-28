@@ -11,12 +11,11 @@ namespace BLUE.ProjectX.Ultimate
         
         [SerializeField] private HealSource _healSource = null;
         
-        public Timer CooldownTimer => _cooldownTimer;
-        
         public override EUltimate UltimateType => EUltimate.Heal;
 
-        private Damagable _damagable;
+        public Timer CooldownTimer => _cooldownTimer;
 
+        private Damagable _damagable;
         private Damagable _Damagable
         {
             get
@@ -36,7 +35,7 @@ namespace BLUE.ProjectX.Ultimate
             
             _Damagable.RefillHP(_healSource);
             
-            CompleteUltimate();
+            DeactivateUltimate();
             
             base.ActivatedCustomActions();
         }

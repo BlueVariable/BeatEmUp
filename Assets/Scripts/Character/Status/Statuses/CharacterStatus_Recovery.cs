@@ -8,7 +8,7 @@ namespace BLUE.ProjectX.Character
 
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
 
-        [SerializeField] private float _transitionDuration = 0.25f;
+        [SerializeField] private float _transitionFixedDuration = 0.25f;
         
         public override ECharacterStatus GetCharacterStatus()
         {
@@ -22,15 +22,15 @@ namespace BLUE.ProjectX.Character
             return curAttackState == ECharacterAttackState.Recovery;
         }
 
-        protected override void DisappearedStatusCustomActions()
+        protected override void StatusDisappearedCustomActions()
         {
             _characterAnimationController.TryCrossFadeAnimation(
                 ECharacterAnimation.ATTACK_EMPTY,
-                _transitionDuration,
+                _transitionFixedDuration,
                 AnimationController_Character.ATTACK_LAYER,
                 false);
             
-            base.DisappearedStatusCustomActions();
+            base.StatusDisappearedCustomActions();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace BLUE.ProjectX.Character
                    curPlatformState == ECharacterPlatformState.DoubleJump;
         }
 
-        protected override void AppearStatusCustomActions()
+        protected override void StatusAppearedCustomActions()
         {
             _characterAnimationController.TryCrossFadeAnimation(
                 ECharacterAnimation.JUMP_LOOP,
@@ -31,7 +31,7 @@ namespace BLUE.ProjectX.Character
                 AnimationController_Character.MOVEMENT_LAYER,
                 false);
             
-            base.AppearStatusCustomActions();
+            base.StatusAppearedCustomActions();
         }
     }
 }
