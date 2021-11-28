@@ -81,6 +81,7 @@ MonoBehaviour:
   _deallocatedActionExecutor:
     _actionCarrier: {fileID: 6305533131667008687}
   _projectileThrownBehaviour: {fileID: 0}
+  _setParentNullOnThrown: 1
   _projectileHitTriggers: []
   _projectileThrownActionExecutor:
     _actionCarrier: {fileID: 2900919737696366610}
