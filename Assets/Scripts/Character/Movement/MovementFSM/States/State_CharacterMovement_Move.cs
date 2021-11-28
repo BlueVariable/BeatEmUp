@@ -1,4 +1,5 @@
-﻿using BLUE.FSMSystem;
+﻿using System;
+using BLUE.FSMSystem;
 using BLUE.Helpers;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common;
@@ -15,11 +16,13 @@ namespace BLUE.ProjectX.Character
         #endregion
         
         [SerializeField] private MovementBehaviourBase _movementBehaviour = null;
-
-        [SerializeField] private Transform _characterRoot = null;
-
+        
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
 
+        [SerializeField] private RotationBehaviourBase _rotationBehaviour = null;
+        
+        private Vector2 _lastExecutedInput = Vector2.zero;
+        
         private IMovementSpeedProvider _movementSpeedProvider;
         private IMovementSpeedProvider _MovementSpeedProvider
         {
@@ -57,7 +60,11 @@ namespace BLUE.ProjectX.Character
         {
             InputManager.Instance.TryRegisterToInputListener<InputData_Axis>(
                 EInputEvent.HorizontalAxis,
-                OnInputPerformedInMoveState);
+                OnHorizontalInputPerformedInMoveState);
+            
+            InputManager.Instance.TryRegisterToInputListener<InputData_Axis>(
+                EInputEvent.VerticalAxis,
+                OnVerticalInputPerformedInMoveState);
 
             base.EnterStateCustomActions(transitionMessage);
         }
@@ -66,11 +73,59 @@ namespace BLUE.ProjectX.Character
         {
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Axis>(
                 EInputEvent.HorizontalAxis,
-                OnInputPerformedInMoveState);
+                OnHorizontalInputPerformedInMoveState);
+            
+            InputManager.Instance.TryUnregisterFromInputListener<InputData_Axis>(
+                EInputEvent.VerticalAxis,
+                OnVerticalInputPerformedInMoveState);
             
             base.ExitStateCustomActions();
         }
+
+        private void OnHorizontalInputPerformedInMoveState(InputData_Axis inputData)
+        {
+            _lastExecutedInput.x = inputData.Amount;
+
+            if (!inputData.InputState.Equals(EAxisInputState.Continuing))
+            {
+                return;
+            }
+            
+            Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
+
+            movementSpeed.z = 0;
+            
+            Move(movementSpeed);
+        }
         
+        private void OnVerticalInputPerformedInMoveState(InputData_Axis inputData)
+        {
+            _lastExecutedInput.y = inputData.Amount;
+            
+            Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
+            
+            movementSpeed.x = 0;
+            
+            Move(movementSpeed);
+        }
+
+        private void Move(Vector3 movementSpeed)
+        {
+            _movementBehaviour.Move(movementSpeed);
+            
+            float animSpeed = Mathf.Clamp(Mathf.Abs(_lastExecutedInput.magnitude), 0, 1);
+            
+            _characterAnimationController.UpdateParameter(MOVEMENT_SPEED_PARAM_NAME, animSpeed);
+
+            Vector3 dir = new Vector3(_lastExecutedInput.x, 0, _lastExecutedInput.y);
+
+            Quaternion targetQuaternion = Quaternion.LookRotation(dir, Vector3.up);
+            
+            _rotationBehaviour.Rotate(targetQuaternion.eulerAngles);
+        }
+
+        #region Input Related
+
         private void Awake()
         {
             RegisterToInputManager();
@@ -80,25 +135,7 @@ namespace BLUE.ProjectX.Character
         {
             UnregisterFromInputManager();
         }
-
-        private void OnInputPerformedInMoveState(InputData_Axis inputData)
-        {
-            if (!inputData.InputState.Equals(EAxisInputState.Continuing))
-            {
-                return;
-            }
-            
-            Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
-                
-            _movementBehaviour.Move(movementSpeed);
-            
-            _characterRoot.rotation = Quaternion.Euler(0,90 * Mathf.Sign(inputData.Amount), 0);
-            
-            _characterAnimationController.UpdateParameter(MOVEMENT_SPEED_PARAM_NAME, Mathf.Abs(inputData.Amount));
-        }
-
-        #region Input Related
-
+        
         private void RegisterToInputManager()
         {
             if (InputManager.Instance == null)
@@ -109,6 +146,10 @@ namespace BLUE.ProjectX.Character
             InputManager.Instance.TryRegisterToInputListener<InputData_Axis>(
                 EInputEvent.HorizontalAxis,
                 OnHorizontalInputPerformed);
+            
+            InputManager.Instance.TryRegisterToInputListener<InputData_Axis>(
+                EInputEvent.VerticalAxis,
+                OnVerticalInputPerformed);
         }
 
         private void UnregisterFromInputManager()
@@ -121,6 +162,10 @@ namespace BLUE.ProjectX.Character
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Axis>(
                 EInputEvent.HorizontalAxis,
                 OnHorizontalInputPerformed);
+            
+            InputManager.Instance.TryUnregisterFromInputListener<InputData_Axis>(
+                EInputEvent.VerticalAxis,
+                OnVerticalInputPerformed);
         }
 
         private void OnHorizontalInputPerformed(InputData_Axis inputData)
@@ -131,7 +176,23 @@ namespace BLUE.ProjectX.Character
                 _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Move);
             }
 
-            if (inputData.InputState.Equals(EAxisInputState.Finished))
+            if (inputData.InputState.Equals(EAxisInputState.Finished) &&
+                _lastExecutedInput.magnitude == 0)
+            {
+                _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Idle);
+            }
+        }
+        
+        private void OnVerticalInputPerformed(InputData_Axis inputData)
+        {
+            if (inputData.InputState.Equals(EAxisInputState.Started) 
+                || inputData.InputState.Equals(EAxisInputState.Continuing))
+            {
+                _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Move);
+            }
+            
+            if (inputData.InputState.Equals(EAxisInputState.Finished) &&
+                _lastExecutedInput.magnitude == 0)
             {
                 _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Idle);
             }
