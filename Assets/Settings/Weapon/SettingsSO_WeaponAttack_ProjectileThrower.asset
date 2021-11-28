@@ -18,12 +18,12 @@ MonoBehaviour:
     - _damage: 10
       _throwData:
         _eulerAngleOffset: {x: 0, y: 0, z: 0}
-        _projectileSpeed: 5
+        _projectileSpeed: 20
     - _damage: 10
       _throwData:
         _eulerAngleOffset: {x: 0, y: 10, z: 0}
-        _projectileSpeed: 5
+        _projectileSpeed: 20
     - _damage: 10
       _throwData:
         _eulerAngleOffset: {x: 0, y: -10, z: 0}
-        _projectileSpeed: 5
+        _projectileSpeed: 20
