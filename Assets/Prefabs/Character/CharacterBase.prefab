@@ -1703,7 +1703,7 @@ GameObject:
   - component: {fileID: 7185774865910447800}
   - component: {fileID: 8269562391466183533}
   m_Layer: 0
-  m_Name: RecoveryState
+  m_Name: RecoveryStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
