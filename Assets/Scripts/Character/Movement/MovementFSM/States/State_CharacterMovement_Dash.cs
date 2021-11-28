@@ -8,6 +8,8 @@ namespace BLUE.ProjectX.Character
 {
     public class State_CharacterMovement_Dash : StateBase<ECharacterMovementState, FSMTransitionMessage_CharacterMovement>
     {
+        [SerializeField] private Transform _characterRoot = null;
+        
         [SerializeField] private FSM_CharacterAttack _characterAttackFSM = null;
         
         [SerializeField] private DashBehaviourBase _dashBehaviour = null;
@@ -17,8 +19,6 @@ namespace BLUE.ProjectX.Character
         [SerializeField] private GravityApplierBase _gravityApplier = null;
 
         [SerializeField] private KeyCode _dashTriggerKey = KeyCode.None;
-
-        [SerializeField] private float _dashThreshold = 0.5f;
         
         private int _dashDirection = 0;
         
@@ -59,7 +59,7 @@ namespace BLUE.ProjectX.Character
         {
             _characterAttackFSM.TryChangeState(ECharacterAttackState.Idle);
             
-            _dashBehaviour.Dash(_dashDirection);
+            _dashBehaviour.Dash(_characterRoot.forward.normalized);
 
             _dashBehaviour.OnDashFinished += OnDashFinished;
 
@@ -105,7 +105,6 @@ namespace BLUE.ProjectX.Character
         private void RegisterToInputManager()
         {
             InputManager.Instance.TryRegisterToInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyDown);
-            InputManager.Instance.TryRegisterToInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
         }
 
         private void UnregisterFromInputManager()
@@ -116,7 +115,6 @@ namespace BLUE.ProjectX.Character
             }
             
             InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyDown);
-            InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyUp, OnKeyUp);
         }
 
         private void OnKeyDown(InputData_Key inputData)
@@ -125,32 +123,6 @@ namespace BLUE.ProjectX.Character
             {
                 return;
             }
-
-            InputManager.Instance.TryRegisterToInputListener<InputData_Axis>(
-                EInputEvent.HorizontalAxis,
-                OnHorizontalInputPerformed);
-        }
-
-        private void OnKeyUp(InputData_Key inputData)
-        {
-            if (!inputData.KeyCode.Equals(_dashTriggerKey))
-            {
-                return;
-            }
-            
-            InputManager.Instance.TryUnregisterFromInputListener<InputData_Axis>(
-                EInputEvent.HorizontalAxis,
-                OnHorizontalInputPerformed);
-        }
-
-        private void OnHorizontalInputPerformed(InputData_Axis inputData)
-        {
-            if (Mathf.Abs(inputData.Amount) < _dashThreshold)
-            {
-                return;
-            }
-            
-            _dashDirection = Math.Sign(inputData.Amount);
 
             _MovementFSM.TryChangeState(ECharacterMovementState.Dash);
         }

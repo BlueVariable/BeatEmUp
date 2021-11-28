@@ -366,6 +366,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackFSM: {fileID: 8001080209663456363}
   _characterAnimController: {fileID: 4852456821825308825}
+--- !u!1 &2512106462832703483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5636497289920274855}
+  - component: {fileID: 3738572823123478852}
+  m_Layer: 0
+  m_Name: RotationBehaviour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5636497289920274855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512106462832703483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4852456822734642084}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3738572823123478852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512106462832703483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7b78c72ae941b480de2b911a03bf49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTransform: {fileID: 4852456821880316231}
+  _rotationSpeed: 5
 --- !u!1 &3407162988933824816
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,8 +935,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementBehaviour: {fileID: 4852456821652022852}
-  _characterRoot: {fileID: 4852456821880316231}
   _characterAnimationController: {fileID: 4852456821825308825}
+  _rotationBehaviour: {fileID: 3738572823123478852}
 --- !u!114 &4852456821745974791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,7 +949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ddcce82efba4d5895dfe5d5de7bbde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: {x: 4, y: 0, z: 0}
+  _movementSpeed: {x: 4, y: 0, z: 2}
 --- !u!1 &4852456821825308823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,12 +1169,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ef1675740e403aa763b2b62ed0981f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterRoot: {fileID: 4852456821880316231}
   _characterAttackFSM: {fileID: 8001080209663456363}
   _dashBehaviour: {fileID: 4852456823195878104}
   _jumpBehaviour: {fileID: 4852456822126387133}
   _gravityApplier: {fileID: 4852456822624438265}
   _dashTriggerKey: 306
-  _dashThreshold: 0.15
 --- !u!1 &4852456822055764296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1460,7 @@ Transform:
   - {fileID: 4852456822624438264}
   - {fileID: 4852456823195878102}
   - {fileID: 4852456822126387130}
+  - {fileID: 5636497289920274855}
   m_Father: {fileID: 4852456821880316231}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

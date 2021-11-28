@@ -52,7 +52,10 @@ namespace BLUE.ProjectX.Ultimate
 
         private void UnregisterFromInputManager()
         {
-            InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyDown);
+            if (InputManager.Instance != null)
+            {
+                InputManager.Instance.TryUnregisterFromInputListener<InputData_Key>(EInputEvent.KeyDown, OnKeyDown);
+            }
         }
 
         private void OnKeyDown(InputData_Key inputData)
