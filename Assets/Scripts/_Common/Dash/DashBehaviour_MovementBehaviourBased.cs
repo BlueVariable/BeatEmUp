@@ -34,12 +34,12 @@ namespace BLUE.ProjectX.Common
 
         #endregion
         
-        public override void Dash(int dashDirection)
+        public override void Dash(Vector3 dashDirection)
         {
             StartDashRoutine(dashDirection);
         }
         
-        private void StartDashRoutine(int dashDirection)
+        private void StartDashRoutine(Vector3 dashDirection)
         {
             StopDashRoutine();
 
@@ -56,7 +56,7 @@ namespace BLUE.ProjectX.Common
             }
         }
 
-        private IEnumerator DashProgress(int dashDirection)
+        private IEnumerator DashProgress(Vector3 dashDirection)
         {
             OnDashStarted?.Invoke();
             
@@ -66,9 +66,9 @@ namespace BLUE.ProjectX.Common
             {
                 timePassed += Time.deltaTime;
 
-                float movementSpeed = dashDirection * _SpeedProvider.GetDashSpeed(timePassed / _dashDuration);
+                Vector3 movementSpeed = dashDirection * _SpeedProvider.GetDashSpeed(timePassed / _dashDuration);
                 
-                _movementBehaviour.Move(new Vector3(movementSpeed, 0, 0));
+                _movementBehaviour.Move(movementSpeed);
                 
                 yield return null;
             }

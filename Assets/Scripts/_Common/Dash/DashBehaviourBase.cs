@@ -13,6 +13,6 @@ namespace BLUE.ProjectX.Common
 
         #endregion
         
-        public abstract void Dash(int dashDirection);
+        public abstract void Dash(Vector3 dashDirection);
     }
 }
