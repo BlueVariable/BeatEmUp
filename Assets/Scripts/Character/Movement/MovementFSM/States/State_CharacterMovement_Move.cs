@@ -1,6 +1,4 @@
-﻿using System;
-using BLUE.FSMSystem;
-using BLUE.Helpers;
+﻿using BLUE.FSMSystem;
 using BLUE.InputSystem;
 using BLUE.ProjectX.Common;
 using UnityEngine;
@@ -81,6 +79,16 @@ namespace BLUE.ProjectX.Character
             
             base.ExitStateCustomActions();
         }
+        
+        private void Awake()
+        {
+            RegisterToInputManager();
+        }
+
+        private void OnDestroy()
+        {
+            UnregisterFromInputManager();
+        }
 
         private void OnHorizontalInputPerformedInMoveState(InputData_Axis inputData)
         {
@@ -126,16 +134,6 @@ namespace BLUE.ProjectX.Character
 
         #region Input Related
 
-        private void Awake()
-        {
-            RegisterToInputManager();
-        }
-
-        private void OnDestroy()
-        {
-            UnregisterFromInputManager();
-        }
-        
         private void RegisterToInputManager()
         {
             if (InputManager.Instance == null)

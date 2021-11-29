@@ -9,6 +9,8 @@ namespace BLUE.ProjectX.Common
         
         [SerializeField] private float _rotationSpeed = 5f;
 
+        [SerializeField] private float _satisfactionAngle = 0.05f;
+        
         private IEnumerator _rotationRoutine;
         
         public override void Rotate(Vector3 targetRotation)
@@ -41,9 +43,10 @@ namespace BLUE.ProjectX.Common
             
             Quaternion targetQuaternion = Quaternion.Euler(targetRotation);
             
-            while (Quaternion.Angle(_targetTransform.localRotation, targetQuaternion) > 0.05f)
+            while (Quaternion.Angle(_targetTransform.localRotation, targetQuaternion) > _satisfactionAngle)
             {
-                _targetTransform.rotation = Quaternion.Lerp(initialQuaternion, targetQuaternion, _rotationSpeed * Time.deltaTime);
+                _targetTransform.rotation = Quaternion.Lerp(initialQuaternion, targetQuaternion, 
+                    _rotationSpeed * Time.deltaTime);
                 
                 yield return null;
             }
