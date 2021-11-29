@@ -6,6 +6,8 @@ namespace BLUE.ProjectX.Scene
         
         Base = 1,
 
+        Bluentangled = 2,
+        
         MainMenu = 5,
         
         Level_1 = 10,

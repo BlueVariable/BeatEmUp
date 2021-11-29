@@ -158,12 +158,14 @@ MonoBehaviour:
   _sceneInfoColl:
   - _sceneType: 1
     _buildIndex: 0
-  - _sceneType: 5
+  - _sceneType: 2
     _buildIndex: 1
-  - _sceneType: 10
+  - _sceneType: 5
     _buildIndex: 2
-  - _sceneType: 11
+  - _sceneType: 10
     _buildIndex: 3
+  - _sceneType: 11
+    _buildIndex: 4
   _sceneLoadConditions:
   - {fileID: 1366163422}
   _sceneUnloadConditions:
@@ -197,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _saveEnabled: 0
   _loadEnabled: 0
-  _fallbackSceneType: 10
+  _fallbackSceneType: 2
 --- !u!1 &519547620
 GameObject:
   m_ObjectHideFlags: 0
