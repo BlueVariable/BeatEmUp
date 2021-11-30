@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8549671360324689278}
   - component: {fileID: 1103693780730889122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: IdleState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4990074888230040469}
   - component: {fileID: 2297422407342974507}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StatusController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6002521956643874175}
   - component: {fileID: 5298144935721079340}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5262065093036444094}
   - component: {fileID: 3477297349464207501}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MoveStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4320136181537951950}
   - component: {fileID: 8762503514845749003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: UltimateController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4881225713587334951}
   - component: {fileID: 3419514123762397874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackingStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7523528572874080376}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Statuses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051612216667624078}
   - component: {fileID: 5680193287929197015}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MeleeAttackState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5636497289920274855}
   - component: {fileID: 3738572823123478852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RotationBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4852456821880316231}
   _rotationSpeed: 5
+  _satisfactionAngle: 0.05
 --- !u!1 &3407162988933824816
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4988297573212157201}
   - component: {fileID: 4332330207868547228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RangedAttackState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8479237806381284092}
   - component: {fileID: 8414207487607360561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RecoveryState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1173730499200461948}
   - component: {fileID: 7845077490680985577}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RefreshRequestors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -567,7 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3809036838954401326}
   - component: {fileID: 8001080209663456363}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttackFSM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4212703538356005434}
   - component: {fileID: 8198283986427880785}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DashStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4852456821362893035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456821389885248}
   - component: {fileID: 4852456821389885251}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlatformFSM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456821443757578}
   - component: {fileID: 4852456821443757581}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DashConditions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456821652022855}
   - component: {fileID: 4852456821652022852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MovementBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -825,7 +826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456821656164198}
   - component: {fileID: 4852456821656164201}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: JumpState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4852456821715776560}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +905,7 @@ GameObject:
   - component: {fileID: 4852456821745974788}
   - component: {fileID: 4852456821745974790}
   - component: {fileID: 4852456821745974791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456821825308822}
   - component: {fileID: 4852456821825308825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AnimationController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,7 +1025,7 @@ GameObject:
   - component: {fileID: 4852456821880316231}
   - component: {fileID: 4852456821880316228}
   - component: {fileID: 4852456821880316229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CharacterBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,7 +1096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456822011761149}
   - component: {fileID: 4852456822011761148}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,7 +1139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456822043053345}
   - component: {fileID: 4852456822043053344}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1188,7 +1189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456822055764299}
   - component: {fileID: 4852456822055764298}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DoubleJumpState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1234,7 +1235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456822126387130}
   - component: {fileID: 4852456822126387133}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: JumpBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1282,7 +1283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4852456822438651209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Controllers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456822624438264}
   - component: {fileID: 4852456822624438265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GravityBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1363,7 +1364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456822638459114}
   - component: {fileID: 4852456822638459115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MovementFSM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1408,7 +1409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4852456822648250682}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,7 +1442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4852456822734642084}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Behaviours
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1478,7 +1479,7 @@ GameObject:
   - component: {fileID: 4852456823195878102}
   - component: {fileID: 4852456823195878104}
   - component: {fileID: 4852456823195878105}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DashBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1578,7 +1579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852456823405918647}
   - component: {fileID: 4852456823405918646}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: IdleState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1621,7 +1622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 268189597610779167}
   - component: {fileID: 7347738160779317163}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AnticipationStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1669,7 +1670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3101687806120703100}
   - component: {fileID: 35211367094039785}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AnticipationState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1722,7 +1723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 538759714720977507}
   - component: {fileID: 3212786442255232891}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InAirStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1769,7 +1770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2132197955323781465}
   - component: {fileID: 3455378465436589057}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: IdleStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1817,7 +1818,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4444559425136706125}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1853,7 +1854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7185774865910447800}
   - component: {fileID: 8269562391466183533}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RecoveryStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1897,13 +1898,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4852456822438651209}
     m_Modifications:
+    - target: {fileID: 2470551309076353437, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5968683636931772540, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
       propertyPath: m_Name
       value: InventoryController
       objectReference: {fileID: 0}
+    - target: {fileID: 5968683636931772540, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7407427528198626871, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
       propertyPath: m_Name
       value: InitialEquipper_RangedWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407427528198626871, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8346061748321960190, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
       propertyPath: m_RootOrder
@@ -1985,6 +1998,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4320136181537951950}
     m_Modifications:
+    - target: {fileID: 10159271707916196, guid: e41de5918a446e448be6d4eb69a28890, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793236465206295279, guid: e41de5918a446e448be6d4eb69a28890, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1957641266867931678, guid: e41de5918a446e448be6d4eb69a28890, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2032,6 +2053,10 @@ PrefabInstance:
     - target: {fileID: 8031057699682517330, guid: e41de5918a446e448be6d4eb69a28890, type: 3}
       propertyPath: m_Name
       value: Ultimate_Heal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031057699682517330, guid: e41de5918a446e448be6d4eb69a28890, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41de5918a446e448be6d4eb69a28890, type: 3}
