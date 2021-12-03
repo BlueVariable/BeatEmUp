@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _saveEnabled: 0
   _loadEnabled: 0
-  _fallbackSceneType: 2
+  _fallbackSceneType: 10
 --- !u!1 &519547620
 GameObject:
   m_ObjectHideFlags: 0
