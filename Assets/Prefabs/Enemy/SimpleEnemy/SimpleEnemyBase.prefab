@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f178cf1f4f5f84cb25979d57c0564c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fsm: {fileID: 0}
+  _fsm: {fileID: 5052359326117503646}
   _attackEnterRequestors: []
   _attackActions:
     _actionCarrier: {fileID: 4421732612599229191}
