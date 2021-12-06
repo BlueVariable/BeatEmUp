@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using BLUE.ActionSystem;
+using BLUE.Common;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Enemy
@@ -10,8 +11,12 @@ namespace BLUE.ProjectX.Enemy
         [SerializeField] private MoveBehaviour_Agent _moveBehaviour = null;
 
         [SerializeField] private State_SimpleEnemy_Chase _chaseState = null;
-        
+
+        #region Events
+
         public override Action<InterruptableActionBase> OnCompleted { get; set; }
+
+        #endregion
 
         private IEnumerator _chaseRoutine;
         

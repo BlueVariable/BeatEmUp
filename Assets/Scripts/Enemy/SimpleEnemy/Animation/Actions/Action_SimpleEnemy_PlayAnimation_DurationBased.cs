@@ -5,19 +5,25 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.Enemy
 {
-    public class Action_PlayAnimation_DurationBased_SimpleEnemy : InterruptableActionBase
+    public class Action_SimpleEnemy_PlayAnimation_DurationBased : InterruptableActionBase
     {
         [SerializeField] private AnimationController_SimpleEnemy _animationController = null;
         
-        [SerializeField] private ESimpleEnemyAnimation[] _animations = new ESimpleEnemyAnimation[0];
+        [SerializeField] private ESimpleEnemyAnimation[] _animations = Array.Empty<ESimpleEnemyAnimation>();
          
         [Header("Duration Settings")]
         [SerializeField] private float _minDuration = 0f;
         [SerializeField] private float _maxDuration = 0f;
 
         private IEnumerator _animationRoutine;
-        
+
+        private Action _animPeriodCompletedCallback;
+
+        #region Events
+
         public override Action<InterruptableActionBase> OnCompleted { get; set; }
+
+        #endregion
         
         public override void Execute()
         {
@@ -26,7 +32,14 @@ namespace BLUE.ProjectX.Enemy
         
         public override void Interrupt()
         {
+            _animationController.OnAnimationPeriodCompleted -= OnAnimPeriodCompleted;
+            
             StopAnimationRoutine();
+        }
+
+        private void OnDestroy()
+        {
+            Interrupt();
         }
 
         private void StartAnimationRoutine()
@@ -78,17 +91,19 @@ namespace BLUE.ProjectX.Enemy
 
         private void PlayRandomAnimation(Action onCompleted)
         {
-            void onAnimationPeriodCompleted(ESimpleEnemyAnimation animType, int layerIndex, int curLoop)
-            {
-                _animationController.OnAnimationPeriodCompleted -= onAnimationPeriodCompleted;
-                
-                onCompleted?.Invoke();
-            }
-                
-            _animationController.OnAnimationPeriodCompleted += onAnimationPeriodCompleted;
+            _animPeriodCompletedCallback = onCompleted;
+            
+            _animationController.OnAnimationPeriodCompleted += OnAnimPeriodCompleted;
 
             _animationController
                 .TryCrossFadeAnimation(_animations[UnityEngine.Random.Range(0, _animations.Length)]);
+        }
+
+        private void OnAnimPeriodCompleted(ESimpleEnemyAnimation animType, int layerIndex, int curLoop)
+        {
+            _animationController.OnAnimationPeriodCompleted -= OnAnimPeriodCompleted;
+                
+            _animPeriodCompletedCallback?.Invoke();
         }
     }
 }
