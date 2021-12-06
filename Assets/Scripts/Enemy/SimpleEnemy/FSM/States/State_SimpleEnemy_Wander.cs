@@ -21,16 +21,25 @@ namespace BLUE.ProjectX.Enemy
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_SimpleEnemy transitionMessage)
         {
+            _wanderActions.OnExecutionCompleted += OnExecutionCompleted;
+            
             _wanderActions.Execute();
             
             base.EnterStateCustomActions(transitionMessage);
         }
-
+        
         protected override void ExitStateCustomActions()
         {
+            _wanderActions.OnExecutionCompleted -= OnExecutionCompleted;
+
             _wanderActions.Interrupt();
             
             base.ExitStateCustomActions();
+        }
+
+        private void OnExecutionCompleted()
+        {
+            _fsm.TryChangeState(ESimpleEnemyState.Idle);
         }
 
         private void Awake()
