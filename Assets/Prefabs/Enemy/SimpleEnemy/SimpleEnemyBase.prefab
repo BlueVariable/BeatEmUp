@@ -49,6 +49,18 @@ MonoBehaviour:
   _idleEnterRequestors: []
   _idleActions:
     _actionCarrier: {fileID: 5198176324739451827}
+--- !u!114 &7944190925847639764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861360755296523720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f001a620b9643878de66b0b1467ddea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &980661219997320790
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,5 +678,10 @@ PrefabInstance:
 --- !u!4 &9094923148759740562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9212295308648809188, guid: b08816d9d38e36b41a799812efd9c074, type: 3}
+  m_PrefabInstance: {fileID: 139345148194566774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &861360755296523720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 728218266029713342, guid: b08816d9d38e36b41a799812efd9c074, type: 3}
   m_PrefabInstance: {fileID: 139345148194566774}
   m_PrefabAsset: {fileID: 0}

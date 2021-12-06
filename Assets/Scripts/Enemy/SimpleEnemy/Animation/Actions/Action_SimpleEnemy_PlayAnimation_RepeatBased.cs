@@ -64,7 +64,7 @@ namespace BLUE.ProjectX.Enemy
 
             while (repeatCount < _repeatCount)
             {
-                bool _animPlayed = false;
+                _animPlayed = false;
 
                 _animationController.OnAnimationPeriodCompleted += OnAnimPeriodCompleted;
 
@@ -75,7 +75,7 @@ namespace BLUE.ProjectX.Enemy
                 
                 repeatCount++;
             }
-            
+
             OnCompleted?.Invoke(this);
         }
         

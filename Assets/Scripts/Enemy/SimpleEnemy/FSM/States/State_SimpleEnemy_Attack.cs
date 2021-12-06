@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.Enemy
 {
-    public class State_SimpleEnemy_Attack : StateBase<ESimpleEnemyState, FSMTransitionMessage_SimpleEnemy>
+    public class State_SimpleEnemy_Attack : StateBase<ESimpleEnemyState, FSMTransitionMessage_SimpleEnemy_Attack>
     {
         [SerializeField] private FSM_SimpleEnemy _fsm = null;
 
@@ -14,13 +14,17 @@ namespace BLUE.ProjectX.Enemy
 
         [SerializeField] private ActionExecutor _attackActions = null;
 
+        public Transform AttackTarget { get; private set; }
+        
         public override ESimpleEnemyState GetStateType()
         {
             return ESimpleEnemyState.Attack;
         }
         
-        protected override void EnterStateCustomActions(FSMTransitionMessage_SimpleEnemy transitionMessage)
+        protected override void EnterStateCustomActions(FSMTransitionMessage_SimpleEnemy_Attack transitionMessage)
         {
+            AttackTarget = transitionMessage.AttackTarget;
+            
             _attackActions.Execute();
             
             base.EnterStateCustomActions(transitionMessage);
@@ -47,7 +51,7 @@ namespace BLUE.ProjectX.Enemy
         {
             _fsm.TryChangeState(
                 ESimpleEnemyState.Attack, 
-                new FSMTransitionMessage_SimpleEnemy());
+                new FSMTransitionMessage_SimpleEnemy_Attack(((Trigger_LayerBase) triggerBase).LastValidObject.transform));
         }
     }
 }
