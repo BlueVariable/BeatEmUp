@@ -69,7 +69,8 @@ namespace BLUE.ProjectX.Enemy
                 _animationController.OnAnimationPeriodCompleted += OnAnimPeriodCompleted;
 
                 _animationController
-                    .TryCrossFadeAnimation(_animations[UnityEngine.Random.Range(0, _animations.Length)]);
+                    .TryCrossFadeAnimation(_animations[UnityEngine.Random.Range(0, _animations.Length)], 
+                        ignoreIfAlreadyPlaying:false);
 
                 yield return new WaitUntil(() => _animPlayed);
                 
