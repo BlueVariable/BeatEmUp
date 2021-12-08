@@ -8,6 +8,7 @@ namespace BLUE.ProjectX.Enemy
         Wander = 2,
         Chase = 3,
         Attack = 4,
-        Flee = 5
+        Flee = 5,
+        Death = 6,
     }
 }
