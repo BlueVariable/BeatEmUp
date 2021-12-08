@@ -460,7 +460,7 @@ MonoBehaviour:
   _attackFSM: {fileID: 8001080209663456363}
   _characterAnimController: {fileID: 4852456821825308825}
   _weaponController: {fileID: 5298144935721079340}
-  _projectileThrowNormTime: 0.75
+  _projectileThrowNormTime: 0.2
 --- !u!1 &3714372756280547214
 GameObject:
   m_ObjectHideFlags: 0
