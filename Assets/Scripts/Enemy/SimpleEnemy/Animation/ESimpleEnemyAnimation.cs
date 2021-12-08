@@ -6,5 +6,7 @@
 
         IDLE = 1,
         MOVE = 2,
+        
+        ATTACK = 3
     }
 }

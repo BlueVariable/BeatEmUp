@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.Character
 {
+    // TODO GOKAY - Move Full Path State Code to Base Class
     public class AnimationController_Character : AnimationController<ECharacterAnimation>
     {
         #region Constants
