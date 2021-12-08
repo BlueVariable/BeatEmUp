@@ -68,18 +68,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProjectileThrower_Simple
       objectReference: {fileID: 0}
-    - target: {fileID: 686993535051695494, guid: 92b09d0f9f7e227489ba3caf4e77b2c2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 686993535051695494, guid: 92b09d0f9f7e227489ba3caf4e77b2c2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 686993535051695494, guid: 92b09d0f9f7e227489ba3caf4e77b2c2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b09d0f9f7e227489ba3caf4e77b2c2, type: 3}
 --- !u!114 &8994187896040240809 stripped
