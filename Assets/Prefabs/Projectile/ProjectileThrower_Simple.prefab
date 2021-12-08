@@ -18,7 +18,7 @@ PrefabInstance:
     - target: {fileID: 194402257075372244, guid: 6beb2c0678d948b4db0ec293a79f2120, type: 3}
       propertyPath: _poolSettingsColl.Array.data[0]._referenceObject
       value: 
-      objectReference: {fileID: 5142972206923312542, guid: c65afc5f497f7e441b44d9e9899369b2, type: 3}
+      objectReference: {fileID: 5659545702171542107, guid: 235f389c573e20d4ba9f151201454e79, type: 3}
     - target: {fileID: 194402257075372244, guid: 6beb2c0678d948b4db0ec293a79f2120, type: 3}
       propertyPath: _poolSettingsColl.Array.data[0]._poolObjectFactory
       value: 
