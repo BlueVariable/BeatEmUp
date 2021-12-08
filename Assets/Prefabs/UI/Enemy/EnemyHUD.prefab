@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9078546345570028706}
   - component: {fileID: 9078546345570028705}
-  - component: {fileID: 4127656095278668012}
+  - component: {fileID: 2013026693847062558}
   m_Layer: 5
   m_Name: EnemyHUD
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Canvas:
   m_SortingLayerID: -1940042949
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &4127656095278668012
+--- !u!114 &2013026693847062558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9078546345570028704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f9897b4bb9946618cebb9ee5da6f6a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 16df6897770e2fd4e8fad8ad33dc6290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _setForward: 1
@@ -646,7 +646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000000037252903, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.100000024, y: -0.099999994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9078546347218170586
