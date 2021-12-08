@@ -126,10 +126,13 @@ namespace BLUE.ProjectX.Character
             _characterAnimationController.UpdateParameter(MOVEMENT_SPEED_PARAM_NAME, animSpeed);
 
             Vector3 dir = new Vector3(_lastExecutedInput.x, 0, _lastExecutedInput.y);
-
-            Quaternion targetQuaternion = Quaternion.LookRotation(dir, Vector3.up);
             
-            _rotationBehaviour.Rotate(targetQuaternion.eulerAngles);
+            if (dir.magnitude > 0)
+            {
+                Quaternion targetQuaternion = Quaternion.LookRotation(dir, Vector3.up);
+                
+                _rotationBehaviour.Rotate(targetQuaternion.eulerAngles);
+            }
         }
 
         #region Input Related
