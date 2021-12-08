@@ -14,9 +14,9 @@ TagManager:
   - Pixel
   - Character
   - Enemy
-  - 
-  - 
-  - 
+  - CharacterDamagable
+  - EnemyDamagable
+  - Projectile
   - 
   - 
   - 

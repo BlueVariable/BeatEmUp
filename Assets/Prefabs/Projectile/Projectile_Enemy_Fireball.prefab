@@ -88,7 +88,7 @@ MonoBehaviour:
     _radius: 1
     _targetMask:
       serializedVersion: 2
-      m_Bits: 128
+      m_Bits: 512
 --- !u!114 &8919788389313345791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2203335877669153420}
   - component: {fileID: 4837349170487974631}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: AttackBehaviour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5231882465689640172}
   - component: {fileID: 8196967570298795449}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Action_Wait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4050272014777347570}
   - component: {fileID: 3807204050647596642}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Action_DeallocatePoolObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,9 +246,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6826862305779609328}
   - component: {fileID: 7225386335811987729}
-  - component: {fileID: 3494456285902264249}
   - component: {fileID: 476371982127304454}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: OnTriggerEnter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,26 +282,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activateOnAwake: 1
   _once: 0
-  _triggerConditions:
-  - {fileID: 3494456285902264249}
+  _triggerConditions: []
   _triggeredActions:
     _actionCarrier: {fileID: 0}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 128
---- !u!114 &3494456285902264249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8402399626708134367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0250c6d31de64c78bbd45e72b5308669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _trigger: {fileID: 7225386335811987729}
+    m_Bits: 512
 --- !u!136 &476371982127304454
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -387,14 +372,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8015210988728074292, guid: 7094a972ab940d146998da1f18d5009c, type: 3}
   m_PrefabInstance: {fileID: 2480779999068553223}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7996615084396599383 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5518087459056736336, guid: 7094a972ab940d146998da1f18d5009c, type: 3}
-  m_PrefabInstance: {fileID: 2480779999068553223}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8900206127896577769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6480224745888925422, guid: 7094a972ab940d146998da1f18d5009c, type: 3}
+  m_PrefabInstance: {fileID: 2480779999068553223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7996615084396599383 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5518087459056736336, guid: 7094a972ab940d146998da1f18d5009c, type: 3}
   m_PrefabInstance: {fileID: 2480779999068553223}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &9074374541167466432 stripped
@@ -433,11 +418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8894db93bcaa459499c7c6e509032304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &7250021128555182993 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5111796194476800918, guid: 7094a972ab940d146998da1f18d5009c, type: 3}
-  m_PrefabInstance: {fileID: 2480779999068553223}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1260243102615444047 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3679661001032571464, guid: 7094a972ab940d146998da1f18d5009c, type: 3}
@@ -449,6 +429,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f001a620b9643878de66b0b1467ddea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7250021128555182993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5111796194476800918, guid: 7094a972ab940d146998da1f18d5009c, type: 3}
+  m_PrefabInstance: {fileID: 2480779999068553223}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7813244611168790026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -459,6 +444,14 @@ PrefabInstance:
     - target: {fileID: 1667375991668389535, guid: b57a20a908fe4fc49ba285f5c8a18940, type: 3}
       propertyPath: m_Name
       value: Particle_Projectile_Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667375991668389535, guid: b57a20a908fe4fc49ba285f5c8a18940, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451108827857057361, guid: b57a20a908fe4fc49ba285f5c8a18940, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3780673848580053885, guid: b57a20a908fe4fc49ba285f5c8a18940, type: 3}
       propertyPath: m_RootOrder
@@ -503,6 +496,14 @@ PrefabInstance:
     - target: {fileID: 3780673848580053885, guid: b57a20a908fe4fc49ba285f5c8a18940, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971826072914604519, guid: b57a20a908fe4fc49ba285f5c8a18940, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933882436045464438, guid: b57a20a908fe4fc49ba285f5c8a18940, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57a20a908fe4fc49ba285f5c8a18940, type: 3}
