@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2604630408236661304}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HitActionExecutor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3738156431205642080}
   - component: {fileID: 69495354145547316}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6305533131667008687}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DeallocatedActionExecutor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3148630756842618641}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AllocatedActionExecutor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 809886108381942266}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HitTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2923640711650576798}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2900919737696366610}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ThrownActionExecutor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3122463272189352512}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ActionExecutors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
