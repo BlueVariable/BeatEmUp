@@ -367,7 +367,7 @@ MonoBehaviour:
   _attackFSM: {fileID: 8001080209663456363}
   _characterAnimController: {fileID: 4852456821825308825}
   _weaponController: {fileID: 5298144935721079340}
-  _damageRequestNormTime: 0.3
+  _damageRequestNormTime: 0.66
 --- !u!1 &2512106462832703483
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 4852456821880316231}
-  _rotationSpeed: 5
+  _rotationSpeed: 12
   _satisfactionAngle: 0.05
 --- !u!1 &3407162988933824816
 GameObject:
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ddcce82efba4d5895dfe5d5de7bbde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: {x: 4, y: 0, z: 2}
+  _movementSpeed: {x: 5, y: 0, z: 5}
 --- !u!1 &4852456821825308823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,9 +1381,9 @@ MonoBehaviour:
   _movementBehaviour: {fileID: 4852456821652022852}
   _characterController: {fileID: 4852456821880316228}
   _gravityApplier: {fileID: 4852456822624438265}
-  _jumpForce: 5
+  _jumpForce: 4.35
   _jumpGravityCoef: 0
-  _fallOfGravityCoef: 0
+  _fallOfGravityCoef: 2
 --- !u!1 &4852456822438651206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,7 +1636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc942507e36491daca77fa2a9067c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dashSpeedCoef: 10
+  _dashSpeedCoef: 17
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1767,6 +1767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _noiseSettings: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   _amplitudeGain: 1
+  _frequencyGain: 1
   _fadeDuration: 0.3
 --- !u!1 &5954500710542672981
 GameObject:
