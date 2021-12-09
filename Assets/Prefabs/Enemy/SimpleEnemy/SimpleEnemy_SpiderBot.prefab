@@ -453,7 +453,7 @@ MonoBehaviour:
   _stallExecution: 1
   _animController: {fileID: 1151916027333501622}
   _animType: 3
-  _attackImpactNormTime: 0.2
+  _attackImpactNormTime: 0.25
 --- !u!114 &2860915347382290681
 MonoBehaviour:
   m_ObjectHideFlags: 0

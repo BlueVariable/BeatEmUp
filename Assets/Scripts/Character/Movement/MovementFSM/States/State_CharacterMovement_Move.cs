@@ -77,6 +77,8 @@ namespace BLUE.ProjectX.Character
                 EInputEvent.VerticalAxis,
                 OnVerticalInputPerformedInMoveState);
             
+            _lastExecutedInput = Vector2.zero;
+
             base.ExitStateCustomActions();
         }
         
@@ -93,11 +95,6 @@ namespace BLUE.ProjectX.Character
         private void OnHorizontalInputPerformedInMoveState(InputData_Axis inputData)
         {
             _lastExecutedInput.x = inputData.Amount;
-
-            if (!inputData.InputState.Equals(EAxisInputState.Continuing))
-            {
-                return;
-            }
             
             Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
 
@@ -171,16 +168,20 @@ namespace BLUE.ProjectX.Character
 
         private void OnHorizontalInputPerformed(InputData_Axis inputData)
         {
-            if (inputData.InputState.Equals(EAxisInputState.Started) 
-                || inputData.InputState.Equals(EAxisInputState.Continuing))
+            if (inputData.InputState.Equals(EAxisInputState.Started) ||
+                inputData.InputState.Equals(EAxisInputState.Continuing))
             {
                 _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Move);
             }
 
-            if (inputData.InputState.Equals(EAxisInputState.Finished) &&
-                _lastExecutedInput.magnitude == 0)
+            if (inputData.InputState.Equals(EAxisInputState.Finished))
             {
-                _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Idle);
+                _lastExecutedInput.x = 0;
+                
+                if (_lastExecutedInput.magnitude == 0)
+                {
+                    _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Idle);
+                }
             }
         }
         
@@ -192,10 +193,14 @@ namespace BLUE.ProjectX.Character
                 _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Move);
             }
             
-            if (inputData.InputState.Equals(EAxisInputState.Finished) &&
-                _lastExecutedInput.magnitude == 0)
+            if (inputData.InputState.Equals(EAxisInputState.Finished))
             {
-                _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Idle);
+                _lastExecutedInput.y = 0;
+                
+                if (_lastExecutedInput.magnitude == 0)
+                {
+                    _CharacterMovementFSM.TryChangeState(ECharacterMovementState.Idle);
+                }
             }
         }
 
