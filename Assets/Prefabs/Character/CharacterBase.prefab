@@ -367,7 +367,7 @@ MonoBehaviour:
   _attackFSM: {fileID: 8001080209663456363}
   _characterAnimController: {fileID: 4852456821825308825}
   _weaponController: {fileID: 5298144935721079340}
-  _damageRequestNormTime: 0.75
+  _damageRequestNormTime: 0.3
 --- !u!1 &2512106462832703483
 GameObject:
   m_ObjectHideFlags: 0
