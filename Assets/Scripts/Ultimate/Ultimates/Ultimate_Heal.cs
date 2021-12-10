@@ -15,17 +15,18 @@ namespace BLUE.ProjectX.Ultimate
 
         public Timer CooldownTimer => _cooldownTimer;
 
-        private Damagable _damagable;
-        private Damagable _Damagable
+        private DamagableProviderBase _damagableProvider;
+
+        private DamagableProviderBase _DamagableProvider
         {
             get
             {
-                if (_damagable == null)
+                if (_damagableProvider == null)
                 {
-                    _damagable = GetComponentInParent<Damagable>();
+                    _damagableProvider = GetComponentInParent<DamagableProviderBase>();
                 }
 
-                return _damagable;
+                return _damagableProvider;
             }
         }
 
@@ -33,7 +34,7 @@ namespace BLUE.ProjectX.Ultimate
         {
             _cooldownTimer.StartTimer();
             
-            _Damagable.RefillHP(_healSource);
+            _DamagableProvider.Damagable.RefillHP(_healSource);
             
             DeactivateUltimate();
             
