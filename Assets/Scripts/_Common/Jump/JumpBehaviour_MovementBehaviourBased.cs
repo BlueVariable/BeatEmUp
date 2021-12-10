@@ -6,12 +6,18 @@ namespace BLUE.ProjectX.Common
 {
     public class JumpBehaviour_MovementBehaviourBased : JumpBehaviourBase
     {
+        #region Constants
+
+        private const float TIME_PASSED_THRESHOLD = 0.25f;
+
+        #endregion
+        
         [SerializeField] private MovementBehaviourBase _movementBehaviour = null;
         
         [SerializeField] private CharacterController _characterController = null;
 
         [SerializeField] private GravityApplierBase _gravityApplier = null;
-        
+
         [SerializeField] private float _jumpForce = 10f;
 
         [SerializeField] private float _jumpGravityCoef = 1f;
@@ -75,7 +81,7 @@ namespace BLUE.ProjectX.Common
 
             float timePassed = 0;
 
-            while (!_characterController.isGrounded || timePassed < 0.25f)
+            while (!_characterController.isGrounded || timePassed < TIME_PASSED_THRESHOLD)
             {
                 if (_gravityApplier.IsGravityBlocked)
                 {
