@@ -15,6 +15,8 @@ namespace BLUE.ProjectX.Character
 
         #endregion
 
+        [SerializeField] private FSM_CharacterMovement _movementFSM = null;
+        
         [SerializeField] private FSM_CharacterAttack _attackFSM = null;
         
         [SerializeField] private CharacterAttackSettings _meleeSettings = default;
@@ -51,7 +53,17 @@ namespace BLUE.ProjectX.Character
                     OnAnticipationCompleted,
                     transitionMessage.AttackSettings.AnticipationTime));
         }
-        
+
+        protected override bool CanEnterStateCustomActions(FSMTransitionMessage_CharacterAttack transitionMessage)
+        {
+            if (_movementFSM.TryGetCurStateType(out ECharacterMovementState curMovementState))
+            {
+                return curMovementState != ECharacterMovementState.Dash;
+            }
+
+            return false;
+        }
+
         private void Awake()
         {
             RegisterToInputManager();

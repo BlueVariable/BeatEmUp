@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980a3dfcfa9745acaf8e62561dee359a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementFSM: {fileID: 4852456822638459115}
+  _attackFSM: {fileID: 8001080209663456363}
   _characterAnimationController: {fileID: 4852456821825308825}
   _fixedTransitionDuration: 0.1
 --- !u!1 &1049725100726904496
@@ -602,7 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialStateType: 1
-  _debugEnabled: 0
+  _debugEnabled: 1
 --- !u!1 &4078278062886306251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +1875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b749ff3a42ab468db9a5f6bbaa1f207c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementFSM: {fileID: 4852456822638459115}
   _attackFSM: {fileID: 8001080209663456363}
   _meleeSettings:
     _anticipationTime: 0.25
