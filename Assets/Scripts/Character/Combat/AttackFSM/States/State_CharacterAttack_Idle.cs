@@ -1,5 +1,4 @@
-﻿using System;
-using BLUE.FSMSystem;
+﻿using BLUE.FSMSystem;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character
@@ -56,8 +55,6 @@ namespace BLUE.ProjectX.Character
         {
             if (movementState == ECharacterMovementState.Dash)
             {
-                Debug.Log("Change State to Idle");
-                
                 _attackFSM.TryChangeState(ECharacterAttackState.Idle);
             }
         }
