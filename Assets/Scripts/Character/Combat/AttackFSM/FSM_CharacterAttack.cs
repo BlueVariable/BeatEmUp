@@ -15,6 +15,8 @@ namespace BLUE.ProjectX.Character
         MeleeAttack = 21,
         
         RangedAttack = 31,
+        
+        Death = 40,
     }
 
     [Serializable]
