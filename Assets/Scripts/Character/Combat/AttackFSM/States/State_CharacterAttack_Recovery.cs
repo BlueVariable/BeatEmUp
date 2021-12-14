@@ -1,6 +1,7 @@
 ﻿using BLUE.AnimationSystem;
 using BLUE.Extensions;
 using BLUE.FSMSystem;
+using BLUE.Helpers;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Character
@@ -39,7 +40,10 @@ namespace BLUE.ProjectX.Character
 
         private void OnRecoveryCompleted()
         {
-            _attackFSM.TryChangeState(ECharacterAttackState.Idle);
+            CoroutineHelper.Instance.WaitForSeconds(0.05f, () =>
+            {
+                _attackFSM.TryChangeState(ECharacterAttackState.Idle);
+            });
         }
     }
 }
