@@ -8,6 +8,12 @@ namespace BLUE.ProjectX.Character
 {
     public class State_CharacterAttack_Recovery : StateBase<ECharacterAttackState, FSMTransitionMessage_CharacterAttack>
     {
+        #region Constants
+
+        private const float RECOVERY_COMPLETION_DELAY = 0.05f;
+
+        #endregion
+        
         [SerializeField] private FSM_CharacterAttack _attackFSM = null;
         
         [SerializeField] private AnimationController_Character _characterAnimationController = null;
@@ -40,7 +46,7 @@ namespace BLUE.ProjectX.Character
 
         private void OnRecoveryCompleted()
         {
-            CoroutineHelper.Instance.WaitForSeconds(0.05f, () =>
+            CoroutineHelper.Instance.WaitForSeconds(RECOVERY_COMPLETION_DELAY, () =>
             {
                 _attackFSM.TryChangeState(ECharacterAttackState.Idle);
             });
