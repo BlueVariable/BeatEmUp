@@ -95,9 +95,19 @@ namespace BLUE.ProjectX.Character
         private void OnHorizontalInputPerformedInMoveState(InputData_Axis inputData)
         {
             _lastExecutedInput.x = inputData.Amount;
-            
-            Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
 
+            Vector2 normInput = _lastExecutedInput;
+
+            if (_lastExecutedInput.magnitude > 1)
+            {
+                normInput = _lastExecutedInput.normalized;
+            }
+
+            Vector3 movementSpeed = new Vector3(
+                _MovementSpeedProvider.GetMovementSpeed().x * normInput.x,
+                _MovementSpeedProvider.GetMovementSpeed().y,
+                _MovementSpeedProvider.GetMovementSpeed().z * normInput.y);
+            
             movementSpeed.z = 0;
             
             Move(movementSpeed);
@@ -107,7 +117,17 @@ namespace BLUE.ProjectX.Character
         {
             _lastExecutedInput.y = inputData.Amount;
             
-            Vector3 movementSpeed = _MovementSpeedProvider.GetMovementSpeed() * inputData.Amount;
+            Vector2 normInput = _lastExecutedInput;
+
+            if (_lastExecutedInput.magnitude > 1)
+            {
+                normInput = _lastExecutedInput.normalized;
+            }
+
+            Vector3 movementSpeed = new Vector3(
+                _MovementSpeedProvider.GetMovementSpeed().x * normInput.x,
+                _MovementSpeedProvider.GetMovementSpeed().y,
+                _MovementSpeedProvider.GetMovementSpeed().z * normInput.y);
             
             movementSpeed.x = 0;
             

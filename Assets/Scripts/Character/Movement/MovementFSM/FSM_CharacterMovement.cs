@@ -8,7 +8,8 @@ namespace BLUE.ProjectX.Character
         None = 0,
         Idle = 1,
         Move = 2,
-        Dash = 3
+        Dash = 3,
+        Death = 4
     }
     
     public class FSMTransitionMessage_CharacterMovement : FSMTransitionMessageBase { }
@@ -22,11 +23,15 @@ namespace BLUE.ProjectX.Character
             {
                 new FSMTransition_CharacterMovement(ECharacterMovementState.Idle, ECharacterMovementState.Move),
                 new FSMTransition_CharacterMovement(ECharacterMovementState.Idle, ECharacterMovementState.Dash),
+                new FSMTransition_CharacterMovement(ECharacterMovementState.Idle, ECharacterMovementState.Death),
+                
                 
                 new FSMTransition_CharacterMovement(ECharacterMovementState.Move, ECharacterMovementState.Idle),
                 new FSMTransition_CharacterMovement(ECharacterMovementState.Move, ECharacterMovementState.Dash),
+                new FSMTransition_CharacterMovement(ECharacterMovementState.Move, ECharacterMovementState.Death),
                 
                 new FSMTransition_CharacterMovement(ECharacterMovementState.Dash, ECharacterMovementState.Idle),
+                new FSMTransition_CharacterMovement(ECharacterMovementState.Dash, ECharacterMovementState.Death),
             };
         }
     }
