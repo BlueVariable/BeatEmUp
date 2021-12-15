@@ -18,15 +18,19 @@ MonoBehaviour:
     _description: Resembles a large, broad sword. A microchip inside it makes Delta
       sense the feelings of its owner.
     _icon: {fileID: 21300000, guid: b83fa8a22cc5ff74291ef5cad833b7e6, type: 3}
+    _uiModel: {fileID: 8006307830088293253, guid: 10fdf2e0144a92e44a03f2d7d6498f27, type: 3}
   - _weaponType: 50
     _displayName: Fire Spell
     _description: Black magic spell that inflicts fire-elemental damage.
     _icon: {fileID: 21300000, guid: 7140c686292792a4abfe218b90b2ae90, type: 3}
+    _uiModel: {fileID: 1667375991668389535, guid: b57a20a908fe4fc49ba285f5c8a18940, type: 3}
   - _weaponType: 2
     _displayName: Solis
     _description: Solis vibrates and radiates warmth when it senses an enemy.
     _icon: {fileID: 21300000, guid: 105c618ccfaedc845a83db7577c4f20b, type: 3}
+    _uiModel: {fileID: 8006307830088293253, guid: f05467fb9307fb24ebbc12a58a1cfdbb, type: 3}
   - _weaponType: 51
     _displayName: Ice Spell
     _description: Black magic spell that inflicts ice-elemental damage.
     _icon: {fileID: 21300000, guid: 517a0b591871f8a4e9385a02c50ab59d, type: 3}
+    _uiModel: {fileID: 1667375991668389535, guid: 30a78267f5885164badf6d541784e3f7, type: 3}

@@ -28,7 +28,8 @@ namespace BLUE.ProjectX.UI
             string statDescription = AP + ": " + attackSettings.AttackDataColl[0].Damage + "<br>"
                                      + RANGE + ": " + attackSettings.AttackDataColl[0].Radius;
 
-            return new InventoryItemUIData(settings.DisplayName, settings.Description, statDescription, settings.Icon);
+            return new InventoryItemUIData(settings.DisplayName, settings.Description, 
+                statDescription, settings.Icon, settings.UIModel);
         }
     }
 }

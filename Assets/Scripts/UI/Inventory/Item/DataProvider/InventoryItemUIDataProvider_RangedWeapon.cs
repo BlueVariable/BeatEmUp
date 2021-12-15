@@ -10,7 +10,7 @@ namespace BLUE.ProjectX.UI
 
         private const string AP = "AP";
         
-        private const string PROJECTILE_COUNT = "BULLET";
+        private const string PROJECTILE_COUNT = "COUNT";
 
         #endregion
         
@@ -29,7 +29,7 @@ namespace BLUE.ProjectX.UI
                                      + PROJECTILE_COUNT + ": " + attackSettings.AttackDataColl.Length;
 
             return new InventoryItemUIData(settings.DisplayName, settings.Description, 
-                statDescription, settings.Icon);
+                statDescription, settings.Icon, settings.UIModel);
         }
     }
 }

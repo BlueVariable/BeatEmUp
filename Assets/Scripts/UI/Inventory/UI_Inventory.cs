@@ -9,6 +9,8 @@ namespace BLUE.ProjectX.UI
         
         [SerializeField] private UI_InventoryItemInfo _itemInfoContainer = null;
         
+        [SerializeField] private UI_EquippedItemDisplayer _equippedItemDisplayer = null;
+        
         [SerializeField] private ButtonBase _backButton = null;
 
         protected override void ActivatedCustomActions()
@@ -16,6 +18,8 @@ namespace BLUE.ProjectX.UI
             _inventoryCategory.TryActivate();
             
             _itemInfoContainer.TryActivate();
+
+            _equippedItemDisplayer.TryActivate();
 
             _backButton.TryActivate();
             
@@ -27,6 +31,8 @@ namespace BLUE.ProjectX.UI
             _inventoryCategory.TryDeactivate();
             
             _itemInfoContainer.TryDeactivate();
+
+            _equippedItemDisplayer.TryDeactivate();
 
             _backButton.TryDeactivate();
             
