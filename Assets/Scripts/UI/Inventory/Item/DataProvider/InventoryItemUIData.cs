@@ -6,12 +6,14 @@ namespace BLUE.ProjectX.UI
     {
         public string DisplayName { get; }
         public string Description { get; }
+        public string StatDescription { get; }
         public Sprite ItemIcon { get; }
 
-        public InventoryItemUIData(string displayName, string description, Sprite itemIcon)
+        public InventoryItemUIData(string displayName, string description, string statDescription, Sprite itemIcon)
         {
             DisplayName = displayName;
             Description = description;
+            StatDescription = statDescription;
             ItemIcon = itemIcon;
         }
     }

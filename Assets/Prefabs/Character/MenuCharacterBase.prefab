@@ -82,9 +82,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4852456821880316231}
     m_Modifications:
+    - target: {fileID: 2470551309076353437, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762470915070131325, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5968683636931772540, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
       propertyPath: m_Name
       value: InventoryController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407427528198626871, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8346061748321960190, guid: 386b665c3fdbc8c40ae208dd2664d781, type: 3}
       propertyPath: m_RootOrder

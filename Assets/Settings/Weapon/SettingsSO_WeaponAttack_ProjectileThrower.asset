@@ -19,11 +19,17 @@ MonoBehaviour:
       _throwData:
         _eulerAngleOffset: {x: 0, y: 0, z: 0}
         _projectileSpeed: 20
-    - _damage: 10
+  - _weaponType: 51
+    _attackDataColl:
+    - _damage: 15
+      _throwData:
+        _eulerAngleOffset: {x: 0, y: 0, z: 0}
+        _projectileSpeed: 20
+    - _damage: 15
       _throwData:
         _eulerAngleOffset: {x: 0, y: 10, z: 0}
         _projectileSpeed: 20
-    - _damage: 10
+    - _damage: 15
       _throwData:
         _eulerAngleOffset: {x: 0, y: -10, z: 0}
         _projectileSpeed: 20

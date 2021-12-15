@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2a2795152ea02478f875d2018244f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeOnAwake: 1
+  _activeOnAwake: 0
   _debugEnabled: 0
   _activatingActionExecutor:
     _actionCarrier: {fileID: 408333903423417112}

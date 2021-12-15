@@ -7,13 +7,17 @@ namespace BLUE.ProjectX.UI
     {
         [SerializeField] private UI_InventoryCategory _inventoryCategory = null;
         
-        [SerializeField] private UI_InventoryItemInfoContainer _itemInfoContainer = null;
+        [SerializeField] private UI_InventoryItemInfo _itemInfoContainer = null;
+        
+        [SerializeField] private ButtonBase _backButton = null;
 
         protected override void ActivatedCustomActions()
         {
             _inventoryCategory.TryActivate();
             
             _itemInfoContainer.TryActivate();
+
+            _backButton.TryActivate();
             
             base.ActivatedCustomActions();
         }
@@ -23,6 +27,8 @@ namespace BLUE.ProjectX.UI
             _inventoryCategory.TryDeactivate();
             
             _itemInfoContainer.TryDeactivate();
+
+            _backButton.TryDeactivate();
             
             base.DeactivatedCustomActions();
         }
