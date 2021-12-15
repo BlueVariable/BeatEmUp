@@ -9,9 +9,13 @@ namespace BLUE.ProjectX.UI
     {
         [SerializeField] private UI_InventoryCategory _inventoryCategory = null;
 
+        [SerializeField] private UI_InventoryItemBase[] _inventoryItems = null;
+
+        [SerializeField] private UI_Selector_Simple _simpleSelector = null;
+        
         protected abstract EInventory GetInventoryViewType();
 
-        protected abstract void InitItems();
+        protected abstract void InitItems(UI_InventoryItemBase[] items);
         
         protected override void AwakeCustomActions()
         {
@@ -21,22 +25,60 @@ namespace BLUE.ProjectX.UI
             }
 
             RegisterToInventoryCategory();
+
+            RegisterToItemButtons();
             
             base.AwakeCustomActions();
         }
 
         protected override void ActivatingCustomActions(Action onCompleted = null)
         {
-            InitItems();
+            Array.ForEach(_inventoryItems, val => val.TryActivate());
+
+            _simpleSelector.TryActivate();
+
+            InitItems(_inventoryItems);
             
             base.ActivatingCustomActions(onCompleted);
+        }
+
+        protected override void DeactivatingCustomActions(Action onCompleted = null)
+        {
+            Array.ForEach(_inventoryItems, val => val.TryDeactivate());
+            
+            _simpleSelector.TryDeactivate();
+            
+            base.DeactivatingCustomActions(onCompleted);
         }
 
         protected override void DestroyCustomActions()
         {
             UnregisterFromInventoryCategory();
+
+            UnregisterFromItemButtons();
             
             base.DestroyCustomActions();
+        }
+
+        private void RegisterToItemButtons()
+        {
+            foreach (UI_InventoryItemBase inventoryItem in _inventoryItems)
+            {
+                inventoryItem.Button.OnClick += OnInventoryItemClicked;
+            }
+        }
+        
+        private void UnregisterFromItemButtons()
+        {
+            foreach (UI_InventoryItemBase inventoryItem in _inventoryItems)
+            {
+                inventoryItem.Button.OnClick -= OnInventoryItemClicked;
+            }
+        }
+
+        private void OnInventoryItemClicked(ButtonBase button)
+        {
+            _simpleSelector.TrySelectSelectable(button.GetComponent<UI_SelectableBase>());
         }
 
         private void RegisterToInventoryCategory()

@@ -5,6 +5,7 @@ namespace BLUE.ProjectX.Weapon
         None = 0,
         
         Sword = 1,
+        Sword_TEST = 2,
         
         Shotgun = 50,
     }

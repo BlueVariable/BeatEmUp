@@ -10,7 +10,9 @@ namespace BLUE.ProjectX.Inventory
     {
         None = 0,
         
-        Sword = 1
+        Sword = 1,
+        
+        Sword_TEST = 2
     }
 
     [Serializable]
@@ -46,7 +48,8 @@ namespace BLUE.ProjectX.Inventory
         {
             return new List<Item>()
             {
-                new Item(EMeleeWeaponItem.Sword, new ItemData_MeleeWeapon(true))
+                new Item(EMeleeWeaponItem.Sword, new ItemData_MeleeWeapon(true)),
+                new Item(EMeleeWeaponItem.Sword_TEST, new ItemData_MeleeWeapon(false))
             };
         }
 

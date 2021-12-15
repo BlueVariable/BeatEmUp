@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 1271713685}
   - component: {fileID: 1271713687}
   - component: {fileID: 1271713686}
+  - component: {fileID: 1271713688}
   m_Layer: 0
   m_Name: WeaponSettings
   m_TagString: Untagged
@@ -456,6 +457,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meleeWeaponSettingsColl: {fileID: 11400000, guid: 07c8a96cddb921643835a1561d00e921, type: 2}
+--- !u!114 &1271713688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271713683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7517ce4c079624892f486f2d3363fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponUISettingsSO: {fileID: 11400000, guid: 084ccbfb7c20fc846906f4484ab82395, type: 2}
 --- !u!1 &1366163421
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2040989454}
   - component: {fileID: 2040989455}
+  - component: {fileID: 2040989456}
   m_Layer: 0
   m_Name: UltimateSettings
   m_TagString: Untagged
@@ -576,6 +591,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ultimateSettingsColl: {fileID: 11400000, guid: 2c0d88ae9fb4a6a4bab3a26aae29b19b, type: 2}
+--- !u!114 &2040989456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040989453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5de5f276fe74748be9e59e47358fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ultimateUISettingsSO: {fileID: 11400000, guid: 17b8eeff645e9ad478fefb04fed502e7, type: 2}
 --- !u!1 &2132239842
 GameObject:
   m_ObjectHideFlags: 0

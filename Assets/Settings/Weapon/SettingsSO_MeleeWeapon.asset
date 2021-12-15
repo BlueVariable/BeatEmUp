@@ -16,3 +16,6 @@ MonoBehaviour:
   - _weaponType: 1
     _meleeWeaponItemType: 1
     _weaponPrefab: {fileID: 8739575559848180536, guid: 10fdf2e0144a92e44a03f2d7d6498f27, type: 3}
+  - _weaponType: 2
+    _meleeWeaponItemType: 2
+    _weaponPrefab: {fileID: 8739575559848180536, guid: 10fdf2e0144a92e44a03f2d7d6498f27, type: 3}
