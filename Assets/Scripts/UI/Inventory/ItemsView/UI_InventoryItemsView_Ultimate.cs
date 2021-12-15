@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using BLUE.InventorySystem;
 using BLUE.ProjectX.Inventory;
 using BLUE.ProjectX.Ultimate;
+using BLUE.UISystem;
 
 namespace BLUE.ProjectX.UI
 {
@@ -12,7 +13,7 @@ namespace BLUE.ProjectX.UI
             return EInventory.Ultimate;
         }
 
-        protected override void InitItems(UI_InventoryItemBase[] items)
+        protected override void InitItems(UI_InventoryItemBase[] items, UI_Selector_Simple simpleSelector)
         {
             InventoryController invController = Character.Character.Instance.GetComponentInChildren<InventoryController>();
 
@@ -24,7 +25,12 @@ namespace BLUE.ProjectX.UI
             
             for (int i = 0; i < itemColl.Count; i++)
             {
-                items[i].InitItem(itemColl[i].ItemType, itemColl[i].ItemData.IsEquipped);
+                items[i].InitItem(itemColl[i].ItemType);
+
+                if (itemColl[i].ItemData.IsEquipped)
+                {
+                    simpleSelector.TrySelectSelectable(items[i].Selectable);
+                }
             }
         }
     }

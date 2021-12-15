@@ -13,10 +13,10 @@ namespace BLUE.ProjectX.UI
       [SerializeField] private UI_SelectableBase _selectable = null;
       public UI_SelectableBase Selectable => _selectable;
 
-      public abstract void InitItem(Enum itemType, bool isEquipped);
+      public abstract void InitItem(Enum itemType);
       protected abstract InventoryItemUIData GetItemUIData(Enum itemType);
 
-      protected virtual void InitItemCustomActions(Enum itemType, bool isEquipped)
+      protected virtual void InitItemCustomActions(Enum itemType)
       {
       }
       
@@ -42,20 +42,18 @@ namespace BLUE.ProjectX.UI
    public abstract class UI_InventoryItemBase<T> : UI_InventoryItemBase
       where T : Enum
    {
-      [SerializeField] private Outline _outline = null;
-      
       [SerializeField] private Image _placeHolderImage = null;
       
       [SerializeField] private Image _targetImage = null;
 
       protected abstract InventoryItemUIData GetItemUIData(T itemType);
 
-      protected virtual void InitItemCustomActions(T itemType, bool isEquipped)
+      protected virtual void InitItemCustomActions(T itemType)
       {
          
       }
       
-      public override void InitItem(Enum itemType, bool isEquipped)
+      public override void InitItem(Enum itemType)
       {
          _placeHolderImage.enabled = false;
 
@@ -63,16 +61,14 @@ namespace BLUE.ProjectX.UI
 
          _targetImage.enabled = true;
 
-         _outline.enabled = isEquipped;
-
-         InitItemCustomActions((T)itemType, isEquipped);
+         InitItemCustomActions((T)itemType);
       }
 
-      protected sealed override void InitItemCustomActions(Enum itemType, bool isEquipped)
+      protected sealed override void InitItemCustomActions(Enum itemType)
       {
-         InitItemCustomActions((T)itemType, isEquipped);
+         InitItemCustomActions((T)itemType);
          
-         base.InitItemCustomActions(itemType, isEquipped);
+         base.InitItemCustomActions(itemType);
       }
 
       protected sealed override InventoryItemUIData GetItemUIData(Enum itemType)

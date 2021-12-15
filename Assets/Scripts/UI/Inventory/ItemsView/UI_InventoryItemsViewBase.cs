@@ -7,15 +7,15 @@ namespace BLUE.ProjectX.UI
 {
     public abstract class UI_InventoryItemsViewBase : UIBase
     {
+        [SerializeField] protected UI_Selector_Simple _simpleSelector = null;
+        
         [SerializeField] private UI_InventoryCategory _inventoryCategory = null;
 
         [SerializeField] private UI_InventoryItemBase[] _inventoryItems = null;
 
-        [SerializeField] private UI_Selector_Simple _simpleSelector = null;
-        
         protected abstract EInventory GetInventoryViewType();
 
-        protected abstract void InitItems(UI_InventoryItemBase[] items);
+        protected abstract void InitItems(UI_InventoryItemBase[] items, UI_Selector_Simple simpleSelector);
         
         protected override void AwakeCustomActions()
         {
@@ -37,7 +37,7 @@ namespace BLUE.ProjectX.UI
 
             _simpleSelector.TryActivate();
 
-            InitItems(_inventoryItems);
+            InitItems(_inventoryItems, _simpleSelector);
             
             base.ActivatingCustomActions(onCompleted);
         }

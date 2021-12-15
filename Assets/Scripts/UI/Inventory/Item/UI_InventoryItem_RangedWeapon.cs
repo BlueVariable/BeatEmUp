@@ -15,11 +15,11 @@ namespace BLUE.ProjectX.UI
             return uiData;
         }
 
-        protected override void InitItemCustomActions(ERangedWeaponItem itemType, bool isEquipped)
+        protected override void InitItemCustomActions(ERangedWeaponItem itemType)
         {
             RangedWeaponItem = itemType;
 
-            base.InitItemCustomActions(itemType, isEquipped);
+            base.InitItemCustomActions(itemType);
         }
     }
 }

@@ -15,11 +15,11 @@ namespace BLUE.ProjectX.UI
             return uiData;
         }
 
-        protected override void InitItemCustomActions(EMeleeWeaponItem itemType, bool isEquipped)
+        protected override void InitItemCustomActions(EMeleeWeaponItem itemType)
         {
             MeleeWeaponItem = itemType;
 
-            base.InitItemCustomActions(itemType, isEquipped);
+            base.InitItemCustomActions(itemType);
         }
     }
 }
