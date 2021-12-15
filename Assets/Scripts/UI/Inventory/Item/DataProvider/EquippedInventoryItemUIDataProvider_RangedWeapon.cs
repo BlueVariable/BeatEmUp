@@ -18,7 +18,7 @@ namespace BLUE.ProjectX.UI
             if (!((SavedInventory_RangedWeapon) rangedWeaponInventory).TryGetEquippedWeapon(
                 out ERangedWeaponItem rangedWeaponItem))
             {
-                return new InventoryItemUIData(null);
+                return new InventoryItemUIData(string.Empty, string.Empty, null);
             }
 
             return _rangedWeaponUIDataProvider.GetItemUIData(rangedWeaponItem);

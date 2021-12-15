@@ -19,7 +19,7 @@ namespace BLUE.ProjectX.UI
             if (!((SavedInventory_Ultimate) ultimateInventory).TryGetEquippedUltimate(
                 out EUltimate ultimateItem))
             {
-                return new InventoryItemUIData(null);
+                return new InventoryItemUIData(string.Empty, string.Empty, null);
             }
 
             return _ultimateUIDataProvider.GetItemUIData(ultimateItem);

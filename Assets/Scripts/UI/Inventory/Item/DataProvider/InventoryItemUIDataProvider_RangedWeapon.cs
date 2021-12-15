@@ -13,7 +13,7 @@ namespace BLUE.ProjectX.UI
             UISettingsContainer_Weapon.Instance.WeaponUISettingsSO
                 .TryGetWeaponUISettings(rangedWeaponSettings.WeaponType, out UISettings_Weapon settings);
 
-            return new InventoryItemUIData(settings.Icon);
+            return new InventoryItemUIData(settings.DisplayName, settings.Description, settings.Icon);
         }
     }
 }

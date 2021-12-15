@@ -18,7 +18,7 @@ namespace BLUE.ProjectX.UI
             if (!((SavedInventory_MeleeWeapon) meleeWeaponInventory).TryGetEquippedWeapon(
                 out EMeleeWeaponItem meleeWeaponItem))
             {
-                return new InventoryItemUIData(null);
+                return new InventoryItemUIData(string.Empty, string.Empty, null);
             }
 
             return _meleeWeaponUIDataProvider.GetItemUIData(meleeWeaponItem);

@@ -9,7 +9,7 @@ namespace BLUE.ProjectX.UI
             UISettingsContainer_Ultimate.Instance.UltimateUISettingsSO
                 .TryGetUltimateUISettings(itemType, out UISettings_Ultimate settings);
 
-            return new InventoryItemUIData(settings.Icon);
+            return new InventoryItemUIData(settings.DisplayName, settings.Description, settings.Icon);
         }
     }
 }

@@ -55,6 +55,11 @@ namespace BLUE.ProjectX.UI
         
         protected override void ActivatingCustomActions(Action onCompleted = null)
         {
+            _simpleSelector.TryActivate();
+            
+            Array.ForEach(_invCategoryButtonInfoColl, val 
+                => val.TargetButton.TryActivate());
+
             RegisterToCategoryButtons();
 
             RegisterToCategoryButtonsUpdateRequestors();
@@ -68,7 +73,7 @@ namespace BLUE.ProjectX.UI
         {
             ButtonBase button = GetButtonBy(SelectedCategory);
             
-            UI_SelectableBase selectable = button.GetComponent<UI_SelectableBase>();
+            UI_SelectableBase selectable = button.GetComponentInChildren<UI_SelectableBase>();
             
             _simpleSelector.TrySelectSelectable(selectable);
             
@@ -77,7 +82,14 @@ namespace BLUE.ProjectX.UI
 
         protected override void DeactivatingCustomActions(Action onCompleted = null)
         {
+            _simpleSelector.TryDeactivate();
+            
+            Array.ForEach(_invCategoryButtonInfoColl, val 
+                => val.TargetButton.TryDeactivate());
+            
             UnregisterFromCategoryButtons();
+
+            UnregisterFromCategoryButtonsUpdateRequestors();
             
             base.DeactivatingCustomActions(onCompleted);
         }
@@ -122,7 +134,7 @@ namespace BLUE.ProjectX.UI
         {
             EInventory inventoryCategory = GetCategoryBy(button);
 
-            UI_SelectableBase selectable = button.GetComponent<UI_SelectableBase>();
+            UI_SelectableBase selectable = button.GetComponentInChildren<UI_SelectableBase>();
 
             if (selectable != null)
             {
