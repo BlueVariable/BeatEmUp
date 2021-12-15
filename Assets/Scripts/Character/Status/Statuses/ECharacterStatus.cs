@@ -13,6 +13,10 @@ namespace BLUE.ProjectX.Character
         Anticipation = 5,
         Attacking = 6,
         Recovery = 7,
-        AttackIdle =8
+        AttackIdle = 8,
+        
+        Death = 9
+        
+        
     }
 }

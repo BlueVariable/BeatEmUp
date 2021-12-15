@@ -13,5 +13,7 @@
         MELEE_ATTACK = 100,
         ATTACK_EMPTY = 101,
         RANGED_ATTACK = 102,
+        
+        DEATH = 110
     }
 }

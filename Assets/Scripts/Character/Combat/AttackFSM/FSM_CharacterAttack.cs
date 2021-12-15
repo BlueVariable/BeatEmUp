@@ -40,6 +40,7 @@ namespace BLUE.ProjectX.Character
             return new List<FSMTransition_CharacterAttack>()
             {
                 new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.Anticipation),
+                new FSMTransition_CharacterAttack(ECharacterAttackState.Idle, ECharacterAttackState.Death),
 
                 new FSMTransition_CharacterAttack(ECharacterAttackState.Anticipation, ECharacterAttackState.MeleeAttack),
                 new FSMTransition_CharacterAttack(ECharacterAttackState.Anticipation, ECharacterAttackState.RangedAttack),
