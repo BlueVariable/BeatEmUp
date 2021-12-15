@@ -1347,6 +1347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7e189bb7e24fd5975bc9afd5a95afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementFSM: {fileID: 4852456822638459115}
   _jumpBehaviour: {fileID: 4852456822126387133}
   _doubleJumpTriggerDelay: 0.1
   _doubleJumpTrigger: 32

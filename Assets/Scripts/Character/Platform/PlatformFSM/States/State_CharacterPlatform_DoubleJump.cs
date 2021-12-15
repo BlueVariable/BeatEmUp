@@ -8,6 +8,8 @@ namespace BLUE.ProjectX.Character
 {
     public class State_CharacterPlatform_DoubleJump : StateBase<ECharacterPlatformState, FSMTransitionMessage_CharacterPlatform>
     {
+        [SerializeField] private FSM_CharacterMovement _movementFSM = null;
+        
         [SerializeField] private JumpBehaviourBase _jumpBehaviour = null;
         
         [SerializeField] private float _doubleJumpTriggerDelay = 0.25f;
@@ -33,6 +35,13 @@ namespace BLUE.ProjectX.Character
         public override ECharacterPlatformState GetStateType()
         {
             return ECharacterPlatformState.DoubleJump;
+        }
+
+        protected override bool CanEnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
+        {
+            _movementFSM.TryGetCurStateType(out ECharacterMovementState curMovementState);
+
+            return curMovementState != ECharacterMovementState.Dash;
         }
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)

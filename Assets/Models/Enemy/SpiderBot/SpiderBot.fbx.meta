@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Grass
-    second: {fileID: 2100000, guid: 1323b3075dfb6ce45b7ad1107df6d20e, type: 2}
+    second: {fileID: 2100000, guid: 577709bdfc709724ca0856651913998c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -27,7 +27,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_001
-    second: {fileID: 2100000, guid: 4faf33c9e7bcc7448b81fa3b8fa4f71e, type: 2}
+    second: {fileID: 2100000, guid: 4d749b0823d1ed049a7740578c7164d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -37,37 +37,37 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Spder_bot_Black
-    second: {fileID: 2100000, guid: c078209806e8f274abab54a218ae4d80, type: 2}
+    second: {fileID: 2100000, guid: 4d749b0823d1ed049a7740578c7164d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Spder_bot_Black__GB_C_jpg
-    second: {fileID: 2100000, guid: c8e29d3c1c9b1b64cb5313fe636e4ff1, type: 2}
+    second: {fileID: 2100000, guid: 4d749b0823d1ed049a7740578c7164d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Spder_bot_Black__GB_N_jpg
-    second: {fileID: 2100000, guid: 0a96c752c2276714d9409c39322b1050, type: 2}
+    second: {fileID: 2100000, guid: 4d749b0823d1ed049a7740578c7164d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Spder_bot_Black__Gun_Bot_N
-    second: {fileID: 2100000, guid: d34e41e95664cd2429d84e79c2eb1de1, type: 2}
+    second: {fileID: 2100000, guid: 4d749b0823d1ed049a7740578c7164d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Spder_bot__GB_C_jpg
-    second: {fileID: 2100000, guid: 028e94a600d26ee4584e32f46f48b78c, type: 2}
+    second: {fileID: 2100000, guid: 4d749b0823d1ed049a7740578c7164d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Spder_bot__GB_N_jpg
-    second: {fileID: 2100000, guid: b1472a399ad1748409607bd40e14c38d, type: 2}
+    second: {fileID: 2100000, guid: 4d749b0823d1ed049a7740578c7164d7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Spder_bot__Gun_Bot_N
-    second: {fileID: 2100000, guid: 2a8cf71079bfa164db186f6b43e07053, type: 2}
+    second: {fileID: 2100000, guid: 4d749b0823d1ed049a7740578c7164d7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
