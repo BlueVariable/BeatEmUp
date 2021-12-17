@@ -4,9 +4,10 @@ namespace BLUE.ProjectX.Weapon
     {
         None = 0,
         
-        Sword = 1,
-        Sword_TEST = 2,
+        Delta = 1,
+        Solis = 2,
         
-        Shotgun = 50,
+        FireSpell = 50,
+        IceSpell = 51,
     }
 }

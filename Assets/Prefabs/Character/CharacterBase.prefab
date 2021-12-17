@@ -742,7 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialStateType: 1
-  _debugEnabled: 1
+  _debugEnabled: 0
 --- !u!1 &4078278062886306251
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ namespace BLUE.ProjectX.Character
         {
             _animationController.TryCrossFadeAnimation(
                 ECharacterAnimation.DEATH,
-                layerIndex:1);
+                layerIndex:AnimationController_Character.MOVEMENT_LAYER);
             
             base.StatusAppearedCustomActions();
         }

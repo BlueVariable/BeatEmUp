@@ -16,3 +16,6 @@ MonoBehaviour:
   - _weaponType: 50
     _rangedWeaponItemType: 1
     _weaponPrefab: {fileID: 8739575559848180536, guid: 92de3c095bcea26438d8fa0aea75c77c, type: 3}
+  - _weaponType: 51
+    _rangedWeaponItemType: 2
+    _weaponPrefab: {fileID: 8739575559848180536, guid: 22828f4fbc0fcde49873e5c8a508fa51, type: 3}

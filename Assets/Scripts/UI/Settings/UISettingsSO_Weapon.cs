@@ -19,6 +19,9 @@ namespace BLUE.ProjectX.UI
         
         [SerializeField] private Sprite _icon = null;
         public Sprite Icon => _icon;
+        
+        [SerializeField] private GameObject _uiModel = null;
+        public GameObject UIModel => _uiModel;
     }
 
     [CreateAssetMenu(fileName = "UISettingsSO_Weapon", menuName = "BLUE/Settings/UI/Weapon/Create UISettingsSO_Weapon")]

@@ -10,7 +10,8 @@ namespace BLUE.ProjectX.Inventory
     {
         None = 0,
         
-        Shotgun = 1,
+        FireSpell = 1,
+        IceSpell = 2
     }
 
     [Serializable]
@@ -46,7 +47,8 @@ namespace BLUE.ProjectX.Inventory
         {
             return new List<Item>()
             {
-                new Item(ERangedWeaponItem.Shotgun, new ItemData_RangedWeapon(true))
+                new Item(ERangedWeaponItem.FireSpell, new ItemData_RangedWeapon(true)),
+                new Item(ERangedWeaponItem.IceSpell, new ItemData_RangedWeapon(false))
             };
         }
         
