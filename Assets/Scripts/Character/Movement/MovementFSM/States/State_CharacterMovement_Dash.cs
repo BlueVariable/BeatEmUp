@@ -17,6 +17,8 @@ namespace BLUE.ProjectX.Character
         
         [SerializeField] private GravityApplierBase _gravityApplier = null;
 
+        [SerializeField] private ParticleSystem _dashParticle = null;
+        
         [SerializeField] private KeyCode _dashTriggerKey = KeyCode.None;
 
         private FSM_CharacterMovement _movementFSM;
@@ -63,6 +65,8 @@ namespace BLUE.ProjectX.Character
             _gravityApplier.ToggleGravity(false);
 
             _jumpBehaviour.ResetJumpForceToGravity();
+            
+            _dashParticle.Play();
 
             base.EnterStateCustomActions(transitionMessage);
         }
@@ -70,6 +74,8 @@ namespace BLUE.ProjectX.Character
         protected override void ExitStateCustomActions()
         {
             _gravityApplier.ToggleGravity(true);
+            
+            _dashParticle.Stop();
             
             base.ExitStateCustomActions();
         }
