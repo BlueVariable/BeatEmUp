@@ -1,4 +1,5 @@
-﻿using BLUE.DamageSystem;
+﻿using System;
+using BLUE.DamageSystem;
 using BLUE.Helpers;
 using UnityEngine;
 
@@ -28,6 +29,11 @@ namespace BLUE.ProjectX.Ultimate
 
                 return _damagableProvider;
             }
+        }
+
+        private void Awake()
+        {
+            _cooldownTimer.StartTimer();
         }
 
         protected override void ActivatedCustomActions()

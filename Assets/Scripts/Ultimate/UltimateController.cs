@@ -22,7 +22,7 @@ namespace BLUE.ProjectX.Ultimate
         }
 
         private UltimateBase _curUltimate;
-        private UltimateBase _CurUltimate
+        public UltimateBase CurUltimate
         {
             get
             {
@@ -65,7 +65,7 @@ namespace BLUE.ProjectX.Ultimate
                 return;
             }
 
-            _CurUltimate.TryActivateUltimate();
+            CurUltimate.TryActivateUltimate();
         }
     }
 }
