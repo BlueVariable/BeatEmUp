@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &7944190925847639764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861360755296523720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f001a620b9643878de66b0b1467ddea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &617005602297242896
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,18 +61,6 @@ MonoBehaviour:
   _idleEnterRequestors: []
   _idleActions:
     _actionCarrier: {fileID: 5198176324739451827}
---- !u!114 &7944190925847639764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861360755296523720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f001a620b9643878de66b0b1467ddea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &980661219997320790
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c53525763a44374eaa87e708b3df120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 1
   _triggerConditions: []
@@ -975,9 +976,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9094923148759740562}
     m_Modifications:
+    - target: {fileID: 6556374297829063863, guid: defd4c7c3392a52439255c241a886782, type: 3}
+      propertyPath: _damagableProvider
+      value: 
+      objectReference: {fileID: 6973375253395720086}
     - target: {fileID: 9078546345570028704, guid: defd4c7c3392a52439255c241a886782, type: 3}
       propertyPath: m_Name
       value: EnemyHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078546345570028705, guid: defd4c7c3392a52439255c241a886782, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9078546345570028706, guid: defd4c7c3392a52439255c241a886782, type: 3}
       propertyPath: m_Pivot.x
@@ -1050,18 +1059,6 @@ PrefabInstance:
     - target: {fileID: 9078546345570028706, guid: defd4c7c3392a52439255c241a886782, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078546345570028706, guid: defd4c7c3392a52439255c241a886782, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078546345570028706, guid: defd4c7c3392a52439255c241a886782, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078546345570028706, guid: defd4c7c3392a52439255c241a886782, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9078546345853830795, guid: defd4c7c3392a52439255c241a886782, type: 3}
       propertyPath: _damagableProvider
