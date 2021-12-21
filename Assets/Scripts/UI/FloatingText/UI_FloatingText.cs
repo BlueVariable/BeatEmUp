@@ -33,10 +33,7 @@ namespace BLUE.ProjectX.UI
                 _text.color = data.TextColor;
             }
 
-            CoroutineHelper.Instance.WaitForSeconds(0.1f, () =>
-            {
-                TryActivate();
-            });
+            TryActivate();
         }
 
         protected override void ActivatedCustomActions()
