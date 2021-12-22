@@ -22,7 +22,7 @@ namespace BLUE.ProjectX.UI
 
             _defaultParent = transform.parent;
             
-            transform.parent = UI_FloatingTextCarrier.Instance.transform;
+            transform.SetParent(UI_FloatingTextCarrier.Instance.transform, true);
             
             transform.position = initialPos;
             
@@ -45,7 +45,7 @@ namespace BLUE.ProjectX.UI
 
         protected override void DeactivatedCustomActions()
         {
-            transform.parent = _defaultParent;
+            transform.SetParent(_defaultParent, true);
             
             base.DeactivatedCustomActions();
         }

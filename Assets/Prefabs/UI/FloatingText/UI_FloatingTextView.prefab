@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c78d18627dd450c981977838213acd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stallExecution: 0
+  _stallExecution: 1
   _parentExecutorCarrier: {fileID: 2761306029023562775}
   _loops: 0
 --- !u!1 &4942319494786146717
@@ -295,12 +295,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470d754fb7dd4e0f8a8ffa4743897426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stallExecution: 0
+  _stallExecution: 1
   _graphic: {fileID: 5789990881318493772}
   _from: 1
   _to: 0
-  _ignoreFrom: 0
-  _duration: 0.25
+  _ignoreFrom: 1
+  _duration: 0.5
   _startDelay: 0
 --- !u!1 &7143254757334871060
 GameObject:
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c78d18627dd450c981977838213acd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stallExecution: 0
+  _stallExecution: 1
   _parentExecutorCarrier: {fileID: 3955161179427222149}
   _loops: 0
 --- !u!1 &8230353027159182812
@@ -631,7 +631,7 @@ MonoBehaviour:
   _activatedActionExecutor:
     _actionCarrier: {fileID: 0}
   _deactivatingActionExecutor:
-    _actionCarrier: {fileID: 0}
+    _actionCarrier: {fileID: 2761306029023562775}
   _deactivatedActionExecutor:
     _actionCarrier: {fileID: 0}
   _activationConditionCarrier: {fileID: 0}
@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51bbbf78161476b8084b16f8f7d3a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stallExecution: 0
+  _stallExecution: 1
   _targetRectTransform: {fileID: 75263520172687279}
   _from: {x: 0, y: 0}
   _to: {x: 0, y: 0.75}
@@ -693,4 +693,4 @@ MonoBehaviour:
   _useOffsetAsTargetPos: 0
   _duration: 0.75
   _isUnscaledTime: 0
-  _startDelay: 0
+  _startDelay: 0.25
