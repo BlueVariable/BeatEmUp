@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 6213668642078807733}
   - component: {fileID: 8710885632412690703}
   m_Layer: 5
-  m_Name: UI_FloatingTextView
+  m_Name: FloatingTextViewUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
