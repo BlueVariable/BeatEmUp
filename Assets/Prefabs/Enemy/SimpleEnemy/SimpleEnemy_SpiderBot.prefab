@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aoeAttackBehaviour: {fileID: 4929078009360293957}
   _aoeAttackData:
-    _damage: 10
+    _damage: 2
     _radius: 1
     _targetMask:
       serializedVersion: 2
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43ce63c11ea2574d985ece90f2bd1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -272,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb0d4858ac64f1482e7d56930d48038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -399,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f8118327534f71863a1162dcebe048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -515,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43ce63c11ea2574d985ece90f2bd1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -715,6 +719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aoeOrigin: {fileID: 7227402055637920036}
   _damageDealer: {fileID: 708728405902000544}
+  _attackPerformedActionExecutor:
+    _actionCarrier: {fileID: 0}
 --- !u!95 &6916403490178221202
 Animator:
   serializedVersion: 3
@@ -779,6 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b728bf3bf403fb0e9ec8d8daefc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -1209,6 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b728bf3bf403fb0e9ec8d8daefc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -1292,6 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb0d4858ac64f1482e7d56930d48038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []

@@ -4,8 +4,9 @@ namespace BLUE.ProjectX.Character
 {
     public class Character : MonoBehaviour
     {
-        private static Character _instance;
+        #region Singleton
 
+        private static Character _instance;
         public static Character Instance
         {
             get
@@ -18,5 +19,7 @@ namespace BLUE.ProjectX.Character
                 return _instance;
             }
         }
+
+        #endregion
     }
 }

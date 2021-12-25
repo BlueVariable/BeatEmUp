@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b728bf3bf403fb0e9ec8d8daefc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -380,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f8118327534f71863a1162dcebe048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -432,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb0d4858ac64f1482e7d56930d48038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -670,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43ce63c11ea2574d985ece90f2bd1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -816,6 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43ce63c11ea2574d985ece90f2bd1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -1001,6 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b728bf3bf403fb0e9ec8d8daefc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -1084,6 +1090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb0d4858ac64f1482e7d56930d48038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -1167,7 +1174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileThrowerAttackBehaviour: {fileID: 2438287522592037335}
   _projectileThrowerAttackData:
-    _damage: 10
+    _damage: 3
     _throwData:
       _eulerAngleOffset: {x: 0, y: 0, z: 0}
       _projectileSpeed: 10
