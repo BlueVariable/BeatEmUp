@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aoeOrigin: {fileID: 2673614904478471430}
   _damageDealer: {fileID: 4474750537120541500}
-  _actionExecutor:
+  _attackPerformedActionExecutor:
     _actionCarrier: {fileID: 999497960074100569}
 --- !u!1 &6025497502925589135
 GameObject:
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6571986547769626199}
   - component: {fileID: 6668601839003237690}
   m_Layer: 0
-  m_Name: AttackActionCarrier
+  m_Name: AttackPerformedActionCarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
