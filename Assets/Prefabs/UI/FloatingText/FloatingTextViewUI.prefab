@@ -209,7 +209,7 @@ MonoBehaviour:
   _from: 0
   _to: 1
   _ignoreFrom: 0
-  _duration: 0.5
+  _duration: 0.25
   _startDelay: 0
 --- !u!1 &5582099631890024134
 GameObject:
@@ -302,7 +302,7 @@ MonoBehaviour:
   _to: {x: 0, y: 0.5}
   _ignoreFrom: 1
   _useOffsetAsTargetPos: 0
-  _duration: 1
+  _duration: 0.5
   _isUnscaledTime: 0
   _startDelay: 0
 --- !u!1 &5886555352746781479
@@ -358,7 +358,7 @@ MonoBehaviour:
   _from: 1
   _to: 0
   _ignoreFrom: 0
-  _duration: 0.75
+  _duration: 0.3
   _startDelay: 0
 --- !u!1 &7143254757334871060
 GameObject:
@@ -413,7 +413,7 @@ MonoBehaviour:
   _fromScale: {x: 0, y: 0, z: 0}
   _targetScale: {x: 0.01, y: 0.01, z: 0.01}
   _ignoreFrom: 0
-  _duration: 0.25
+  _duration: 0.1
   _startDelay: 0
 --- !u!1 &7878489343815941578
 GameObject:
@@ -749,6 +749,6 @@ MonoBehaviour:
   _to: {x: 0, y: 0.5}
   _ignoreFrom: 1
   _useOffsetAsTargetPos: 0
-  _duration: 1
+  _duration: 0.4
   _isUnscaledTime: 0
   _startDelay: 0

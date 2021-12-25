@@ -63,7 +63,7 @@ MonoBehaviour:
   _deactivationConditionCarrier: {fileID: 0}
   _damagableProvider: {fileID: 0}
   _floatingTextView: {fileID: 756251001566349443}
-  _damageColor: {r: 1, g: 0, b: 0, a: 1}
+  _damageColor: {r: 1, g: 1, b: 1, a: 1}
   _healColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &9078546345379339349
 GameObject:
