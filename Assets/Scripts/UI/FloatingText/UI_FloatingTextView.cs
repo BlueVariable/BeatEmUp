@@ -31,7 +31,7 @@ namespace BLUE.ProjectX.UI
             UI_FloatingText floatingText = poolObject.GetComponent<UI_FloatingText>();
 
             floatingText.ActivateFloatingText(data, transform.position, OnFloatingTextSequenceCompleted);
-        } 
+        }
 
         private void OnFloatingTextSequenceCompleted(UI_FloatingText floatingText)
         {

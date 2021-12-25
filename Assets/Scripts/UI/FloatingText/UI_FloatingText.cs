@@ -45,7 +45,9 @@ namespace BLUE.ProjectX.UI
 
         protected override void DeactivatedCustomActions()
         {
-            transform.SetParent(_defaultParent, true);
+            transform.SetParent(_defaultParent, false);
+            
+            _completedCallback?.Invoke(this);
             
             base.DeactivatedCustomActions();
         }
