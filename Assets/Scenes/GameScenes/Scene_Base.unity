@@ -152,18 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501d7d6d21314bddb18c5d85881aaece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeOnAwake: 1
-  _debugEnabled: 0
-  _activatingActionExecutor:
-    _actionCarrier: {fileID: 0}
-  _activatedActionExecutor:
-    _actionCarrier: {fileID: 0}
-  _deactivatingActionExecutor:
-    _actionCarrier: {fileID: 0}
-  _deactivatedActionExecutor:
-    _actionCarrier: {fileID: 0}
-  _activationConditionCarrier: {fileID: 0}
-  _deactivationConditionCarrier: {fileID: 0}
 --- !u!4 &125516070
 Transform:
   m_ObjectHideFlags: 0
