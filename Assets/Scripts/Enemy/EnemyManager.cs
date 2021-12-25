@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BLUE.ActionSystem;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Enemy
@@ -23,6 +24,8 @@ namespace BLUE.ProjectX.Enemy
         }
 
         #endregion
+
+        [SerializeField] private ActionExecutor _noEnemiesLeftActionExecutor = null;
 
         private List<Enemy> _enemies = new List<Enemy>();
 
@@ -54,6 +57,8 @@ namespace BLUE.ProjectX.Enemy
             if (_enemies.Count == 0)
             {
                 OnNoEnemiesLeft?.Invoke();
+                
+                _noEnemiesLeftActionExecutor.Execute();
 
                 return true;
             }

@@ -978,9 +978,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4709637308550191625}
-  - component: {fileID: 2626918759233816557}
+  - component: {fileID: 851083885358382482}
   m_Layer: 8
-  m_Name: DeactivateSelf
+  m_Name: DestroySelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1000,7 +1000,7 @@ Transform:
   m_Father: {fileID: 8371273281444090946}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2626918759233816557
+--- !u!114 &851083885358382482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1009,11 +1009,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6935701741391273018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26ca37e1b5297454ea4ffaf020a23588, type: 3}
+  m_Script: {fileID: 11500000, guid: c4a85c14e98d2914f9ced33c81baf86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetGameObject: {fileID: 7790853793824531132}
-  _value: 0
+  _gameObjects:
+  - {fileID: 7790853793824531132}
 --- !u!54 &7830002400166596032
 Rigidbody:
   m_ObjectHideFlags: 0
