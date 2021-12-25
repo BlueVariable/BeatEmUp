@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ffb9aeecd940eeae45d2a07d76492a, type: 3}
+  m_Name: SettingsSO_DialogueDataProvider_SimpleSpeaker
+  m_EditorClassIdentifier: 
+  _dialogueDataSettingsColl:
+  - _dialogue: 1001
+    _dialogueData:
+    - _speaker: 100
+      _speakerText:
+      - Request connection.
+    - _speaker: 300
+      _speakerText:
+      - "Request granted.\t Connecting."
+      - Connected.
+    - _speaker: 100
+      _speakerText:
+      - I have reached the location.
+      - Waiting for commands.
+    - _speaker: 200
+      _speakerText:
+      - Access authorized. You can proceed with Pursuit 0384.
+    - _speaker: 100
+      _speakerText:
+      - ...
+    - _speaker: 200
+      _speakerText:
+      - Hey, Yu.
+    - _speaker: 100
+      _speakerText:
+      - Yes, Overseer.
+    - _speaker: 200
+      _speakerText:
+      - You can try to be more careful this time.
+    - _speaker: 100
+      _speakerText:
+      - Understood. Out.
+  _speakerSettings:
+  - _speaker: 100
+    _speakerName: Yu
+  - _speaker: 200
+    _speakerName: Overseer
+  - _speaker: 300
+    _speakerName: Z

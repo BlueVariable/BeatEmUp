@@ -326,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _saveEnabled: 0
   _loadEnabled: 0
-  _fallbackSceneType: 12
+  _fallbackSceneType: 10
 --- !u!1 &519547620
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +597,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponUISettingsSO: {fileID: 11400000, guid: 084ccbfb7c20fc846906f4484ab82395, type: 2}
+--- !u!1 &1291167925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1291167929}
+  - component: {fileID: 1291167928}
+  - component: {fileID: 1291167927}
+  - component: {fileID: 1291167926}
+  m_Layer: 0
+  m_Name: DialoguePlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1291167926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291167925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242b224bc7645b742b16fc3768f12255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueDataProviderSO: {fileID: 11400000, guid: c860e6cdc597da04b9f03556c885ece9, type: 2}
+--- !u!114 &1291167927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291167925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bb1eb7353a4d31adcbec890faf53b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speakerSettingsSO: {fileID: 11400000, guid: 8f8e9ca136098124da39c742baefa576, type: 2}
+--- !u!114 &1291167928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291167925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fee95880982a542949569e7fc29403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _debugEnabled: 1
+--- !u!4 &1291167929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291167925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1366163421
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672c0c7b51744099b7acdcb7cb04a2c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetKeyCodes: 320100002000000030010000
+  _targetKeyCodes: 32010000200000003001000078000000
 --- !u!114 &2132239847
 MonoBehaviour:
   m_ObjectHideFlags: 0
