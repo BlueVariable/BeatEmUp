@@ -2,6 +2,6 @@
 {
     public interface IUltimateControllerProvider
     {
-        UltimateController GetUltimateController();
+        public UltimateController GetUltimateController();
     }
 }

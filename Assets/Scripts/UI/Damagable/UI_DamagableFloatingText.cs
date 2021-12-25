@@ -7,6 +7,12 @@ namespace BLUE.ProjectX.UI
 {
     public class UI_DamagableFloatingText : UIBase
     {
+        #region Constants
+
+        private const string FLOATING_TEXT_FORMAT = "0.";
+
+        #endregion
+        
         [SerializeField] private DamagableProviderBase _damagableProvider = null;
 
         [SerializeField] private UI_FloatingTextView _floatingTextView = null;
@@ -44,7 +50,7 @@ namespace BLUE.ProjectX.UI
         {
             _floatingTextView.ActivateFloatingText(
                 new FloatingTextData(
-                    Mathf.Abs(damage.UpdateAmount).ToString("0."),
+                    Mathf.Abs(damage.UpdateAmount).ToString(FLOATING_TEXT_FORMAT),
                     true,
                     _damageColor));
         }
@@ -53,7 +59,7 @@ namespace BLUE.ProjectX.UI
         {
             _floatingTextView.ActivateFloatingText(
                 new FloatingTextData(
-                    heal.UpdateAmount.ToString("0."),
+                    heal.UpdateAmount.ToString(FLOATING_TEXT_FORMAT),
                     true,
                     _healColor));
         }

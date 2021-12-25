@@ -8,10 +8,15 @@ namespace UI.Ultimate
     [RequireComponent(typeof(IUltimateControllerProvider))]
     public class UI_UltimateCooldownHUD : UIBase
     {
+        #region Constants
+
+        private const float INITIAL_ULTIMATE_REGISTER_DELAY = 0.05f;
+
+        #endregion
+        
         [SerializeField] private UI_FillBar _fillBar = null;
         
         private IUltimateControllerProvider _ultimateControllerProvider;
-
         private IUltimateControllerProvider _UltimateControllerProvider
         {
             get
@@ -27,7 +32,19 @@ namespace UI.Ultimate
 
         protected override void ActivatedCustomActions()
         {
-            CoroutineHelper.Instance.WaitForSeconds(0.05f, RegisterToUltimate);
+            void onInitialDelayCompleted()
+            {
+                if (!(_UltimateControllerProvider.GetUltimateController().CurUltimate is ICooldownUltimate))
+                {
+                    TryDeactivate();
+
+                    return;
+                }
+                
+                RegisterToUltimate();
+            }
+            
+            CoroutineHelper.Instance.WaitForSeconds(INITIAL_ULTIMATE_REGISTER_DELAY, onInitialDelayCompleted);
             
             base.ActivatedCustomActions();
         }
@@ -41,12 +58,8 @@ namespace UI.Ultimate
 
         private void RegisterToUltimate()
         {
-            if (!(_UltimateControllerProvider.GetUltimateController().CurUltimate is ICooldownUltimate))
-            {
-                TryDeactivate();
-            }
-
-            ICooldownUltimate cooldownUltimate = _UltimateControllerProvider.GetUltimateController().CurUltimate as ICooldownUltimate;
+            ICooldownUltimate cooldownUltimate = _UltimateControllerProvider
+                .GetUltimateController().CurUltimate as ICooldownUltimate;
 
             cooldownUltimate.CooldownTimer.OnTimerUpdated += OnTimerUpdated;
 
@@ -54,7 +67,8 @@ namespace UI.Ultimate
 
         private void UnregisterFromUltimate()
         {
-            ICooldownUltimate cooldownUltimate = _UltimateControllerProvider.GetUltimateController().CurUltimate as ICooldownUltimate;
+            ICooldownUltimate cooldownUltimate = _UltimateControllerProvider
+                .GetUltimateController().CurUltimate as ICooldownUltimate;
 
             cooldownUltimate.CooldownTimer.OnTimerUpdated -= OnTimerUpdated;
         }
