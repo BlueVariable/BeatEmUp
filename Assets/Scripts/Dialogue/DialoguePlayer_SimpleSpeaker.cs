@@ -38,6 +38,9 @@ namespace BLUE.ProjectX.Dialogue
         Overseer = 200,
         
         Z = 300,
+        
+        Yu_Dialogue = 400,
+        Z_Dialogue = 500
     }
     
     public enum ESimpleSpeakerDialogue
@@ -45,7 +48,14 @@ namespace BLUE.ProjectX.Dialogue
         None = 0,
         
         Tutorial_BasicMove_01 = 10001,
+        Tutorial_Jump_01 = 10002,
+        Tutorial_Dash_01 = 10003,
 
         Narrative_Level01_01 = 20001,
+        Narrative_Level01_02 = 20002,
+        
+        Dialogue_Level01_01 = 30001,
+        Dialogue_Level01_02 = 30002,
+        Dialogue_Level01_03 = 30003,
     }
 }

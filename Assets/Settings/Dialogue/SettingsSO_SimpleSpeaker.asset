@@ -19,3 +19,7 @@ MonoBehaviour:
     _speakerName: Overseer
   - _speaker: 300
     _speakerName: Z
+  - _speaker: 400
+    _speakerName: Yu
+  - _speaker: 500
+    _speakerName: Z

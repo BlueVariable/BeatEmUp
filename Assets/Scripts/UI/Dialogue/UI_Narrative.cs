@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.UI
 {
-    public class UI_Dialogue : UIBase
+    public class UI_Narrative : UIBase
     {
         [Header("Dialogue Settings")]
         [SerializeField] private UI_Text _dialogueTextUI = null;

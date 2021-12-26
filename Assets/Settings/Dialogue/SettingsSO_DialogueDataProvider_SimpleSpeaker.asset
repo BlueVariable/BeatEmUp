@@ -48,7 +48,40 @@ MonoBehaviour:
     _dialogueData:
     - _speaker: 2
       _speakerText:
-      - 'Press <b>A, D</b> to move left and right.
+      - 'Press <b>A, D</b> to move <b>left</b> and <b>right</b>.
 
-        Press <b>W, S</b> to
-        move front and back.'
+        Press <b>W,
+        S</b> to move <b>front</b> and <b>back</b>.'
+  - _dialogue: 10002
+    _dialogueData:
+    - _speaker: 2
+      _speakerText:
+      - 'Press <b>space</b> to <b>jump</b>.
+
+        Press space again to <b>double
+        jump</b> in mid air.'
+  - _dialogue: 10003
+    _dialogueData:
+    - _speaker: 2
+      _speakerText:
+      - Press <b>shift</b> to <b>dash</b>.
+  - _dialogue: 30001
+    _dialogueData:
+    - _speaker: 400
+      _speakerText:
+      - Hey, Z. Can you.. Can you try connect to Zero?
+  - _dialogue: 30002
+    _dialogueData:
+    - _speaker: 500
+      _speakerText:
+      - It's still out of reach Yu.
+  - _dialogue: 30003
+    _dialogueData:
+    - _speaker: 400
+      _speakerText:
+      - Oh, okay.
+  - _dialogue: 20002
+    _dialogueData:
+    - _speaker: 300
+      _speakerText:
+      - We must be getting close Yu. Be prepared.
