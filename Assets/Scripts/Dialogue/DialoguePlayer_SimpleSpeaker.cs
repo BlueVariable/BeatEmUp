@@ -60,6 +60,12 @@ namespace BLUE.ProjectX.Dialogue
         Narrative_Level_02_01 = 20101,
         Narrative_Level_02_02 = 20102,
         
+        Narrative_Level_03_01 = 20201,
+        Narrative_Level_03_02 = 20202,
+        
+        Narrative_Level_04_01 = 20301,
+        Narrative_Level_04_02 = 20302,
+        
         Dialogue_Level01_01 = 30001,
         Dialogue_Level01_02 = 30002,
         Dialogue_Level01_03 = 30003,

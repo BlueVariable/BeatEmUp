@@ -13,37 +13,6 @@ MonoBehaviour:
   m_Name: SettingsSO_DialogueDataProvider_SimpleSpeaker
   m_EditorClassIdentifier: 
   _dialogueDataSettingsColl:
-  - _dialogue: 20001
-    _dialogueData:
-    - _speaker: 100
-      _speakerText:
-      - Request connection.
-    - _speaker: 300
-      _speakerText:
-      - "Request granted.\t Connecting."
-      - Connected.
-    - _speaker: 100
-      _speakerText:
-      - I have reached the location.
-      - Waiting for commands.
-    - _speaker: 200
-      _speakerText:
-      - Access authorized. You can proceed with Pursuit 0384.
-    - _speaker: 100
-      _speakerText:
-      - ...
-    - _speaker: 200
-      _speakerText:
-      - Hey, Yu.
-    - _speaker: 100
-      _speakerText:
-      - Yes, Overseer.
-    - _speaker: 200
-      _speakerText:
-      - You can try to be more careful this time.
-    - _speaker: 100
-      _speakerText:
-      - Understood. Out.
   - _dialogue: 10001
     _dialogueData:
     - _speaker: 2
@@ -93,6 +62,37 @@ MonoBehaviour:
     - _speaker: 400
       _speakerText:
       - Oh, okay.
+  - _dialogue: 20001
+    _dialogueData:
+    - _speaker: 100
+      _speakerText:
+      - Request connection.
+    - _speaker: 300
+      _speakerText:
+      - "Request granted.\t Connecting."
+      - Connected.
+    - _speaker: 100
+      _speakerText:
+      - I have reached the location.
+      - Waiting for commands.
+    - _speaker: 200
+      _speakerText:
+      - Access authorized. You can proceed with Pursuit 0384.
+    - _speaker: 100
+      _speakerText:
+      - ...
+    - _speaker: 200
+      _speakerText:
+      - Hey, Yu.
+    - _speaker: 100
+      _speakerText:
+      - Yes, Overseer.
+    - _speaker: 200
+      _speakerText:
+      - You can try to be more careful this time.
+    - _speaker: 100
+      _speakerText:
+      - Understood. Out.
   - _dialogue: 20002
     _dialogueData:
     - _speaker: 300
@@ -108,8 +108,26 @@ MonoBehaviour:
     - _speaker: 300
       _speakerText:
       - Receving more enemy signal. Target predicted to be in the second floor.
-  - _dialogue: 20102
+  - _dialogue: 20201
     _dialogueData:
     - _speaker: 300
       _speakerText:
-      - Receiving more enemy signal. Proceed to the second floor.
+      - Target must be at the end of the corridor.
+  - _dialogue: 20202
+    _dialogueData:
+    - _speaker: 100
+      _speakerText:
+      - Where is it Z?
+    - _speaker: 300
+      _speakerText:
+      - I... I don't know. Someone must have took it before we got here. We need
+        to report this.
+    - _speaker: 100
+      _speakerText:
+      - Overseer won't like this.
+      - Let's get out of here. I hate those spider thingies.
+  - _dialogue: 20301
+    _dialogueData:
+    - _speaker: 100
+      _speakerText:
+      - Now, what?
