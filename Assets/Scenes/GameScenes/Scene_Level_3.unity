@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.6
   m_CustomReflection: {fileID: 8900000, guid: 3b5eaa969aa89fb45b025e2ff7d7695a, type: 3}
   m_Sun: {fileID: 1194554256}
-  m_IndirectSpecularColor: {r: 0.117168605, g: 0.13920163, b: 0.16031988, a: 0.6}
+  m_IndirectSpecularColor: {r: 0.117141925, g: 0.13918799, b: 0.1602866, a: 0.6}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -214567,7 +214567,7 @@ GameObject:
   - component: {fileID: 1200170876}
   - component: {fileID: 1200170877}
   m_Layer: 0
-  m_Name: PlayDialogue
+  m_Name: PlayDialogueAndRequestHUDDeactivation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214612,7 +214612,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1200170874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1d01ff8e33470283a12f6a03b71a70, type: 3}
+  m_Script: {fileID: 11500000, guid: 2de9d224127e7474097f11fbd2d07f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _eventArgs:

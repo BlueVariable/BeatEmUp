@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.6
   m_CustomReflection: {fileID: 8900000, guid: 3b5eaa969aa89fb45b025e2ff7d7695a, type: 3}
   m_Sun: {fileID: 1194554256}
-  m_IndirectSpecularColor: {r: 0.117168605, g: 0.13920163, b: 0.16031988, a: 0.6}
+  m_IndirectSpecularColor: {r: 0.117141925, g: 0.13918799, b: 0.1602866, a: 0.6}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000002, guid: b2096a5c2235a0a48a9af9a3a42f4b87, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: ed43e87428447e34b8d9166529b5d5aa, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 5133a7b91e145fa4b86fb21226039429, type: 2}
 --- !u!196 &5
 NavMeshSettings:
   serializedVersion: 2
@@ -576,7 +576,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5324933396472417750, guid: ffa102c570da00442b7cb4f0b7df0c97, type: 3}
       propertyPath: m_Name
-      value: LoadNextScene
+      value: CharacterTriggerEnter_Dialogue_Play_Narrative02-LoadNextScene
       objectReference: {fileID: 0}
     - target: {fileID: 8813212261754175916, guid: ffa102c570da00442b7cb4f0b7df0c97, type: 3}
       propertyPath: m_RootOrder
@@ -30370,7 +30370,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5344454468356667335, guid: 8ed1d624f842d49419322000099941d4, type: 3}
       propertyPath: m_Name
-      value: Dialogue_Stop
+      value: CharacterTriggerEnter_Dialogue_Stop
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 8ed1d624f842d49419322000099941d4, type: 3}
       propertyPath: m_RootOrder
@@ -63255,7 +63255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344454468356667335, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_Name
-      value: Dialogue_01
+      value: CharacterTriggerEnter_Dialogue_Play_Dialogue_01
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_RootOrder
@@ -64385,7 +64385,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 364250992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1d01ff8e33470283a12f6a03b71a70, type: 3}
+  m_Script: {fileID: 11500000, guid: 2de9d224127e7474097f11fbd2d07f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _eventArgs:
@@ -69589,7 +69589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344454468356667335, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_Name
-      value: Dialogue_02
+      value: CharacterTriggerEnter_Dialogue_Play_Dialogue_02
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_RootOrder
@@ -109076,7 +109076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344454468356667335, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_Name
-      value: Dialogue_03
+      value: CharacterTriggerEnter_Dialogue_Play_Dialogue_03
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_RootOrder
@@ -228181,7 +228181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344454468356667335, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_Name
-      value: Tutorial_Dash
+      value: CharacterTriggerEnter_Dialogue_Play_Tutorial_Dash
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_RootOrder
@@ -273021,7 +273021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344454468356667335, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_Name
-      value: Narrative_01
+      value: CharacterTriggerEnter_Dialogue_Play_Narrative01-HUDActivation-TutorialMove01
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_RootOrder
@@ -306508,7 +306508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344454468356667335, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_Name
-      value: Tutorial_Jump
+      value: CharacterTriggerEnter_Dialogue_Play_Tutorial_Jump
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_RootOrder
@@ -320852,7 +320852,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5344454468356667335, guid: 8ed1d624f842d49419322000099941d4, type: 3}
       propertyPath: m_Name
-      value: Dialogue_Stop (2)
+      value: CharacterTriggerEnter_Dialogue_Stop
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 8ed1d624f842d49419322000099941d4, type: 3}
       propertyPath: m_RootOrder
@@ -347600,7 +347600,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5344454468356667335, guid: 8ed1d624f842d49419322000099941d4, type: 3}
       propertyPath: m_Name
-      value: Dialogue_Stop (1)
+      value: CharacterTriggerEnter_Dialogue_Stop
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 8ed1d624f842d49419322000099941d4, type: 3}
       propertyPath: m_RootOrder
@@ -391544,7 +391544,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9078546345570028704, guid: b0abbf0a6f23b574084691f8da0fd269, type: 3}
       propertyPath: m_Name
-      value: CharacterHUD
+      value: CharacterScreenHUD
       objectReference: {fileID: 0}
     - target: {fileID: 9078546345570028705, guid: b0abbf0a6f23b574084691f8da0fd269, type: 3}
       propertyPath: m_Camera

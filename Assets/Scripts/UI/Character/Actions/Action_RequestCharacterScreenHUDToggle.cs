@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BLUE.ProjectX.UI
 {
-    public class Action_ToggleCharacterScreenHUD : ActionBase
+    public class Action_RequestCharacterScreenHUDToggle : ActionBase
     {
         [SerializeField] private EventArgs_OnCharacterScreenHUDToggleRequested _eventArgs = 
             new EventArgs_OnCharacterScreenHUDToggleRequested();

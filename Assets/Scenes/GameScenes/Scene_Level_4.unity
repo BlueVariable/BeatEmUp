@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.6
   m_CustomReflection: {fileID: 8900000, guid: 3b5eaa969aa89fb45b025e2ff7d7695a, type: 3}
   m_Sun: {fileID: 1194554256}
-  m_IndirectSpecularColor: {r: 0.117168605, g: 0.13920163, b: 0.16031988, a: 0.6}
+  m_IndirectSpecularColor: {r: 0.117141925, g: 0.13918799, b: 0.1602866, a: 0.6}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -265121,7 +265121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344454468356667335, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_Name
-      value: Narrative_01
+      value: CharacterTriggerEnter_Dialogue_Play_Narrative01-HUDActivation
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 4aea320aef5028b4f8211839bd36d543, type: 3}
       propertyPath: m_RootOrder
@@ -309124,7 +309124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1695591037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1d01ff8e33470283a12f6a03b71a70, type: 3}
+  m_Script: {fileID: 11500000, guid: 2de9d224127e7474097f11fbd2d07f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _eventArgs:
@@ -319478,7 +319478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344454468356667335, guid: 8ed1d624f842d49419322000099941d4, type: 3}
       propertyPath: m_Name
-      value: CharacterTriggerEnter_Dialogue_Stop (1)
+      value: CharacterTriggerEnter_Dialogue_Stop
       objectReference: {fileID: 0}
     - target: {fileID: 8755127865898843069, guid: 8ed1d624f842d49419322000099941d4, type: 3}
       propertyPath: m_RootOrder
