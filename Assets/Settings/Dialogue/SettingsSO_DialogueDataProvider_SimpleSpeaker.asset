@@ -48,23 +48,36 @@ MonoBehaviour:
     _dialogueData:
     - _speaker: 2
       _speakerText:
-      - 'Press <b>A, D</b> to move <b>left</b> and <b>right</b>.
+      - '<alpha=#88>Press <alpha=#FF><b>A, D</b><alpha=#88> to move <alpha=#FF><b>left</b><alpha=#88>
+        and <alpha=#FF><b>right</b>.
 
-        Press <b>W,
-        S</b> to move <b>front</b> and <b>back</b>.'
+        <alpha=#88>Press<alpha=#FF> <b>W, S</b>
+        <alpha=#88>to move <alpha=#FF><b>front</b> <alpha=#88>and <alpha=#FF><b>back</b>.'
   - _dialogue: 10002
     _dialogueData:
     - _speaker: 2
       _speakerText:
-      - 'Press <b>space</b> to <b>jump</b>.
+      - '<alpha=#88>Press <alpha=#FF><b>space</b> <alpha=#88>to <alpha=#FF><b>jump</b>.
 
-        Press space again to <b>double
-        jump</b> in mid air.'
+        <alpha=#88>Press
+        space again to <alpha=#FF><b>double jump</b><alpha=#88> in mid air.'
   - _dialogue: 10003
     _dialogueData:
     - _speaker: 2
       _speakerText:
-      - Press <b>shift</b> to <b>dash</b>.
+      - <alpha=#88>Press <alpha=#FF><b>Left CTRL</b> <alpha=#88>to <alpha=#FF><b>dash</b>.
+  - _dialogue: 10011
+    _dialogueData:
+    - _speaker: 2
+      _speakerText:
+      - <alpha=#88>Click <alpha=#FF><b> left mouse button</b> <alpha=#88>to perform
+        <alpha=#FF><b>melee attack</b>.
+  - _dialogue: 10021
+    _dialogueData:
+    - _speaker: 2
+      _speakerText:
+      - <alpha=#88>Click <alpha=#FF><b> right mouse button</b> <alpha=#88>to perform<alpha=#FF>
+        <b>range attack</b>.
   - _dialogue: 30001
     _dialogueData:
     - _speaker: 400
@@ -85,3 +98,18 @@ MonoBehaviour:
     - _speaker: 300
       _speakerText:
       - We must be getting close Yu. Be prepared.
+  - _dialogue: 20101
+    _dialogueData:
+    - _speaker: 300
+      _speakerText:
+      - Receiving enemy signal. Some must be guarding the building. Prepare for combat.
+  - _dialogue: 20102
+    _dialogueData:
+    - _speaker: 300
+      _speakerText:
+      - Receving more enemy signal. Target predicted to be in the second floor.
+  - _dialogue: 20102
+    _dialogueData:
+    - _speaker: 300
+      _speakerText:
+      - Receiving more enemy signal. Proceed to the second floor.

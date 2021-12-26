@@ -50,9 +50,15 @@ namespace BLUE.ProjectX.Dialogue
         Tutorial_BasicMove_01 = 10001,
         Tutorial_Jump_01 = 10002,
         Tutorial_Dash_01 = 10003,
+        
+        Tutorial_Combat_Melee_01 = 10011,
+        Tutorial_Combat_Range_01 = 10021,
 
         Narrative_Level01_01 = 20001,
         Narrative_Level01_02 = 20002,
+        
+        Narrative_Level_02_01 = 20101,
+        Narrative_Level_02_02 = 20102,
         
         Dialogue_Level01_01 = 30001,
         Dialogue_Level01_02 = 30002,
