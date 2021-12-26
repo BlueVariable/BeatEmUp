@@ -23,6 +23,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1558993411489354194, guid: ffa102c570da00442b7cb4f0b7df0c97, type: 3}
+      propertyPath: m_Name
+      value: PlayDialogue
+      objectReference: {fileID: 0}
     - target: {fileID: 5324933396472417750, guid: ffa102c570da00442b7cb4f0b7df0c97, type: 3}
       propertyPath: m_Icon
       value: 

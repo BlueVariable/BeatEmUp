@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BLUE.ActionSystem;
 using BLUE.DialogueSystem;
 using BLUE.ProjectX.Dialogue;
@@ -15,6 +16,8 @@ namespace BLUE.ProjectX.UI
         [SerializeField] private UI_Text _dialogueTextUI = null;
         [SerializeField] private UI_Text _dialogueSpeakerNameTextUI = null;
 
+        [SerializeField] private ESimpleSpeaker[] _displayedSpeakers = new ESimpleSpeaker[0];
+        
         [SerializeField] private TriggerBase _dialogueContinueTrigger = null;
 
         [Header("Actions")]
@@ -54,6 +57,11 @@ namespace BLUE.ProjectX.UI
             object sender, 
             EventArgs_OnDialogueActivationRequested<DialogueData_SimpleSpeaker<ESimpleSpeaker>> e)
         {
+            if (!_displayedSpeakers.Contains(e.DialogueData.Speaker))
+            {
+                return;
+            }
+            
             LastSpokenSpeaker = e.DialogueData.Speaker;
 
             SettingsContainer_SimpleSpeaker.Instance.TryGetSpeakerSettings(

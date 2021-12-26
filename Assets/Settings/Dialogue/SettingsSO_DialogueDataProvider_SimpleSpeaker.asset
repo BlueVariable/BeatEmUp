@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SettingsSO_DialogueDataProvider_SimpleSpeaker
   m_EditorClassIdentifier: 
   _dialogueDataSettingsColl:
-  - _dialogue: 1001
+  - _dialogue: 20001
     _dialogueData:
     - _speaker: 100
       _speakerText:
@@ -44,10 +44,11 @@ MonoBehaviour:
     - _speaker: 100
       _speakerText:
       - Understood. Out.
-  _speakerSettings:
-  - _speaker: 100
-    _speakerName: Yu
-  - _speaker: 200
-    _speakerName: Overseer
-  - _speaker: 300
-    _speakerName: Z
+  - _dialogue: 10001
+    _dialogueData:
+    - _speaker: 2
+      _speakerText:
+      - 'Press <b>A, D</b> to move left and right.
+
+        Press <b>W, S</b> to
+        move front and back.'

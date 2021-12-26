@@ -44,6 +44,8 @@ namespace BLUE.ProjectX.Dialogue
     {
         None = 0,
         
-        Narrative_Level01_01 = 1001,
+        Tutorial_BasicMove_01 = 10001,
+
+        Narrative_Level01_01 = 20001,
     }
 }

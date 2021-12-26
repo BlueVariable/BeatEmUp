@@ -406,6 +406,7 @@ MonoBehaviour:
   _deactivationConditionCarrier: {fileID: 0}
   _dialogueTextUI: {fileID: 7292479992025257868}
   _dialogueSpeakerNameTextUI: {fileID: 7292479992412363967}
+  _displayedSpeakers: 64000000c80000002c010000
   _dialogueContinueTrigger: {fileID: 7292479990431715539}
   _dialogueDisplayingActions:
     _actionCarrier: {fileID: 7292479991342514607}
