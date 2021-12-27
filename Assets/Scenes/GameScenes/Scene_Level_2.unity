@@ -238598,6 +238598,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 494798316}
     m_Modifications:
+    - target: {fileID: 116810, guid: 953345a209e4fe7428046236259c9c7f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 116810, guid: 953345a209e4fe7428046236259c9c7f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 122750, guid: 953345a209e4fe7428046236259c9c7f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 122750, guid: 953345a209e4fe7428046236259c9c7f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 133144, guid: 953345a209e4fe7428046236259c9c7f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 133144, guid: 953345a209e4fe7428046236259c9c7f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 425724, guid: 953345a209e4fe7428046236259c9c7f, type: 3}
       propertyPath: m_RootOrder
       value: 586
