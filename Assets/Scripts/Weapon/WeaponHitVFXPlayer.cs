@@ -35,8 +35,8 @@ namespace BLUE.ProjectX.Weapon
         {
             ParticlePlayData_Pool playData =
                 new ParticlePlayData_Pool(
-                    target, 
-                    _particleData.PositionOffset,
+                    null, 
+                    target.position,
                     _particleData.RotationOffset);
             
             _particlePlayer.Play(playData);
