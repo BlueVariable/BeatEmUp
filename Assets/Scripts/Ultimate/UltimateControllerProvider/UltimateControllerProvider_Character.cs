@@ -5,7 +5,6 @@ namespace BLUE.ProjectX.Ultimate
     public class UltimateControllerProvider_Character : MonoBehaviour, IUltimateControllerProvider
     {
         private UltimateController _ultimateController;
-
         private UltimateController _UltimateController
         {
             get

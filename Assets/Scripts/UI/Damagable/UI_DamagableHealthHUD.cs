@@ -2,6 +2,7 @@
 using BLUE.DamageSystem;
 using BLUE.UISystem;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace BLUE.ProjectX.UI
 {
@@ -14,6 +15,9 @@ namespace BLUE.ProjectX.UI
         [SerializeField] private ActionExecutor _onHealedActions = null;
         [SerializeField] private ActionExecutor _onTookDamageActions = null;
         [SerializeField] private ActionExecutor _onDiedActions = null;
+
+        [SerializeField] private UI_Text _curHealthText = null;
+        [SerializeField] private UI_Text _maxHealthText = null;
         
         protected override void ActivatedCustomActions()
         {
@@ -68,11 +72,23 @@ namespace BLUE.ProjectX.UI
 
         private void InitBar()
         {
+            UpdateBar();
+            
             _fillBar.SetTargetNormValue(1, true);
         }
 
         private void UpdateBar()
         {
+            if (_curHealthText)
+            {
+                _curHealthText.Text = _damagableProvider.Damagable.CurHP + "";
+            }
+
+            if (_maxHealthText)
+            {
+                _maxHealthText.Text = _damagableProvider.Damagable.MaxHP + "";
+            }
+            
             float normValue = _damagableProvider.Damagable.CurHP / _damagableProvider.Damagable.MaxHP;
             
             _fillBar.SetTargetNormValue(normValue);

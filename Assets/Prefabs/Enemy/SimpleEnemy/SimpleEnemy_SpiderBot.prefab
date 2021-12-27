@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aoeAttackBehaviour: {fileID: 4929078009360293957}
   _aoeAttackData:
-    _damage: 10
+    _damage: 2
     _radius: 1
     _targetMask:
       serializedVersion: 2
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43ce63c11ea2574d985ece90f2bd1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -272,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb0d4858ac64f1482e7d56930d48038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -399,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f8118327534f71863a1162dcebe048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -515,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43ce63c11ea2574d985ece90f2bd1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -715,6 +719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aoeOrigin: {fileID: 7227402055637920036}
   _damageDealer: {fileID: 708728405902000544}
+  _attackPerformedActionExecutor:
+    _actionCarrier: {fileID: 0}
 --- !u!95 &6916403490178221202
 Animator:
   serializedVersion: 3
@@ -779,6 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b728bf3bf403fb0e9ec8d8daefc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -971,9 +978,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4709637308550191625}
-  - component: {fileID: 2626918759233816557}
+  - component: {fileID: 851083885358382482}
   m_Layer: 8
-  m_Name: DeactivateSelf
+  m_Name: DestroySelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,7 +1000,7 @@ Transform:
   m_Father: {fileID: 8371273281444090946}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2626918759233816557
+--- !u!114 &851083885358382482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1002,11 +1009,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6935701741391273018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26ca37e1b5297454ea4ffaf020a23588, type: 3}
+  m_Script: {fileID: 11500000, guid: c4a85c14e98d2914f9ced33c81baf86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetGameObject: {fileID: 7790853793824531132}
-  _value: 0
+  _gameObjects:
+  - {fileID: 7790853793824531132}
 --- !u!54 &7830002400166596032
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1209,6 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3b728bf3bf403fb0e9ec8d8daefc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []
@@ -1292,6 +1300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb0d4858ac64f1482e7d56930d48038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debugEnabled: 0
   _activateOnAwake: 1
   _once: 0
   _triggerConditions: []

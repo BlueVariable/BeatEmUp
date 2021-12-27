@@ -17,7 +17,7 @@ TagManager:
   - CharacterDamagable
   - EnemyDamagable
   - Projectile
-  - 
+  - CharacterTrigger
   - 
   - 
   - 

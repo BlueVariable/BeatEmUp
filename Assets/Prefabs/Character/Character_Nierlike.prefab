@@ -90,6 +90,10 @@ PrefabInstance:
       propertyPath: _equipBone
       value: 
       objectReference: {fileID: 1345783843727476284}
+    - target: {fileID: 838827528405120596, guid: 222facea89e76f24889911807c436110, type: 3}
+      propertyPath: m_Name
+      value: Particle_Character_Dash
+      objectReference: {fileID: 0}
     - target: {fileID: 1959921393463571352, guid: 222facea89e76f24889911807c436110, type: 3}
       propertyPath: _equipBone
       value: 

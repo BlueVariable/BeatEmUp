@@ -63,7 +63,7 @@ MonoBehaviour:
   _deactivationConditionCarrier: {fileID: 0}
   _damagableProvider: {fileID: 0}
   _floatingTextView: {fileID: 756251001566349443}
-  _damageColor: {r: 1, g: 0, b: 0, a: 1}
+  _damageColor: {r: 1, g: 1, b: 1, a: 1}
   _healColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &9078546345379339349
 GameObject:
@@ -283,6 +283,8 @@ MonoBehaviour:
     _actionCarrier: {fileID: 9078546346741217005}
   _onDiedActions:
     _actionCarrier: {fileID: 9078546346914243360}
+  _curHealthText: {fileID: 0}
+  _maxHealthText: {fileID: 0}
 --- !u!1 &9078546346097773071
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +419,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 90, y: 0}
+  m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &9078546346529365694
 CanvasRenderer:
@@ -834,7 +836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8359172867919337736, guid: 2559a6f5192ec8e4a8f8c1e950c0b170, type: 3}
       propertyPath: m_Name
-      value: UI_FloatingText
+      value: FloatingTextViewUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2559a6f5192ec8e4a8f8c1e950c0b170, type: 3}
