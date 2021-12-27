@@ -98,11 +98,8 @@ MonoBehaviour:
   _particlePlayer:
     _particlePool: {fileID: 8580273099824135291}
     _resetTransformProperties: 1
-    _deallocationDuraion: 1.5
-  _particleData:
-    _targetParent: {fileID: 0}
-    _positionOffset: {x: 0, y: 0, z: 0}
-    _rotationOffset: {x: 0, y: 0, z: 0}
+    _deallocationDuration: 1.5
+  _rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &8580273099824135291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +176,7 @@ MonoBehaviour:
   _particlePlayer:
     _particlePool: {fileID: 6571986547769626199}
     _resetTransformProperties: 1
-    _deallocationDuraion: 1.5
+    _deallocationDuration: 1.5
   _playData:
     _targetParent: {fileID: 0}
     _positionOffset: {x: 0, y: 2, z: 0}
@@ -351,6 +348,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1315979845468739134}
     m_Modifications:
+    - target: {fileID: 6168826581521767603, guid: 9bf8514a32862ba48a6a8d2292f5b0fb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6169017650019942989, guid: 9bf8514a32862ba48a6a8d2292f5b0fb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188607224102928145, guid: 9bf8514a32862ba48a6a8d2292f5b0fb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188650073370709003, guid: 9bf8514a32862ba48a6a8d2292f5b0fb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188742563436973169, guid: 9bf8514a32862ba48a6a8d2292f5b0fb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188996782137801181, guid: 9bf8514a32862ba48a6a8d2292f5b0fb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6280231934561664949, guid: 9bf8514a32862ba48a6a8d2292f5b0fb, type: 3}
       propertyPath: m_Name
       value: SwordHitVFX

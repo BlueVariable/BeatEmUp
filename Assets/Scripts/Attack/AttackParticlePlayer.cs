@@ -1,16 +1,16 @@
 ﻿using BLUE.Common;
 using UnityEngine;
 
-namespace BLUE.ProjectX.Weapon
+namespace BLUE.ProjectX.Attack
 {
-    public class WeaponHitVFXPlayer : MonoBehaviour
+    public class AttackParticlePlayer : MonoBehaviour
     {
         [SerializeField] private AttackBehaviourBase _attackBehaviour = null;
         
         [SerializeField] private ParticlePlayer_Pool _particlePlayer = null;
 
-        [SerializeField] private ParticlePlayData_Pool _particleData = null;
-        
+        [SerializeField] private Vector3 _rotationOffset = Vector3.zero;
+
         private void Awake()
         {
             RegisterToAttackBehaviour();
@@ -33,11 +33,16 @@ namespace BLUE.ProjectX.Weapon
 
         private void OnAttacked(Transform target)
         {
+            if (target == null)
+            {
+                return;
+            }
+            
             ParticlePlayData_Pool playData =
                 new ParticlePlayData_Pool(
                     null, 
                     target.position,
-                    _particleData.RotationOffset);
+                    _rotationOffset);
             
             _particlePlayer.Play(playData);
         }

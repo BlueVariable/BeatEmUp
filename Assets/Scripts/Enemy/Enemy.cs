@@ -21,6 +21,11 @@ namespace BLUE.ProjectX.Enemy
 
         private void UnregisterSelfFromEnemyManager()
         {
+            if (EnemyManager.Instance == null)
+            {
+                return;
+            }
+            
             EnemyManager.Instance.UnregisterEnemy(this);
         }
     }
