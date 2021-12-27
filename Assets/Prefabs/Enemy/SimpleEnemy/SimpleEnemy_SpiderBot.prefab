@@ -2151,6 +2151,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261913816179572252, guid: 25f8d8dde7833874f8498df588389b87, type: 3}
+      propertyPath: _maxHP
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 861360755296523720, guid: 25f8d8dde7833874f8498df588389b87, type: 3}
       propertyPath: m_Name
       value: SimpleEnemy_SpiderBot
