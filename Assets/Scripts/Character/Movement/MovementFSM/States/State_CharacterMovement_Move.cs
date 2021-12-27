@@ -56,26 +56,14 @@ namespace BLUE.ProjectX.Character
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterMovement transitionMessage)
         {
-            InputManager.Instance.TryRegisterToInputListener<InputData_Axis>(
-                EInputEvent.HorizontalAxis,
-                OnHorizontalInputPerformedInMoveState);
-            
-            InputManager.Instance.TryRegisterToInputListener<InputData_Axis>(
-                EInputEvent.VerticalAxis,
-                OnVerticalInputPerformedInMoveState);
+            RegisterToInStateInputManager();
 
             base.EnterStateCustomActions(transitionMessage);
         }
 
         protected override void ExitStateCustomActions()
         {
-            InputManager.Instance.TryUnregisterFromInputListener<InputData_Axis>(
-                EInputEvent.HorizontalAxis,
-                OnHorizontalInputPerformedInMoveState);
-            
-            InputManager.Instance.TryUnregisterFromInputListener<InputData_Axis>(
-                EInputEvent.VerticalAxis,
-                OnVerticalInputPerformedInMoveState);
+            UnregisterFromInStateInputManager();
             
             _lastExecutedInput = Vector2.zero;
 
@@ -90,6 +78,35 @@ namespace BLUE.ProjectX.Character
         private void OnDestroy()
         {
             UnregisterFromInputManager();
+
+            UnregisterFromInStateInputManager();
+        }
+
+        private void RegisterToInStateInputManager()
+        {
+            InputManager.Instance.TryRegisterToInputListener<InputData_Axis>(
+                EInputEvent.HorizontalAxis,
+                OnHorizontalInputPerformedInMoveState);
+            
+            InputManager.Instance.TryRegisterToInputListener<InputData_Axis>(
+                EInputEvent.VerticalAxis,
+                OnVerticalInputPerformedInMoveState);
+        }
+
+        private void UnregisterFromInStateInputManager()
+        {
+            if (InputManager.Instance == null)
+            {
+                return;
+            }
+            
+            InputManager.Instance.TryUnregisterFromInputListener<InputData_Axis>(
+                EInputEvent.HorizontalAxis,
+                OnHorizontalInputPerformedInMoveState);
+            
+            InputManager.Instance.TryUnregisterFromInputListener<InputData_Axis>(
+                EInputEvent.VerticalAxis,
+                OnVerticalInputPerformedInMoveState);
         }
 
         private void OnHorizontalInputPerformedInMoveState(InputData_Axis inputData)
