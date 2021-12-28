@@ -46,7 +46,7 @@ namespace BLUE.ProjectX.Character
 
         protected override void EnterStateCustomActions(FSMTransitionMessage_CharacterPlatform transitionMessage)
         {
-            _jumpBehaviour.OnJumpFinished += OnJumpFinished;
+            RegisterToJumpBehaviour();
             
             _jumpBehaviour.AddDoubleJumpBoost();
             
@@ -57,20 +57,13 @@ namespace BLUE.ProjectX.Character
 
         protected override void ExitStateCustomActions()
         {
-            _jumpBehaviour.OnJumpFinished -= OnJumpFinished;
+            UnregisterFromJumpBehaviour();
             
             _jumpBehaviour.StopJump();
             
             base.ExitStateCustomActions();
         }
-
-        private void OnJumpFinished()
-        {
-            _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
-        }
-
-        #region Input Related
-
+        
         private void Awake()
         {
             RegisterToSelfFSM();
@@ -79,8 +72,27 @@ namespace BLUE.ProjectX.Character
         private void OnDestroy()
         {
             UnregisterFromSelfFSM();
+            
+            UnregisterFromInputManager();
+            
+            UnregisterFromJumpBehaviour();
         }
-        
+
+        private void RegisterToJumpBehaviour()
+        {
+            _jumpBehaviour.OnJumpFinished += OnJumpFinished;
+        }
+
+        private void UnregisterFromJumpBehaviour()
+        {
+            _jumpBehaviour.OnJumpFinished -= OnJumpFinished;
+        }
+
+        private void OnJumpFinished()
+        {
+            _PlatformFSM.TryChangeState(ECharacterPlatformState.Idle);
+        }
+
         private void RegisterToSelfFSM()
         {
             _PlatformFSM.OnStateEntered += OnEnteredState;
@@ -134,7 +146,5 @@ namespace BLUE.ProjectX.Character
 
             _PlatformFSM.TryChangeState(ECharacterPlatformState.DoubleJump);
         }
-
-        #endregion
     }
 }
