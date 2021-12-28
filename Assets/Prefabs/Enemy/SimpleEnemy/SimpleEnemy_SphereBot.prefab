@@ -262,7 +262,7 @@ MonoBehaviour:
     _actionCarrier: {fileID: 0}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 512
 --- !u!136 &4216796549175947481
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
     _actionCarrier: {fileID: 0}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 512
 --- !u!136 &7365077859746616966
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -681,7 +681,7 @@ MonoBehaviour:
     _actionCarrier: {fileID: 0}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 512
 --- !u!136 &1513761824604954012
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -828,7 +828,7 @@ MonoBehaviour:
     _actionCarrier: {fileID: 0}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 512
 --- !u!136 &2891065944446100754
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1014,7 +1014,7 @@ MonoBehaviour:
     _actionCarrier: {fileID: 0}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 512
 --- !u!136 &5204233938541147536
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1098,7 +1098,7 @@ MonoBehaviour:
     _actionCarrier: {fileID: 0}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 512
 --- !u!136 &8071003185652563468
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System;
 using BLUE.ActionSystem;
+using BLUE.DamageSystem;
 using BLUE.FSMSystem;
 using BLUE.TriggerSystem;
 using UnityEngine;
@@ -15,6 +16,14 @@ namespace BLUE.ProjectX.Enemy
         [SerializeField] private ActionExecutor _attackActions = null;
 
         public Transform AttackTarget { get; private set; }
+
+        private Damagable _curAttackTargetDamagable;
+
+        #region Events
+
+        public Action<Transform> OnAttackTargetSet { get; set; }
+
+        #endregion
         
         public override ESimpleEnemyState GetStateType()
         {
@@ -24,6 +33,12 @@ namespace BLUE.ProjectX.Enemy
         protected override void EnterStateCustomActions(FSMTransitionMessage_SimpleEnemy_Attack transitionMessage)
         {
             AttackTarget = transitionMessage.AttackTarget;
+
+            _curAttackTargetDamagable = AttackTarget.GetComponentInChildren<Damagable>();
+
+            RegisterToTargetDamagable();
+            
+            OnAttackTargetSet?.Invoke(AttackTarget);
             
             _attackActions.Execute();
             
@@ -32,6 +47,8 @@ namespace BLUE.ProjectX.Enemy
 
         protected override void ExitStateCustomActions()
         {
+            UnregisterFromTargetDamagable();
+            
             _attackActions.Interrupt();
             
             base.ExitStateCustomActions();
@@ -45,6 +62,35 @@ namespace BLUE.ProjectX.Enemy
         private void OnDestroy()
         {
             Array.ForEach(_attackEnterRequestors, i => i.OnTriggered -= OnTriggered);
+            
+            UnregisterFromTargetDamagable();
+        }
+
+        private void RegisterToTargetDamagable()
+        {
+            if (_curAttackTargetDamagable == null)
+            {
+                return;
+            }
+            
+            if (_curAttackTargetDamagable.IsDead)
+            {
+                OnTargetDied();
+
+                return;
+            }
+            
+            _curAttackTargetDamagable.OnDied += OnTargetDied;
+        }
+
+        private void UnregisterFromTargetDamagable()
+        {
+            if (_curAttackTargetDamagable == null)
+            {
+                return;
+            }
+            
+            _curAttackTargetDamagable.OnDied -= OnTargetDied;
         }
 
         private void OnTriggered(TriggerBase triggerBase)
@@ -52,6 +98,11 @@ namespace BLUE.ProjectX.Enemy
             _fsm.TryChangeState(
                 ESimpleEnemyState.Attack, 
                 new FSMTransitionMessage_SimpleEnemy_Attack(((Trigger_LayerBase) triggerBase).LastValidObject.transform));
+        }
+        
+        private void OnTargetDied()
+        {
+            _fsm.TryChangeState(ESimpleEnemyState.Idle);
         }
     }
 }
