@@ -41,7 +41,7 @@ Shader "Hovl/Particles/Distortion"
 					float4 texcoord : TEXCOORD0;				
 				};
 
-				struct v2f 
+				struct VertexOutput 
 				{
 					float4 vertex : SV_POSITION;
 					fixed4 color : COLOR;
@@ -52,9 +52,9 @@ Shader "Hovl/Particles/Distortion"
 					#endif
 				};			
 
-				v2f vert ( appdata_t v  )
+				VertexOutput vert ( appdata_t v  )
 				{
-					v2f o;
+					VertexOutput o;
 					o.vertex = UnityObjectToClipPos(v.vertex);
 					#ifdef SOFTPARTICLES_ON
 						o.projPos = ComputeScreenPos (o.vertex);
@@ -77,7 +77,7 @@ Shader "Hovl/Particles/Distortion"
 					return o;
 				}
 
-				fixed4 frag ( v2f i  ) : SV_Target
+				fixed4 frag ( VertexOutput i  ) : SV_Target
 				{
 					#ifdef SOFTPARTICLES_ON
 						float sceneZ = LinearEyeDepth (SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.projPos)));

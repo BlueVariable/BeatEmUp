@@ -49,7 +49,7 @@ Shader "Hovl/Particles/Blend_CenterGlow"
 					
 				};
 
-				struct v2f 
+				struct VertexOutput 
 				{
 					float4 vertex : SV_POSITION;
 					fixed4 color : COLOR;
@@ -88,9 +88,9 @@ Shader "Hovl/Particles/Blend_CenterGlow"
 				uniform fixed _Usedepth;
 				uniform float _Depthpower;
 
-				v2f vert ( appdata_t v  )
+				VertexOutput vert ( appdata_t v  )
 				{
-					v2f o;
+					VertexOutput o;
 					UNITY_SETUP_INSTANCE_ID(v);
 					UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 					UNITY_TRANSFER_INSTANCE_ID(v, o);
@@ -107,7 +107,7 @@ Shader "Hovl/Particles/Blend_CenterGlow"
 					return o;
 				}
 
-				fixed4 frag ( v2f i  ) : SV_Target
+				fixed4 frag ( VertexOutput i  ) : SV_Target
 				{
 					float lp = 1;
 					#ifdef SOFTPARTICLES_ON

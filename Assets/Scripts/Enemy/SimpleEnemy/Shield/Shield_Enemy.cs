@@ -1,5 +1,6 @@
 ﻿using System;
 using BLUE.DamageSystem;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace BLUE.ProjectX.Enemy.SimpleEnemy
@@ -10,6 +11,10 @@ namespace BLUE.ProjectX.Enemy.SimpleEnemy
 
         [SerializeField] private Damagable _shieldDamagable = null;
 
+        [SerializeField] private Transform _shieldVisual = null;
+
+        [SerializeField] private Collider _movementBlocker = null;
+        
         private void Awake()
         {
             EnableEnemyDamagableCollider(false);
@@ -20,6 +25,11 @@ namespace BLUE.ProjectX.Enemy.SimpleEnemy
         private void OnDestroy()
         {
             UnregisterFromShieldDamagable();
+        }
+
+        private void LateUpdate()
+        {
+            _shieldVisual.rotation = Quaternion.identity;
         }
 
         private void RegisterToShieldDamagable()
@@ -35,6 +45,10 @@ namespace BLUE.ProjectX.Enemy.SimpleEnemy
         private void OnShieldDied()
         {
             EnableEnemyDamagableCollider(true);
+
+            _movementBlocker.enabled = false;
+            
+            _shieldVisual.gameObject.SetActive(false);
         }
 
         private void EnableEnemyDamagableCollider(bool val)

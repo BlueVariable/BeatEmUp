@@ -39,20 +39,20 @@ SubShader {
 			float4 vertex : POSITION;
 		};
 
-		struct v2f {
+		struct VertexOutput {
 			float4 vertex : SV_POSITION;
 			float3 texcoord : TEXCOORD0;
 		};
 
-		v2f vert (appdata_t v)
+		VertexOutput vert (appdata_t v)
 		{
-			v2f o;
+			VertexOutput o;
 			o.vertex = UnityObjectToClipPos(RotateAroundYInDegrees(v.vertex, _Rotation + (_Time * _RotSpeed)));
 			o.texcoord = v.vertex.xyz;
 			return o;
 		}
 
-		fixed4 frag (v2f i) : SV_Target
+		fixed4 frag (VertexOutput i) : SV_Target
 		{			
 			
 		

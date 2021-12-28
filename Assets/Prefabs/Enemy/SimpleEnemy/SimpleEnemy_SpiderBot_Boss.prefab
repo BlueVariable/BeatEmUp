@@ -824,6 +824,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyDamagableCollider: {fileID: 669695069847526242}
   _shieldDamagable: {fileID: 8815289876798454794}
+  _shieldVisual: {fileID: 8768131355222930365}
+  _movementBlocker: {fileID: 6779563153886842446}
 --- !u!114 &1424713723582912441
 MonoBehaviour:
   m_ObjectHideFlags: 0

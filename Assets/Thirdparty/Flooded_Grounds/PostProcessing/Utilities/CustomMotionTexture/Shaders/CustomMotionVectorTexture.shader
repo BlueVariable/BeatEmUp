@@ -25,7 +25,7 @@ Shader "Post Processing/Custom Motion Vector Texture"
                 float4 _MotionTex_ST;
                 float _MotionAmount;
 
-                struct appdata
+                struct MeshData
                 {
                     float4 vertex : POSITION;
                     float2 uv : TEXCOORD0;
@@ -33,7 +33,7 @@ Shader "Post Processing/Custom Motion Vector Texture"
                     float4 tangent : TANGENT;
                 };
 
-                struct v2f
+                struct VertexOutput
                 {
                     float2 uv : TEXCOORD0;
                     float4 vertex : SV_POSITION;
@@ -42,9 +42,9 @@ Shader "Post Processing/Custom Motion Vector Texture"
                     float4 transposedTangent : TEXCOORD1;
                 };
 
-                v2f vert (appdata v)
+                VertexOutput vert (MeshData v)
                 {
-                    v2f o;
+                    VertexOutput o;
                     o.vertex = UnityObjectToClipPos(v.vertex);
                     o.uv = TRANSFORM_TEX(v.uv, _MotionTex);
                     o.normal = UnityObjectToClipPos(v.normal);
@@ -54,7 +54,7 @@ Shader "Post Processing/Custom Motion Vector Texture"
                     return o;
                 }
  
-                float4 FragMotionVectors(v2f i) : SV_Target
+                float4 FragMotionVectors(VertexOutput i) : SV_Target
                 {
                     half4 c = tex2D(_MotionTex, i.uv);
                     c.rg = (c.rg * 2.0 - 1.0) * _MotionAmount; // Using color texture so need to make 0.5 neutral
