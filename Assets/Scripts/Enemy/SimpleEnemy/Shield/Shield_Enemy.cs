@@ -49,6 +49,8 @@ namespace BLUE.ProjectX.Enemy.SimpleEnemy
             _movementBlocker.enabled = false;
             
             _shieldVisual.gameObject.SetActive(false);
+            
+            
         }
 
         private void EnableEnemyDamagableCollider(bool val)
