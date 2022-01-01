@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _poolSettingsColl:
-  - _referenceObject: {fileID: 8646765138383368470}
+  - _referenceObject: {fileID: 3033276095726849080}
     _poolObjectFactory: {fileID: 8263309976602079113}
   _initOnAwake: 1
 --- !u!1 &3594029637618535501
@@ -610,67 +610,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8015210988728074292, guid: c65afc5f497f7e441b44d9e9899369b2, type: 3}
   m_PrefabInstance: {fileID: 708541981493096389}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2092204458326825650
+--- !u!1001 &2072609388017224025
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 7417007198945488881}
     m_Modifications:
-    - target: {fileID: 7548730000931843770, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
-      propertyPath: m_Name
-      value: Particle_Impact_Bullet_Fireball
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7548730000932093474, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
+    - target: {fileID: 5507011119346339434, guid: a77604c283aede947b363d9c383cec14, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5511041373307021728, guid: a77604c283aede947b363d9c383cec14, type: 3}
+      propertyPath: m_Name
+      value: Particle_Impact_Bullet_Fire
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
---- !u!114 &8646765138383368470 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: a77604c283aede947b363d9c383cec14, type: 3}
+--- !u!114 &3033276095726849080 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7707483919831886756, guid: 0aa81176455352243a890a19a7c3f5bf, type: 3}
-  m_PrefabInstance: {fileID: 2092204458326825650}
+  m_CorrespondingSourceObject: {fileID: 3952823227877918049, guid: a77604c283aede947b363d9c383cec14, type: 3}
+  m_PrefabInstance: {fileID: 2072609388017224025}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
