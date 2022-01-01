@@ -173,7 +173,7 @@ MonoBehaviour:
   _isActive: 0
   _uiBase:
   - {fileID: 1975583331777569500}
---- !u!114 &9170531470034542218
+--- !u!114 &230585006170542388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,10 +182,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7261430109182638642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb549f4f33869184abba88f7746182b7, type: 3}
+  m_Script: {fileID: 11500000, guid: e67cee4452319f044bfe2aeee17c5798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tryUnloadCurActiveScene: 1
 --- !u!1 &8578018465150203310
 GameObject:
   m_ObjectHideFlags: 0

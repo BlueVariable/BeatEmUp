@@ -310,9 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e2ee1c53453c44694e696bca0f0365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _saveEnabled: 0
+  _saveEnabled: 1
   _loadEnabled: 0
-  _fallbackSceneType: 5
+  _fallbackSceneType: 2
+  _unsavedSceneTypes: 010000000200000005000000
 --- !u!1 &519547620
 GameObject:
   m_ObjectHideFlags: 0
