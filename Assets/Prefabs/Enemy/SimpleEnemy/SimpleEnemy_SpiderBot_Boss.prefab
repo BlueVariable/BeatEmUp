@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1569149226837853761}
   - component: {fileID: 8454838512434086104}
   m_Layer: 10
-  m_Name: Sphere
+  m_Name: ShieldVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   _deactivationConditionCarrier: {fileID: 0}
   _damagableProvider: {fileID: 1424713723582912441}
   _floatingTextView: {fileID: 4047471725576485766}
-  _damageColor: {r: 0.33962262, g: 0.33802062, b: 0.33802062, a: 1}
+  _damageColor: {r: 1, g: 1, b: 1, a: 1}
   _healColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &3684363540140570381
 GameObject:
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 2639472914108344659}
   - component: {fileID: 1424713723582912441}
   m_Layer: 10
-  m_Name: Sheild
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65882ca573834f50a79698bf7048f845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyDamagableCollider: {fileID: 669695069847526242}
+  _selfDamagableCollider: {fileID: 669695069847526242}
   _shieldDamagable: {fileID: 8815289876798454794}
   _shieldVisual: {fileID: 8768131355222930365}
   _movementBlocker: {fileID: 6779563153886842446}
@@ -976,7 +976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2957362690401492674, guid: edc9734496ca24e48a22a53068f7a119, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.75
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3435527671727389630, guid: edc9734496ca24e48a22a53068f7a119, type: 3}
       propertyPath: m_LocalPosition.y

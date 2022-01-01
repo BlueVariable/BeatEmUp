@@ -4853,7 +4853,7 @@ GameObject:
   - component: {fileID: 2614861212172204000}
   - component: {fileID: 2773610792131027390}
   m_Layer: 0
-  m_Name: Particle_Impact_Bullet
+  m_Name: Particle_Impact_BulletBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5091,8 +5091,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.25
-      minScalar: 0.1
+      scalar: 0.125
+      minScalar: 0.01
       maxCurve:
         serializedVersion: 2
         m_Curve:
