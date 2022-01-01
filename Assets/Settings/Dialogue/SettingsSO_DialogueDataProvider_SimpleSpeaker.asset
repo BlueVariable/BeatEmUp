@@ -128,6 +128,23 @@ MonoBehaviour:
       - Let's get out of here. I hate those spider thingies.
   - _dialogue: 20301
     _dialogueData:
-    - _speaker: 100
+    - _speaker: 300
       _speakerText:
       - Now, what?
+    - _speaker: 100
+      _speakerText:
+      - Wait, did you hear that?
+    - _speaker: 300
+      _speakerText:
+      - Get ready Yu.
+  - _dialogue: 20302
+    _dialogueData:
+    - _speaker: 300
+      _speakerText:
+      - That was a though one.
+    - _speaker: 300
+      _speakerText:
+      - Let's get out of here before any more of those creatures show up.
+    - _speaker: 100
+      _speakerText:
+      - Agreed.
