@@ -98,7 +98,7 @@ MonoBehaviour:
   _particlePlayer:
     _particlePool: {fileID: 8580273099824135291}
     _resetTransformProperties: 1
-    _deallocationDuration: 1.5
+    _deallocationDuration: 2
   _rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &8580273099824135291
 MonoBehaviour:

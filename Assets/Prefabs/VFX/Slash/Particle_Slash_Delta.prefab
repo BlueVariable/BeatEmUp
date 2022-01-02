@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2183483886968400119, guid: f57dd13442b9e8742a4ea8b5de515454, type: 3}
       propertyPath: m_Name
-      value: Particle_Slash
+      value: Particle_Slash_Delta
       objectReference: {fileID: 0}
     - target: {fileID: 2187547080065979359, guid: f57dd13442b9e8742a4ea8b5de515454, type: 3}
       propertyPath: m_RootOrder
